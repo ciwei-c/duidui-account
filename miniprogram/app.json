@@ -1,6 +1,7 @@
 {
   "cloud": true,
   "pages": [
+    "pages/tally/tally",
     "pages/index/index"
   ],
   "window": {

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "dd-calculator":"/component/Calculator/calculator"
+  }
+}

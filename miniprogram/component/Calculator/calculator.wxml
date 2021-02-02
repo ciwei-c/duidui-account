@@ -1,0 +1,5 @@
+<view class="dd-account__calculator">
+  <view wx:for="{{keys}}" wx:key="label" class="dd-account__calculator-key">
+    {{item.label}}
+  </view>
+</view>

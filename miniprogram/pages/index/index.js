@@ -27,8 +27,14 @@ Page({
     
   },
   onSetActiveIndex(e){
-    this.setData({
-      activeIndex:e.detail
-    })
+    if(e.detail === this.data.centerMenuIndex){
+      wx.navigateTo({
+        url: '/pages/tally/tally',
+      })
+    }else {
+      this.setData({
+        activeIndex:e.detail
+      })
+    }
   }
 })

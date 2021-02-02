@@ -31,15 +31,7 @@ Component({
     },
     onClickMenu(e){
       let {index} = e.currentTarget.dataset
-      if(index !== this.data.centerMenuIndex) {
-        this.setActiveIndex(index)
-      }
-    },
-    // getActiveMenu(){
-    //   return {
-    //     index:this.data.activeIndex,
-    //     menu:this.data.tabMenus[this.data.activeIndex]
-    //   }
-    // }
+      this.setActiveIndex(index)
+    }
   }
 })

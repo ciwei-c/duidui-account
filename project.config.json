@@ -27,17 +27,16 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "bundle": false,
-    "useApiHostProcess": true
+    "minifyWXSS": true
   },
   "appid": "wx4b5525ee0f97a39d",
-  "projectname": "vicky",
+  "projectname": "duidui-account",
   "libVersion": "2.7.0",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
