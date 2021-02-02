@@ -1,0 +1,13 @@
+@import "../../app.scss";
+@import "../../styles/color.scss";
+
+.dd-account-home {
+  position: relative;
+  &__view {
+    display: none;
+    z-index: -1;
+    &--active {
+      display: block;
+    }
+  }
+}

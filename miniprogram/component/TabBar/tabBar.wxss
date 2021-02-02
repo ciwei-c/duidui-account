@@ -1,0 +1,36 @@
+.dd-account-tab-bar {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dd-account-tab-bar__icon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-account-tab-bar__icon-wrap {
+  position: relative;
+  display: flex;
+}
+
+.dd-account-tab-bar__icon--active {
+  color: #febb2e;
+}
+
+.dd-account-tab-bar__icon--middle .dd-account-tab-bar__icon-wrap {
+  background: #febb2e;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}

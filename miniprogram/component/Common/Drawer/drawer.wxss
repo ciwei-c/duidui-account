@@ -1,0 +1,39 @@
+/* component/drawer.wxss */
+.i-drawer-mask {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.i-drawer-content {
+  position: fixed;
+  width: 45%;
+  height: 100%;
+  background: #fff;
+  z-index: 1;
+  top: 0;
+  padding-top: 10px;
+  transition:left 0.7s;
+}
+.i-drawer-list {
+  margin: 0px 10px 10px 10px;
+}
+.i-drawer-in .i-drawer-content{
+  left: 0px;
+}
+.i-drawer-out .i-drawer-content{
+  left: -500px;
+}
+.i-drawer-in .i-drawer-mask{
+  transition:opacity 0.5s,height 0s;
+  height: 100%;
+  opacity: 1;
+}
+.i-drawer-out .i-drawer-mask{
+  transition:opacity 0.5s,height 0s 0.3s;
+  opacity: 0;
+  height: 0;
+}

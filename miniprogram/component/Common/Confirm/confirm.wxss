@@ -1,0 +1,50 @@
+.i-confirm-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 100;
+}
+.i-confirm-wrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.i-confirm-box {
+  position: absolute;
+  width: 70%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius:2px;
+  padding-top: 10px;
+}
+.i-confirm-show{
+  display: block !important;
+  animation: show 0.5s linear;
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.i-confirm-time {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+.i-confirm-relative{
+  position: relative;
+}
+.i-confirm-date{
+  font-size: 12px;
+  color:#666;
+  padding-left: 15px;
+}

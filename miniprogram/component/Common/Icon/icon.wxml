@@ -1,0 +1,4 @@
+<view 
+  class="dd-class dd-account-iconfont {{ type === '' ? '' : 'dd-account-icon-' +  type }} {{ custom }}"
+  style="font-size: {{ size }}px; {{ color ? 'color:' + color : '' }}">
+</view>

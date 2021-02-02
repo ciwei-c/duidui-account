@@ -1,0 +1,3 @@
+<scroll-view style="height:100vh" scroll-y="true">
+  <i-card></i-card>
+</scroll-view>

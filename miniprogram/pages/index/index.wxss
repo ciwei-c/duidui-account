@@ -1,0 +1,17 @@
+.page-container {
+  background: #f5f5f5;
+  height: 100vh;
+}
+
+.dd-account-home {
+  position: relative;
+}
+
+.dd-account-home__view {
+  display: none;
+  z-index: -1;
+}
+
+.dd-account-home__view--active {
+  display: block;
+}

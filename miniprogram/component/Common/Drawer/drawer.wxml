@@ -1,0 +1,8 @@
+<view class="{{show?'i-drawer-in':'i-drawer-out'}}">
+  <view class="i-drawer-mask" bindtap="toggleMask"></view>
+  <view class="i-drawer-content">
+    <scroll-view scroll-y="true" style="height:{{scrollViewHeight}}">
+        <slot name="content"></slot>
+    </scroll-view>
+  </view>
+</view>

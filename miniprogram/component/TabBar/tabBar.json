@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "dd-icon": "/component/Common/Icon/icon"
+  }
+}

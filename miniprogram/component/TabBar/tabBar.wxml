@@ -1,0 +1,13 @@
+<view class="dd-account-tab-bar">
+  <view class="dd-account-tab-bar__icon {{centerMenuIndex === index ? 'dd-account-tab-bar__icon--middle' : ''}} {{activeIndex === index && centerMenuIndex !== index ? 'dd-account-tab-bar__icon--active' : ''}}" 
+    wx:for="{{tabMenus}}" 
+    wx:key="type"
+    bindtap="onClickMenu"
+    data-index="{{index}}"
+    data-menu="{{item}}"
+  >
+    <view class="dd-account-tab-bar__icon-wrap">
+      <dd-icon type="{{item.type}}" size="{{centerMenuIndex === index ? 24 : 22}}"></dd-icon>
+    </view>
+  </view>
+</view>
