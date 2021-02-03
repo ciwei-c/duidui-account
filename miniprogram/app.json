@@ -1,8 +1,8 @@
 {
   "cloud": true,
   "pages": [
-    "pages/tally/tally",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/tally/tally"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -2,7 +2,8 @@
 
 .dd-account-tab-bar {
   background-color: rgba($color: #fff, $alpha: 0.95);
-  padding: 10px 0;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  padding: 20rpx 0;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -21,13 +22,14 @@
       color: $--color-primary;
     }
     &--middle {
+      box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
       .dd-account-tab-bar__icon-wrap {
         background: $--color-primary;
         border-radius: 50%;
-        height: 50px;
-        width: 50px;
+        height: 100rpx;
+        width: 100rpx;
         position: absolute;
-        bottom: 10px;
+        bottom: 20rpx;
         justify-content: center;
         align-items: center;
       }

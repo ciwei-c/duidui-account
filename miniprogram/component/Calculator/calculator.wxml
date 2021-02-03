@@ -1,5 +1,41 @@
 <view class="dd-account__calculator">
-  <view wx:for="{{keys}}" wx:key="label" class="dd-account__calculator-key">
-    {{item.label}}
+  <view class="dd-account__calculator-topbar">
+    <i-input i-class="xx" class="dd-account__calculator-topbar-remark" value="{{ remark }}" placeholder="备注" />
+    <view class="dd-account__calculator-topbar-calc">
+      <view>￥{{calcResult}}</view>
+      <view class="dd-account__calculator-topbar-calc-detail" wx:if="{{calcCacheList.length > 1}}">
+        <view wx:for="{{calcCacheList}}" wx:key="index">{{item.sign}}{{item.value}}</view>
+      </view>
+    </view>
+  </view>
+  <view style="position:relative">
+    <view 
+      class="dd-account__calculator-button" 
+      hover-stay-time="{{100}}" 
+      hover-class="dd-account__calculator-button-hover"
+    >
+      <view>完成</view>
+    </view>
+    <view wx:for="{{keys}}" wx:key="index"  class="dd-account__calculator-key-wrap">
+      <view 
+        hover-class="dd-account__calculator-key-hover" 
+        hover-stay-time="{{100}}"
+        wx:key="label"
+        wx:for="{{item}}"
+        class="dd-account__calculator-key dd-account__calculator-key-{{innerItem.type}}" 
+        wx:for-index="innerIdx" 
+        wx:for-item="innerItem"
+        data-key="{{innerItem}}"
+        bindtap="onTapKey"
+      >
+        <picker wx:if="{{innerItem.type === 'date'}}" mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date || innerItem.label}}
+          </view>
+        </picker>
+        <dd-icon wx:elif="{{innerItem.icon}}" type="{{innerItem.icon}}" size="38"></dd-icon>
+        <view wx:else>{{innerItem.label}}</view>
+      </view>
+    </view>
   </view>
 </view>

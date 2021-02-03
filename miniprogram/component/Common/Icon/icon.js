@@ -12,7 +12,7 @@ Component({
       },
       size: {
           type: Number,
-          value: 16
+          value: 32
       },
       color: {
           type: String,

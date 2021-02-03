@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+/deep/.i-input {
+  border: none !important;
+}
+
 .dd-account-home {
   position: relative;
 }

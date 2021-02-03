@@ -1,0 +1,73 @@
+@import "../../styles/color.scss";
+$--space:14rpx;
+$--radius:8rpx;
+$--height:100rpx;
+.dd-account__calculator {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  &-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-calc {
+      padding: 0 5px;
+      font-size: 52rpx;
+      text-align: right;
+      &-detail {
+        font-size: 28rpx;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &-button {
+    position: absolute;
+    right: $--space;
+    bottom: $--space;
+    border-radius: $--radius;
+    height: 2 * $--height + $--space;
+    background: $--color-primary;
+    width: calc(25% - #{$--space});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-hover {
+      opacity: 0.8;
+    }
+  }
+  &-key-wrap {
+    display: flex;
+    align-items: center;
+  }
+  &-key {
+    width: calc(25% - #{$--space});
+    border-radius: $--radius;
+    margin-bottom: $--space;
+    margin-right: $--space;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fbfbfb;
+    height: $--height;
+    line-height: $--height;
+    font-size: 32rpx;
+    &-hover {
+      background: #e8e8e8;
+    }
+    &-empty {
+      border-bottom: none;
+    }
+    &-date {
+      .picker {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    &:nth-child(4n){
+      margin-right: $--space;
+    }
+  }
+}

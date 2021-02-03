@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "dd-icon": "/component/Common/Icon/icon",
+    "i-input": "../../iview/input/index"
+  }
 }

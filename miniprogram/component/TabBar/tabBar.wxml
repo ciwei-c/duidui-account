@@ -7,7 +7,7 @@
     data-menu="{{item}}"
   >
     <view class="dd-account-tab-bar__icon-wrap">
-      <dd-icon type="{{item.type}}" size="{{centerMenuIndex === index ? 24 : 22}}"></dd-icon>
+      <dd-icon type="{{item.type}}" size="{{centerMenuIndex === index ? 48 : 44}}"></dd-icon>
     </view>
   </view>
 </view>

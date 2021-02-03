@@ -1,1 +1,78 @@
-/* component/Calculator/calculator.wxss */
+.dd-account__calculator {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+}
+
+.dd-account__calculator-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dd-account__calculator-topbar-calc {
+  padding: 0 5px;
+  font-size: 52rpx;
+  text-align: right;
+}
+
+.dd-account__calculator-topbar-calc-detail {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dd-account__calculator-button {
+  position: absolute;
+  right: 14rpx;
+  bottom: 14rpx;
+  border-radius: 8rpx;
+  height: 214rpx;
+  background: #febb2e;
+  width: calc(25% - 14rpx);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-account__calculator-button-hover {
+  opacity: 0.8;
+}
+
+.dd-account__calculator-key-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.dd-account__calculator-key {
+  width: calc(25% - 14rpx);
+  border-radius: 8rpx;
+  margin-bottom: 14rpx;
+  margin-right: 14rpx;
+  box-sizing: border-box;
+  text-align: center;
+  background: #fbfbfb;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}
+
+.dd-account__calculator-key-hover {
+  background: #e8e8e8;
+}
+
+.dd-account__calculator-key-empty {
+  border-bottom: none;
+}
+
+.dd-account__calculator-key-date .picker {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dd-account__calculator-key:nth-child(4n) {
+  margin-right: 14rpx;
+}
