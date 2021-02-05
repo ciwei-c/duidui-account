@@ -9,6 +9,10 @@ Component({
       type:String,
       value:"0rpx"
     },
+    topHeight:{
+      type:String,
+      value:"0rpx"
+    },
     refresh:{
       type:Boolean,
       value:true

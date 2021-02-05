@@ -1,18 +1,44 @@
 //app.js
 const { $Toast } = require('./iview/base/index');
 App({
+  getUserInfo(){
+    return new Promise(res=>{
+      if(this.userInfo){
+        res(this.userInfo)
+      } else {
+        wx.getUserInfo({
+          success: ret => {
+            this.userInfo = ret
+            res(this.userInfo)
+          }
+        })
+      }
+    })
+  },
+  getAppId () {
+    return new Promise(res=>{
+      if(this.appId){
+        res(this.appId)
+      } else {
+        wx.cloud.callFunction({name: 'login'}).then(data=>{
+          this.appId = data.result.userInfo
+          res(this.appId)
+        })
+      }
+    })
+  },
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: "duidui-accounting-6e29yk01e9415f",
+        env: "account-9gl79b41cb9b17a9",
         traceUser: true,
       })
     }
-    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.globalData = {}
     this.globalData.$toast = $Toast
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: res => {
         let statusBarHeight = res.statusBarHeight;

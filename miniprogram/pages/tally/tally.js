@@ -1,54 +1,27 @@
 const App = getApp();
-
+const db = wx.cloud.database();
 Page({
   data: {
     type:"",
     calcHeight: "",
     activeClassify: "",
     renderClassifies:[],
-    allClassifies:[{
-      label:"餐饮",
-      type:"outgoings",
-      icon:"food"
-    },{
-      label:"交通",
-      type:"outgoings",
-      icon:"traffic"
-    },{
-      label:"住宿",
-      type:"outgoings",
-      icon:"hotel"
-    },{
-      label:"服饰",
-      type:"outgoings",
-      icon:"clothes"
-    },{
-      label:"娱乐",
-      type:"outgoings",
-      icon:"map"
-    },{
-      label:"家庭",
-      type:"outgoings",
-      icon:"family"
-    },{
-      label:"医疗",
-      type:"outgoings",
-      icon:"medical"
-    },{
-      label:"投资",
-      type:"income",
-      icon:"invest"
-    },{
-      label:"通讯",
-      type:"outgoings",
-      icon:"phone"
-    },{
-      label:"其他",
-      icon:"other"
-    },{
-      label:"自定义",
-      icon:"custom"
-    }]
+    allClassifies:[]
+  },
+  onLoad(){
+    db.collection("default-classifies").get().then(classifiesData=>{
+      this.setData({
+        allClassifies:classifiesData.data
+      })
+      App.getAppId().then(v=>{
+        db.collection("user-custom-classifies").where({
+          openid:v.openId
+        }).get().then(customData=>{
+          console.log(customData)
+        })
+      })
+      this.getAccountType({detail:this.data.type})
+    })
   },
   onReady(){
     this.setData({
@@ -62,22 +35,26 @@ Page({
   },
   getAccountType(e){
     let type = e.detail
-    let renderClassifies = this.data.allClassifies.filter(v=>{
-      return !v.type || v.type === type
-    })
+    let renderClassifies = this.data.allClassifies.filter(v=>v.type.includes(type))
     this.setData({
       type,
-      renderClassifies,
-      activeClassify: renderClassifies.length ? renderClassifies[0].label : ""
+      renderClassifies:[...renderClassifies, ...[{
+        label:"自定义",
+        icon:"custom",
+        type:["outgoings","income"]
+      }]],
+      activeClassify: renderClassifies.length ? renderClassifies[0]._id : ""
     })
   },
   onTapClassify(e){
     let label = e.currentTarget.dataset.classify.label
     if(label === "自定义") {
-
+      wx.navigateTo({
+        url: "/pages/classify/classify",
+      })
     } else {
       this.setData({
-        activeClassify:e.currentTarget.dataset.classify.label
+        activeClassify:e.currentTarget.dataset.classify._id
       })
     }
   }

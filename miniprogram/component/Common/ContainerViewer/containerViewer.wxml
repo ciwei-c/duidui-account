@@ -9,8 +9,9 @@
   refresher-default-style="none"
 >
   <view style="height:{{navHeight}}px"></view>
+  <view style="height:{{topHeight}}"></view>
   <dd-loading loading="{{loading}}"></dd-loading>
-  <view style="min-height:calc(100% - {{navHeight}}px - {{tabHeight}})">
+  <view style="min-height:calc(100% - {{navHeight}}px - {{tabHeight}} - {{topHeight}})">
     <slot></slot>
   </view>
   <view style="height:{{tabHeight}}"></view>

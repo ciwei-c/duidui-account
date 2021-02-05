@@ -2,7 +2,8 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/tally/tally"
+    "pages/tally/tally",
+    "pages/classify/classify"
   ],
   "window": {
     "navigationStyle": "custom",

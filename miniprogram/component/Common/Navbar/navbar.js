@@ -59,7 +59,7 @@ Component({
         })      
     },
     toHome: function () {
-      wx.navigateTo({
+      wx.navigateBack({
         url: '/pages/index/index'
       })
     },
