@@ -1,3 +1,20 @@
-<view>
-  <dd-calculator></dd-calculator>
+<view class="page-container dd-account-tally">
+  <dd-navbar name="记一笔"></dd-navbar>
+  <dd-container-viewer tabHeight="{{calcHeight}}" refresh="{{false}}">
+    <view class="dd-account-tally__classifies">
+      <view wx:for="{{renderClassifies}}"
+        class="dd-account-tally__classifies-item"
+        bindtap="onTapClassify"
+        data-classify="{{item}}"
+        wx:key="index" 
+        style="width:{{iconWidth}}px">
+        <view class="dd-account-tally__classifies-item-icon {{activeClassify === item.label ? 'dd-account-tally__classifies-item-icon--active' : ''}}"
+          style="width:{{iconWidth * 0.7}}px;height:{{iconWidth * 0.7}}px">
+          <dd-icon type="{{item.icon}}" size="{{iconWidth * 0.7}}"></dd-icon>
+        </view>
+        <view class="dd-account-tally__classifies-item-label">{{item.label}}</view>
+      </view>
+    </view>
+  </dd-container-viewer>
+  <dd-calculator dd-class="dd-account-tally__calc" bind:getCalcHeight="getCalcHeight" bind:getAccountType="getAccountType"></dd-calculator>
 </view>

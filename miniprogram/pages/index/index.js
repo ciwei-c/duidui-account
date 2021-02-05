@@ -23,9 +23,6 @@ Page({
     activeIndex: 0,
     tabMenus
   },
-  onLoad(){
-    
-  },
   onSetActiveIndex(e){
     if(e.detail === this.data.centerMenuIndex){
       wx.navigateTo({

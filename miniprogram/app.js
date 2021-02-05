@@ -10,7 +10,24 @@ App({
         traceUser: true,
       })
     }
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     this.globalData = {}
     this.globalData.$toast = $Toast
+    wx.getSystemInfo({
+      success: res => {
+        let statusBarHeight = res.statusBarHeight;
+        let navTop = menuButtonObject.top; //胶囊按钮与顶部的距离
+        let navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2; //导航高度
+        this.globalData.systemInfo = res;
+        this.globalData.statusBarHeight = statusBarHeight;
+        this.globalData.menuButtonObject = menuButtonObject;
+        this.globalData.navHeight = navHeight;
+        this.globalData.navTop = navTop;
+        this.globalData.windowHeight = res.windowHeight;
+      },
+      fail(err) {
+        console.log(err);
+      }
+    })
   }
 })

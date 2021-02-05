@@ -1,4 +1,4 @@
-<scroll-view style="height:100vh" scroll-y="true">
+<dd-container-viewer tabHeight="120rpx">
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>
@@ -10,4 +10,4 @@
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>
-</scroll-view>
+</dd-container-viewer>

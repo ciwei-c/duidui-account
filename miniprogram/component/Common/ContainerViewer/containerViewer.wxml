@@ -1,0 +1,17 @@
+<scroll-view 
+  style="height:100vh" 
+  scroll-y="{{true}}" 
+  enhanced="{{true}}" 
+  enable-back-to-top="{{true}}"
+  refresher-enabled="{{refresh}}"
+  refresher-triggered="{{triggered}}"
+  bindrefresherrefresh="onRefresherRefresh"
+  refresher-default-style="none"
+>
+  <view style="height:{{navHeight}}px"></view>
+  <dd-loading loading="{{loading}}"></dd-loading>
+  <view style="min-height:calc(100% - {{navHeight}}px - {{tabHeight}})">
+    <slot></slot>
+  </view>
+  <view style="height:{{tabHeight}}"></view>
+</scroll-view>

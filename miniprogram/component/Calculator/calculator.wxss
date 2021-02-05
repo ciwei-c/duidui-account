@@ -5,6 +5,32 @@
   background: #fff;
 }
 
+.dd-account__calculator-pickbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rpx;
+  padding-top: 10rpx;
+}
+
+.dd-account__calculator-pickbar__type {
+  display: flex;
+  align-items: center;
+}
+
+.dd-account__calculator-pickbar__type view {
+  margin-left: 20rpx;
+  transition: all .3s;
+  font-size: 28rpx;
+  padding: 10rpx 24rpx;
+  background-color: #e8e8e8;
+  border-radius: 40rpx;
+}
+
+.dd-account__calculator-pickbar__type--active {
+  background-color: #febb2e !important;
+}
+
 .dd-account__calculator-topbar {
   display: flex;
   align-items: center;
@@ -22,23 +48,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
-
-.dd-account__calculator-button {
-  position: absolute;
-  right: 14rpx;
-  bottom: 14rpx;
-  border-radius: 8rpx;
-  height: 214rpx;
-  background: #febb2e;
-  width: calc(25% - 14rpx);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dd-account__calculator-button-hover {
-  opacity: 0.8;
 }
 
 .dd-account__calculator-key-wrap {
@@ -65,6 +74,14 @@
 
 .dd-account__calculator-key-empty {
   border-bottom: none;
+}
+
+.dd-account__calculator-key-button {
+  background: #febb2e;
+}
+
+.dd-account__calculator-key-button-hover {
+  opacity: 0.8;
 }
 
 .dd-account__calculator-key-date .picker {

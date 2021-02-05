@@ -1,0 +1,31 @@
+@import "../../../styles/color.scss";
+.dd-account-navbar {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  flex-shrink: 0;
+  background-color: $--color-primary;
+  &__title {
+    color: $--color-major;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 34rpx;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  &__action {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 30rpx;
+    dd-icon {
+      margin-right: 10rpx;
+    }
+  }
+}

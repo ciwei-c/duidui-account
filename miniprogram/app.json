@@ -5,11 +5,19 @@
     "pages/tally/tally"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "navigationStyle": "custom",
+    "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "堆堆记账",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "dd-navbar": "/component/Common/Navbar/navbar",
+    "dd-loading": "/component/Common/Loading/loading",
+    "dd-container-viewer": "/component/Common/ContainerViewer/containerViewer",
+    "dd-icon": "/component/Common/Icon/icon",
+    "i-icon": "./iview/icon/index"
+  }
 }

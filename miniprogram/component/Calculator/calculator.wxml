@@ -1,4 +1,22 @@
-<view class="dd-account__calculator">
+<view class="dd-class dd-account__calculator">
+  <view class="dd-account__calculator-pickbar">
+    <view class="dd-account__calculator-pickbar__type">
+      <view
+        bindtap="onChangeType"
+        data-type="{{item}}"
+        wx:for="{{['outgoings', 'income']}}" 
+        wx:key="index" 
+        class="dd-account__calculator-pickbar__type--{{type === item ? 'active' : 'unactive'}}"
+      >{{item === "income" ? "收入" : "支出"}}</view>
+    </view>
+    <view class="dd-account__calculator-pickbar__date">
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+  </view>
   <view class="dd-account__calculator-topbar">
     <i-input i-class="xx" class="dd-account__calculator-topbar-remark" value="{{ remark }}" placeholder="备注" />
     <view class="dd-account__calculator-topbar-calc">
@@ -9,16 +27,16 @@
     </view>
   </view>
   <view style="position:relative">
-    <view 
+    <!-- <view 
       class="dd-account__calculator-button" 
       hover-stay-time="{{100}}" 
       hover-class="dd-account__calculator-button-hover"
     >
       <view>完成</view>
-    </view>
+    </view> -->
     <view wx:for="{{keys}}" wx:key="index"  class="dd-account__calculator-key-wrap">
       <view 
-        hover-class="dd-account__calculator-key-hover" 
+        hover-class="dd-account__calculator-key-hover dd-account__calculator-key-{{innerItem.type}}-hover" 
         hover-stay-time="{{100}}"
         wx:key="label"
         wx:for="{{item}}"
@@ -28,12 +46,7 @@
         data-key="{{innerItem}}"
         bindtap="onTapKey"
       >
-        <picker wx:if="{{innerItem.type === 'date'}}" mode="date" value="{{date}}" bindchange="bindDateChange">
-          <view class="picker">
-            {{date || innerItem.label}}
-          </view>
-        </picker>
-        <dd-icon wx:elif="{{innerItem.icon}}" type="{{innerItem.icon}}" size="38"></dd-icon>
+        <dd-icon wx:if="{{innerItem.icon}}" type="{{innerItem.icon}}" size="38"></dd-icon>
         <view wx:else>{{innerItem.label}}</view>
       </view>
     </view>

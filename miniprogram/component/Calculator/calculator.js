@@ -32,8 +32,8 @@ const keys = [{
   label: "3",
   type: "number"
 }, {
-  label: "",
-  type: "empty"
+  label: "保存再记",
+  type: "button"
 }, {
   label: ".",
   type: "dot"
@@ -44,13 +44,14 @@ const keys = [{
   type: "delete",
   icon: "delete"
 }, {
-  label: "",
-  type: "empty"
+  label: "完成",
+  type: "button"
 }]
 Component({
   /**
    * 组件的属性列表
    */
+  externalClasses: ['dd-class'],
   properties: {
 
   },
@@ -59,6 +60,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    type: "outgoings",
     remark: "",
     date: "",
     calcResult: "0.00",
@@ -74,17 +76,42 @@ Component({
       return _keys
     })()
   },
-
+  lifetimes: {
+    attached() {
+      setTimeout(() => {
+        wx.createSelectorQuery().in(this).select(".dd-account__calculator").boundingClientRect(v=>{
+          this.triggerEvent("getCalcHeight", Math.ceil(v.height))
+        }).exec()
+        this.triggerType()
+        let date = new Date()
+        let y = date.getFullYear()
+        let m = date.getMonth()
+        let d = date.getDate()
+        this.setData({
+          date:`${y}/${m < 10 ? '0' + m : m}/${d < 10 ? '0' + d : d}`
+        })
+      });
+    }
+  },
   /**
    * 组件的方法列表
    */
   methods: {
+    triggerType(){
+      this.triggerEvent("getAccountType", this.data.type)
+    },
+    onChangeType(e){
+      this.setData({
+        type:e.currentTarget.dataset.type
+      })
+      this.triggerType()
+    },
     bindDateChange(e){
       this.setData({
         date: e.detail.value.split("-").join("/")
       })
     },
-    handleResult(oldCalc, addtion, key){
+    handleResult(addtion, key){
       let calcCacheList = this.data.calcCacheList
       const addCalcCache = () => {
         calcCacheList.push({
@@ -174,10 +201,18 @@ Component({
     },
     onTapKey(e){
       let { key } = e.currentTarget.dataset
-      let calcResult = this.handleResult(this.data.calc, key.label, key)
-      this.setData({
-        calcResult
-      })
+      if(key.type === "button"){
+        if(key.label === "保存再记"){
+
+        } else {
+
+        }
+      } else {
+        let calcResult = this.handleResult(key.label, key)
+        this.setData({
+          calcResult
+        })
+      }
     }
   }
 })

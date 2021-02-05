@@ -1,66 +1,84 @@
-// miniprogram/pages/tally/tally.js
+const App = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    type:"",
+    calcHeight: "",
+    activeClassify: "",
+    renderClassifies:[],
+    allClassifies:[{
+      label:"餐饮",
+      type:"outgoings",
+      icon:"food"
+    },{
+      label:"交通",
+      type:"outgoings",
+      icon:"traffic"
+    },{
+      label:"住宿",
+      type:"outgoings",
+      icon:"hotel"
+    },{
+      label:"服饰",
+      type:"outgoings",
+      icon:"clothes"
+    },{
+      label:"娱乐",
+      type:"outgoings",
+      icon:"map"
+    },{
+      label:"家庭",
+      type:"outgoings",
+      icon:"family"
+    },{
+      label:"医疗",
+      type:"outgoings",
+      icon:"medical"
+    },{
+      label:"投资",
+      type:"income",
+      icon:"invest"
+    },{
+      label:"通讯",
+      type:"outgoings",
+      icon:"phone"
+    },{
+      label:"其他",
+      icon:"other"
+    },{
+      label:"自定义",
+      icon:"custom"
+    }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onReady(){
+    this.setData({
+      iconWidth:(App.globalData.systemInfo.screenWidth / 4)
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getCalcHeight(e){
+    this.setData({
+      calcHeight:`${e.detail * 2 + 30}rpx`
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getAccountType(e){
+    let type = e.detail
+    let renderClassifies = this.data.allClassifies.filter(v=>{
+      return !v.type || v.type === type
+    })
+    this.setData({
+      type,
+      renderClassifies,
+      activeClassify: renderClassifies.length ? renderClassifies[0].label : ""
+    })
   },
+  onTapClassify(e){
+    let label = e.currentTarget.dataset.classify.label
+    if(label === "自定义") {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    } else {
+      this.setData({
+        activeClassify:e.currentTarget.dataset.classify.label
+      })
+    }
   }
 })

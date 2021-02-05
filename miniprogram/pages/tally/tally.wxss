@@ -1,1 +1,39 @@
-/* miniprogram/pages/tally/tally.wxss */
+.page-container {
+  background: #ffffff;
+}
+
+.dd-account-tally {
+  position: relative;
+}
+
+.dd-account-tally__calc {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.dd-account-tally__classifies {
+  overflow: hidden;
+}
+
+.dd-account-tally__classifies-item {
+  float: left;
+  text-align: center;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.dd-account-tally__classifies-item-icon {
+  display: inline-flex;
+  transition: all .3s;
+  background: #e8e8e8;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.dd-account-tally__classifies-item-icon--active {
+  background: #febb2e;
+}
+
+.dd-account-tally__classifies-item-label {
+  margin-top: 4rpx;
+}

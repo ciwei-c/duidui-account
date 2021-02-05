@@ -1,3 +1,6 @@
-<scroll-view style="height:100vh" scroll-y="true">
-  <i-card></i-card>
-</scroll-view>
+<dd-container-viewer tabHeight="120rpx">
+  <view>121212</view>
+  <view>121212</view>
+  <view>121212</view>
+  <view>121212</view>
+</dd-container-viewer>

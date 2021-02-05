@@ -1,0 +1,32 @@
+@import "../../app.scss";
+@import "../../styles/color.scss";
+
+.dd-account-tally {
+  position: relative;
+  &__calc {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+  }
+  &__classifies {
+    overflow: hidden;
+    &-item {
+      float: left;
+      text-align: center;
+      font-size: 26rpx;
+      margin-top: 20rpx;
+      &-icon {
+        display: inline-flex;
+        transition: all .3s;
+        background: $--color-hover;
+        align-items: center;
+        justify-content: center;     
+        border-radius: 50%;
+        &--active {
+          background: $--color-primary;
+        }
+      }
+      &-label {
+        margin-top: 4rpx;
+      }
+    }
+  }
+}

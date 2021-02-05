@@ -1,0 +1,116 @@
+@import "../../../styles/color.scss";
+$--icon-size: 28rpx;
+$--icon-space: 4rpx;
+.dd-account__loading {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  &__wrap {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: rgba(#fff, 0.5);
+    &-icons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: $--icon-size + $--icon-size + $--icon-space;
+      width: $--icon-size + $--icon-size + $--icon-space;
+      view {
+        height: $--icon-size;
+        width: $--icon-size;
+        &:nth-child(2n){
+          margin-left: $--icon-space;
+        }
+        margin-bottom: $--icon-space;
+        box-sizing: border-box;
+        float: left;
+        border-radius: 4rpx;
+        overflow: hidden;
+      }
+      &-left-top {
+        animation: left-top 1s linear infinite;
+      }
+      &-left-bottom {
+        animation: left-bottom 1s linear infinite;
+      }
+      &-right-top {
+        animation: right-top 1s linear infinite;
+      }
+      &-right-bottom {
+        animation: right-bottom 1s linear infinite;
+      }
+    }
+  }
+}
+@keyframes left-top {
+  0% {
+    background: $--color-primary;
+  }
+  25% {
+    background: rgba($color: $--color-primary, $alpha: 0.75);
+  }
+  50% {
+    background: rgba($color: $--color-primary, $alpha: 0.5);
+  }
+  75% {
+    background: rgba($color: $--color-primary, $alpha: 0.25);
+  }
+  100% {
+    background: $--color-primary;
+  }
+}
+@keyframes right-top {
+  0% {
+    background: rgba($color: $--color-primary, $alpha: 0.75);
+  }
+  25% {
+    background: rgba($color: $--color-primary, $alpha: 0.5);
+  }
+  50% {
+    background: rgba($color: $--color-primary, $alpha: 0.25);
+  }
+  75% {
+    background: $--color-primary;
+  }
+  100% {
+    background: rgba($color: $--color-primary, $alpha: 0.75);
+  }
+}
+@keyframes left-bottom {
+  0% {
+    background: rgba($color: $--color-primary, $alpha: 0.5);
+  }
+  25% {
+    background: rgba($color: $--color-primary, $alpha: 0.25);
+  }
+  50% {
+    background: $--color-primary;
+  }
+  75% {
+    background: rgba($color: $--color-primary, $alpha: 0.75);
+  }
+  100% {
+    background: rgba($color: $--color-primary, $alpha: 0.5);
+  }
+}
+@keyframes right-bottom {
+  0% {
+    background: rgba($color: $--color-primary, $alpha: 0.25);
+  }
+  25% {
+    background: $--color-primary;
+  }
+  50% {
+    background: rgba($color: $--color-primary, $alpha: 0.75);
+  }
+  75% {
+    background: rgba($color: $--color-primary, $alpha: 0.5);
+  }
+  100% {
+    background: rgba($color: $--color-primary, $alpha: 0.25);
+  }
+}

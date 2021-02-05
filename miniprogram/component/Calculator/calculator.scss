@@ -7,6 +7,28 @@ $--height:100rpx;
   width: 100%;
   bottom: 0;
   background: #fff;
+  &-pickbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rpx;
+    padding-top: 10rpx;
+    &__type {
+      display: flex;
+      align-items: center;
+      view {
+        margin-left: 20rpx;
+        transition: all .3s;
+        font-size: 28rpx;
+        padding: 10rpx 24rpx;
+        background-color: $--color-hover;
+        border-radius: 40rpx;
+      }
+      &--active {
+        background-color: $--color-primary !important;
+      }
+    }
+  }
   &-topbar {
     display: flex;
     align-items: center;
@@ -23,21 +45,21 @@ $--height:100rpx;
       }
     }
   }
-  &-button {
-    position: absolute;
-    right: $--space;
-    bottom: $--space;
-    border-radius: $--radius;
-    height: 2 * $--height + $--space;
-    background: $--color-primary;
-    width: calc(25% - #{$--space});
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &-hover {
-      opacity: 0.8;
-    }
-  }
+  // &-button {
+  //   position: absolute;
+  //   right: $--space;
+  //   bottom: $--space;
+  //   border-radius: $--radius;
+  //   height: 2 * $--height + $--space;
+  //   background: $--color-primary;
+  //   width: calc(25% - #{$--space});
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   &-hover {
+  //     opacity: 0.8;
+  //   }
+  // }
   &-key-wrap {
     display: flex;
     align-items: center;
@@ -54,10 +76,16 @@ $--height:100rpx;
     line-height: $--height;
     font-size: 32rpx;
     &-hover {
-      background: #e8e8e8;
+      background: $--color-hover;
     }
     &-empty {
       border-bottom: none;
+    }
+    &-button {
+      background: $--color-primary;
+      &-hover {
+        opacity: 0.8;
+      }
     }
     &-date {
       .picker {

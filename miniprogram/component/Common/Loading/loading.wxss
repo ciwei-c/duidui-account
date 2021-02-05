@@ -1,0 +1,125 @@
+.dd-account__loading {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.dd-account__loading__wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dd-account__loading__wrap-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.dd-account__loading__wrap-icons view {
+  height: 28rpx;
+  width: 28rpx;
+  margin-bottom: 4rpx;
+  box-sizing: border-box;
+  float: left;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.dd-account__loading__wrap-icons view:nth-child(2n) {
+  margin-left: 4rpx;
+}
+
+.dd-account__loading__wrap-icons-left-top {
+  animation: left-top 1s linear infinite;
+}
+
+.dd-account__loading__wrap-icons-left-bottom {
+  animation: left-bottom 1s linear infinite;
+}
+
+.dd-account__loading__wrap-icons-right-top {
+  animation: right-top 1s linear infinite;
+}
+
+.dd-account__loading__wrap-icons-right-bottom {
+  animation: right-bottom 1s linear infinite;
+}
+
+@keyframes left-top {
+  0% {
+    background: #febb2e;
+  }
+  25% {
+    background: rgba(254, 187, 46, 0.75);
+  }
+  50% {
+    background: rgba(254, 187, 46, 0.5);
+  }
+  75% {
+    background: rgba(254, 187, 46, 0.25);
+  }
+  100% {
+    background: #febb2e;
+  }
+}
+
+@keyframes right-top {
+  0% {
+    background: rgba(254, 187, 46, 0.75);
+  }
+  25% {
+    background: rgba(254, 187, 46, 0.5);
+  }
+  50% {
+    background: rgba(254, 187, 46, 0.25);
+  }
+  75% {
+    background: #febb2e;
+  }
+  100% {
+    background: rgba(254, 187, 46, 0.75);
+  }
+}
+
+@keyframes left-bottom {
+  0% {
+    background: rgba(254, 187, 46, 0.5);
+  }
+  25% {
+    background: rgba(254, 187, 46, 0.25);
+  }
+  50% {
+    background: #febb2e;
+  }
+  75% {
+    background: rgba(254, 187, 46, 0.75);
+  }
+  100% {
+    background: rgba(254, 187, 46, 0.5);
+  }
+}
+
+@keyframes right-bottom {
+  0% {
+    background: rgba(254, 187, 46, 0.25);
+  }
+  25% {
+    background: #febb2e;
+  }
+  50% {
+    background: rgba(254, 187, 46, 0.75);
+  }
+  75% {
+    background: rgba(254, 187, 46, 0.5);
+  }
+  100% {
+    background: rgba(254, 187, 46, 0.25);
+  }
+}

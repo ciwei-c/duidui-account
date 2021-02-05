@@ -1,4 +1,5 @@
 {
+  "disableScroll": true,
   "usingComponents": {
     "dd-tab-bar": "/component/TabBar/tabBar",
     "home":"./Home/home",
