@@ -15,6 +15,13 @@ const tabMenus = [{
   view:"my"
 }]
 Page({
+  onLoad(){
+    if(!wx.getStorageSync('init-user-classifies')){
+      getApp().apis.classify.createUserClassifies().then(()=>{
+        wx.setStorageSync("init-user-classifies", true)
+      })
+    }
+  },
   data: {
     centerMenuIndex:(()=>{
       return ( tabMenus.length - 1 ) / 2

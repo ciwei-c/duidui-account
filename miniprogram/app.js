@@ -37,11 +37,6 @@ App({
         traceUser: true,
       })
     }
-    
-    wx.cloud.callFunction({ name: 'classify', data:{
-      fn:'createUserClassifies'
-    }})
-
     this.globalData = {}
     this.apis = apis
     this.globalData.$toast = $Toast

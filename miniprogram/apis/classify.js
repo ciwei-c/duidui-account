@@ -49,36 +49,25 @@ const defaultClassifies = [{
   type:["outgoings", "income"],
   icon:"other"
 }]
+import request from "../utils/request"
 export default {
-  getUserClassifies(query){
-    return new Promise(resolve=>{
-      getApp().getAppId().then(data=>{
-        wx.cloud.database().collection('user-classifies').where({
-          openid: data.openid,
-        }).get().then(res=>{
-          console.log(res)
-          if(res.data.length) {
-            resolve(res.data[0])
-          } else {
-            resolve()
-          }
-        })
-      })
+  getUserClassifies(){
+    return request('user-classifies', {
+      method:'get'
     })
   },
   createUserClassifies(){
     return new Promise(resolve=>{
-      wx.cloud.database().collection('user-classifies').where({
-        openid: OPENID,
-      }).get().then(res=>{
+      this.getUserClassifies().then(res=>{
         if(!res.data.length){
-          wx.cloud.database().collection('user-classifies').add({
+          request('user-classifies', {
+            method:'add',
+            assignOpenid:true,
             data:{
               classifies:defaultClassifies.map(v=>{
                 v.classifyId = uuid()
                 return v
               }),
-              openid:OPENID,
               accountBook:'default'
             }
           }).then(()=>{

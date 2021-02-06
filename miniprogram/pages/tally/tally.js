@@ -1,5 +1,4 @@
 const App = getApp();
-const db = wx.cloud.database();
 Page({
   data: {
     type:"",
@@ -10,8 +9,13 @@ Page({
   },
   onLoad(){
     App.apis.classify.getUserClassifies().then(res=>{
+      let allClassifies = []
+      if(res.data.length){
+        allClassifies = res.data[0].classifies
+      }
+
       this.setData({
-        allClassifies:res.classifies || []
+        allClassifies
       })
       this.getAccountType({detail:this.data.type})
     })
