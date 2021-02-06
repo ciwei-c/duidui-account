@@ -53,7 +53,8 @@ import request from "../utils/request"
 export default {
   getUserClassifies(){
     return request('user-classifies', {
-      method:'get'
+      method:'get',
+      whereAssignOpenid:true
     })
   },
   createUserClassifies(){
@@ -62,7 +63,7 @@ export default {
         if(!res.data.length){
           request('user-classifies', {
             method:'add',
-            assignOpenid:true,
+            dataAssignOpenid:true,
             data:{
               classifies:defaultClassifies.map(v=>{
                 v.classifyId = uuid()
