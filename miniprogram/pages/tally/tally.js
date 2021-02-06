@@ -9,16 +9,13 @@ Page({
     allClassifies:[]
   },
   onLoad(){
-    db.collection("default-classifies").get().then(classifiesData=>{
+    wx.cloud.callFunction({name:'classify', data:{
+      fn:'getUserClassifies'
+    }}).then(res=>{
+      console.log(res.result)
+      console.log(res.result.classifies)
       this.setData({
-        allClassifies:classifiesData.data
-      })
-      App.getAppId().then(v=>{
-        db.collection("user-custom-classifies").where({
-          openid:v.openId
-        }).get().then(customData=>{
-          console.log(customData)
-        })
+        allClassifies:res.result.classifies || []
       })
       this.getAccountType({detail:this.data.type})
     })
@@ -43,7 +40,7 @@ Page({
         icon:"custom",
         type:["outgoings","income"]
       }]],
-      activeClassify: renderClassifies.length ? renderClassifies[0]._id : ""
+      activeClassify: renderClassifies.length ? renderClassifies[0].classifyId : ""
     })
   },
   onTapClassify(e){
@@ -54,7 +51,7 @@ Page({
       })
     } else {
       this.setData({
-        activeClassify:e.currentTarget.dataset.classify._id
+        activeClassify:e.currentTarget.dataset.classify.classifyId
       })
     }
   }

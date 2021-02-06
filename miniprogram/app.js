@@ -1,9 +1,9 @@
 //app.js
 const { $Toast } = require('./iview/base/index');
 App({
-  getUserInfo(){
-    return new Promise(res=>{
-      if(this.userInfo){
+  getUserInfo() {
+    return new Promise(res => {
+      if (this.userInfo) {
         res(this.userInfo)
       } else {
         wx.getUserInfo({
@@ -15,13 +15,13 @@ App({
       }
     })
   },
-  getAppId () {
-    return new Promise(res=>{
-      if(this.appId){
+  getAppId() {
+    return new Promise(res => {
+      if (this.appId) {
         res(this.appId)
       } else {
-        wx.cloud.callFunction({name: 'login'}).then(data=>{
-          this.appId = data.result.userInfo
+        wx.cloud.callFunction({ name: 'login' }).then(data => {
+          this.appId = data.result
           res(this.appId)
         })
       }
@@ -36,6 +36,11 @@ App({
         traceUser: true,
       })
     }
+    
+    wx.cloud.callFunction({ name: 'classify', data:{
+      fn:'createUserClassifies'
+    }})
+
     this.globalData = {}
     this.globalData.$toast = $Toast
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
