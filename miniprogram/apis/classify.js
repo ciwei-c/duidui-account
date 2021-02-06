@@ -8,7 +8,6 @@ function uuid(len = 32) {
   }
   return str;
 }
-const db = cloud.database()
 const defaultClassifies = [{
   label:"餐饮",
   type:["outgoings"],
@@ -50,17 +49,30 @@ const defaultClassifies = [{
   type:["outgoings", "income"],
   icon:"other"
 }]
-// 云函数入口函数
-
-exports.main = async (event, context) => {
-  let { OPENID } = cloud.getWXContext()
-  const createUserClassifies = () => {
+export default {
+  getUserClassifies(query){
     return new Promise(resolve=>{
-      db.collection('user-classifies').where({
+      getApp().getAppId().then(data=>{
+        wx.cloud.database().collection('user-classifies').where({
+          openid: data.openid,
+        }).get().then(res=>{
+          console.log(res)
+          if(res.data.length) {
+            resolve(res.data[0])
+          } else {
+            resolve()
+          }
+        })
+      })
+    })
+  },
+  createUserClassifies(){
+    return new Promise(resolve=>{
+      wx.cloud.database().collection('user-classifies').where({
         openid: OPENID,
       }).get().then(res=>{
         if(!res.data.length){
-          db.collection('user-classifies').add({
+          wx.cloud.database().collection('user-classifies').add({
             data:{
               classifies:defaultClassifies.map(v=>{
                 v.classifyId = uuid()
@@ -78,24 +90,4 @@ exports.main = async (event, context) => {
       })
     })
   }
-
-  const getUserClassifies = () => {
-    return new Promise(resolve=>{
-      db.collection('user-classifies').where({
-        openid: OPENID,
-      }).get().then(res=>{
-        if(res.data.length) {
-          resolve(res.data[0])
-        } else {
-          resolve()
-        }
-      })
-    })
-  }
-
-  let fns = {
-    createUserClassifies,
-    getUserClassifies
-  }
-  return await fns[event.fn]()
 }

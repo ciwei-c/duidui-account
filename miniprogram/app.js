@@ -1,5 +1,6 @@
 //app.js
 const { $Toast } = require('./iview/base/index');
+import apis from "./apis/index"
 App({
   getUserInfo() {
     return new Promise(res => {
@@ -42,6 +43,7 @@ App({
     }})
 
     this.globalData = {}
+    this.apis = apis
     this.globalData.$toast = $Toast
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({

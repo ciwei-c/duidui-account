@@ -9,16 +9,13 @@ Page({
     allClassifies:[]
   },
   onLoad(){
-    wx.cloud.callFunction({name:'classify', data:{
-      fn:'getUserClassifies'
-    }}).then(res=>{
-      console.log(res.result)
-      console.log(res.result.classifies)
+    App.apis.classify.getUserClassifies().then(res=>{
       this.setData({
-        allClassifies:res.result.classifies || []
+        allClassifies:res.classifies || []
       })
       this.getAccountType({detail:this.data.type})
     })
+    
   },
   onReady(){
     this.setData({
