@@ -1,58 +1,68 @@
 const App = getApp();
+import { setStore, getStore } from "../../store/index"
 Page({
   data: {
-    type:"",
+    type: "",
     calcHeight: "",
     activeClassify: "",
-    renderClassifies:[],
-    allClassifies:[]
+    renderClassifies: [],
+    allClassifies: []
   },
-  onLoad(){
-    App.apis.classify.getUserClassifies().then(res=>{
-      let allClassifies = []
-      if(res.data.length){
-        allClassifies = res.data[0].classifies
-      }
-
+  onLoad() {
+    new App.$watcher(App.$store, (v) => {
+      console.log(v)
+    }, "init-user-classifies")
+    if (getStore("userClassifies")) {
       this.setData({
-        allClassifies
+        allClassifies: getStore("userClassifies")
       })
-      this.getAccountType({detail:this.data.type})
-    })
-    
+      this.getAccountType({ detail: this.data.type })
+    } else {
+      App.$apis.classify.getUserClassifies().then(res => {
+        let allClassifies = []
+        if (res.data.length) {
+          allClassifies = res.data[0].classifies
+          setStore('userClassifies', allClassifies)
+        }
+        this.setData({
+          allClassifies
+        })
+        this.getAccountType({ detail: this.data.type })
+      })
+    }
   },
-  onReady(){
+  onReady() {
     this.setData({
-      iconWidth:(App.globalData.systemInfo.screenWidth / 4)
+      iconWidth: (App.globalData.systemInfo.screenWidth / 4)
     })
   },
-  getCalcHeight(e){
+  getCalcHeight(e) {
     this.setData({
-      calcHeight:`${e.detail * 2 + 30}rpx`
+      calcHeight: `${e.detail * 2 + 30}rpx`
     })
   },
-  getAccountType(e){
+  getAccountType(e) {
     let type = e.detail
-    let renderClassifies = this.data.allClassifies.filter(v=>v.type.includes(type))
+    let renderClassifies = this.data.allClassifies.filter(v => v.type.includes(type))
     this.setData({
       type,
-      renderClassifies:[...renderClassifies, ...[{
-        label:"自定义",
-        icon:"custom",
-        type:["outgoings","income"]
+      renderClassifies: [...renderClassifies, ...[{
+        label: "自定义",
+        icon: "custom",
+        type: ["outgoings", "income"]
       }]],
       activeClassify: renderClassifies.length ? renderClassifies[0].classifyId : ""
     })
   },
-  onTapClassify(e){
+  onTapClassify(e) {
     let label = e.currentTarget.dataset.classify.label
-    if(label === "自定义") {
+    if (label === "自定义") {
       wx.navigateTo({
         url: "/pages/classify/classify",
       })
     } else {
       this.setData({
-        activeClassify:e.currentTarget.dataset.classify.classifyId
+        activeClassify: e.currentTarget.dataset.classify.classifyId
       })
     }
   }

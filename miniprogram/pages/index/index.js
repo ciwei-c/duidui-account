@@ -1,4 +1,3 @@
-const db = wx.cloud.database()
 const tabMenus = [{
   type:"home",
   view:"home"
@@ -14,11 +13,22 @@ const tabMenus = [{
   type:"my",
   view:"my"
 }]
+import {defaultClassifies} from "../../utils/classify"
+import {uuid} from "../../utils/index"
+import {getStore, setStore } from "../../store/index"
 Page({
   onLoad(){
-    if(!wx.getStorageSync('init-user-classifies')){
-      getApp().apis.classify.createUserClassifies().then(()=>{
-        wx.setStorageSync("init-user-classifies", true)
+    if(!getStore('init-user-classifies')){
+      getApp().$apis.classify.createUserClassifies(
+        {
+          classifies:defaultClassifies.map(v=>{
+            v.classifyId = uuid()
+            return v
+          }),
+          accountBook:'default'
+        }
+      ).then(()=>{
+        setStore("init-user-classifies", true)
       })
     }
   },

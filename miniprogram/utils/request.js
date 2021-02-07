@@ -4,24 +4,33 @@ class Request {
   constructor() {
     const request = (collectionName, options = {}) => {
       return new Promise((res, rej) => {
-        getApp().getAppId().then(data => {
-          this.openid = data.openid
-          let where = Object.assign(
-            options.where || {}, 
-            options.whereAssignOpenid ? { openid: this.openid } : {}
-          )
+        getApp().getAppId().then(({openid}) => {
+          this.openid = openid
+          if(!options.queryMethod) options.queryMethod = "where"
           let collection = this.getCollection(collectionName)
           let fn = null
-          if(options.method === "get"){
-            fn = collection.where(where).get()
-          }else if(options.method){
-            fn = collection.add({
-              data: Object.assign(
-                options.data, 
-                options.dataAssignOpenid ? { openid: this.openid } : {}
-              )
-            })
+          let data = Object.assign(
+            options.data || {},
+            options.dataAssignOpenid ? { _openid: this.openid } : {}
+          )
+          let queryData = ""
+          if(options.queryMethod === "doc"){
+            queryData = data._id
+          } else {
+            queryData = Object.assign(
+              options.query || {},
+              options.queryAssignOpenid ? { _openid: this.openid } : {}
+            )
           }
+
+          let fnMap = {
+            get:() => collection[options.queryMethod](queryData)[options.method](),
+            add:() => collection[options.method]({data}),
+            remove:() => collection[options.queryMethod](queryData)[options.method]({data}),
+            update:() => collection[options.queryMethod](queryData)[options.method]({data})
+          }
+
+          fn = fnMap[options.method]()
           this.requestHandle(
             fn,
             res,

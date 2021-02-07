@@ -1,23 +1,20 @@
 const App = getApp();
 const db = wx.cloud.database();
+import {allClassifies} from "../../utils/classify" 
 Page({
   data: {
     classifies:[],
     classifyLabel:"",
-    activeClassify:"",
+    activeClassifyIndex:0,
     activeClassifyIcon:"other"
   },
   onLoad () {
-    db.collection("all-classifies").get().then(res=>{
-      this.setData({
-        classifies:res.data
-      })
-      if(res.data.length){
-        this.setData({
-          activeClassify:res.data[0]._id,
-          activeClassifyIcon:res.data[0].icon
-        })
-      }
+    this.setData({
+      classifies:allClassifies,
+      activeClassifyIndex:0
+    })
+    this.setData({
+      activeClassifyIcon:this.data.classifies[this.data.activeClassifyIndex].icon
     })
   },
   onReady(){
@@ -33,7 +30,7 @@ Page({
   },
   onTapClassify(e){
     this.setData({
-      activeClassify:e.currentTarget.dataset.classify._id,
+      activeClassifyIndex:e.currentTarget.dataset.index,
       activeClassifyIcon:e.currentTarget.dataset.classify.icon
     })
   }
