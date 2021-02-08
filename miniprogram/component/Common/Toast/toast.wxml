@@ -1,0 +1,16 @@
+<view class="dd-toast-mask" wx:if="{{ visible && mask }}"></view>
+<view class="dd-class dd-toast" wx:if="{{ visible }}">
+    <block wx:if="{{ type !== 'default' }}">
+        <view class="dd-toast-type">
+            <i-icon i-class="dd-toast-icon" type="success" wx:if="{{ type === 'success' }}"></i-icon>
+            <i-icon i-class="dd-toast-icon" type="prompt" wx:elif="{{ type === 'warning' }}"></i-icon>
+            <i-icon i-class="dd-toast-icon" type="delete" wx:elif="{{ type === 'error' }}"></i-icon>
+            <view class="dd-toast-icon dd-toast-loading" wx:elif="{{ type === 'loading' }}"></view>
+        </view>
+    </block>
+    <block wx:else>
+        <i-icon i-class="dd-toast-icon" type="{{ icon }}" wx:if="{{ icon }}"></i-icon>
+        <image class="dd-toast-image" src="{{ image }}" wx:if="{{ image }}" mode="aspectFit"></image>
+    </block>
+    <view class="dd-toast-content" wx:if="{{ content }}">{{ content }}</view>
+</view>

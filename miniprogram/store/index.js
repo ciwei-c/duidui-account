@@ -3,8 +3,9 @@ export const getStore = (k) => {
   return wx.getStorageSync(k)
 }
 export const setStore = (k,v) => {
+  wx.setStorageSync(k, v)
   store[k] = v
-  return wx.setStorageSync(k, v)
+  return
 }
 export const removeStore = (k) => {
   return wx.removeStorageSync(k)

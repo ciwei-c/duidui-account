@@ -1,0 +1,27 @@
+<view class="page-container dd-account-classify-creator">
+  <dd-navbar name="新增分类"></dd-navbar>
+  <dd-container-viewer refresh="{{false}}" topHeight="{{inputHeight}}">
+    <view class="dd-account-classify__input" style="top:{{navHeight}}px">
+      <dd-icon type="{{activeClassifyIcon}}" size="{{iconWidth * 0.7}}"></dd-icon>
+      <i-input value="{{ classifyLabel }}" placeholder="输入分类名称" bindchange="onInputChange"/>
+      <view class="dd-account-classify__input-btn" bindtap="onFinish">完成</view>
+    </view>
+    <view class="dd-account-classify-creator__classifies">
+      <view wx:for="{{classifies}}"
+        class="dd-account-classify-creator__classifies-item"
+        bindtap="onTapClassify"
+        data-classify="{{item}}"
+        data-index="{{index}}"
+        wx:key="index" 
+        style="width:{{iconWidth}}px">
+        <view class="dd-account-classify-creator__classifies-item-icon {{activeClassifyIndex === index ? ' dd-account-classify-creator__classifies-item-icon--active' : ''}}"
+          style="width:{{iconWidth * 0.7}}px;height:{{iconWidth * 0.7}}px">
+          <dd-icon type="{{item.icon}}" size="{{iconWidth * 0.7}}"></dd-icon>
+        </view>
+        <view class="dd-account-classify-creator__classifies-item-label">{{item.label}}</view>
+      </view>
+    </view>
+  </dd-container-viewer>
+  <dd-loading loading="{{loading}}"></dd-loading>
+  <dd-toast id="toast" />
+</view>

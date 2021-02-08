@@ -1,9 +1,10 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",
     "pages/tally/tally",
-    "pages/classify/classify"
+    "pages/index/index",
+    "pages/classify/classify",
+    "pages/classifyCreator/classifyCreator"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -19,6 +20,7 @@
     "dd-loading": "/component/Common/Loading/loading",
     "dd-container-viewer": "/component/Common/ContainerViewer/containerViewer",
     "dd-icon": "/component/Common/Icon/icon",
-    "i-icon": "./iview/icon/index"
+    "i-icon": "./iview/icon/index",
+    "dd-toast": "/component/Common/Toast/toast"
   }
 }

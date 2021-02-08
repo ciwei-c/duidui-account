@@ -1,10 +1,8 @@
 
-import classifyMixin from "../../behavior/classify"
 import {tabMenus} from "../../utils/constant"
 Component({
   lifetimes:{
     attached() {
-      classifyMixin.getUserClassifies()
     }
   },
   data: {

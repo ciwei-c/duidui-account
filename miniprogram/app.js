@@ -1,7 +1,7 @@
-const { $Toast } = require('./iview/base/index');
 import apis from "./apis/index"
 import Watcher from "./store/watcher"
-import store from "./store/index"
+import store, {setStore, getStore} from "./store/index"
+import $toast from "/component/Common/Toast/$toast"
 App({
   getUserInfo() {
     return new Promise(res => {
@@ -26,8 +26,8 @@ App({
         })
       } else {
         wx.cloud.callFunction({ name: 'login' }).then(data => {
-          this.appid = data.result.appid
-          this.openid = data.result.openid
+          this.appid = data.result.appid || data.result.userInfo.appId
+          this.openid = data.result.openid || data.result.userInfo.openId
           res(data.result)
         })
       }
@@ -46,7 +46,9 @@ App({
     this.$apis = apis
     this.$watcher = Watcher
     this.$store = store
-    this.globalData.$toast = $Toast
+    this.$toast = $toast
+    this.$setStore = setStore
+    this.$getStore = getStore
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: res => {

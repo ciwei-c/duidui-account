@@ -46,7 +46,6 @@ Component({
             const { detail = {} } = event;
             const { value = '' } = detail;
             this.setData({ value });
-
             this.triggerEvent('change', event);
         },
 

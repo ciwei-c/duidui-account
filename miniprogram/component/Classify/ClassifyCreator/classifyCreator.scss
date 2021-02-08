@@ -1,28 +1,8 @@
-@import "../../app.scss";
-@import "../../styles/color.scss";
+@import "../../../app.scss";
+@import "../../../styles/color.scss";
 
-.dd-account-classify {
+.dd-account-classify-creator {
   position: relative;
-  &__add-btn {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 28rpx;
-    text-align: center;
-    padding: 12rpx 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &-hover {
-      opacity: 0.8;
-    }
-    view {
-      width: calc(100% - 24rpx);
-      padding: 24rpx 0;
-      background-color: $--color-primary;
-      border-radius: 8rpx;
-    }
-  }
   &__input {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     position:fixed;

@@ -47,6 +47,15 @@ const keys = [{
   label: "完成",
   type: "button"
 }]
+
+const behavior = Behavior({
+  ready(){
+    wx.createSelectorQuery().in(this).select(".dd-account__calculator").boundingClientRect(v=>{
+      this.triggerEvent("getCalcHeight", Math.ceil(v.height))
+    }).exec()
+  }
+})
+
 Component({
   /**
    * 组件的属性列表
@@ -55,7 +64,7 @@ Component({
   properties: {
 
   },
-
+  behaviors:[behavior],
   /**
    * 组件的初始数据
    */
@@ -78,19 +87,14 @@ Component({
   },
   lifetimes: {
     attached() {
-      setTimeout(() => {
-        wx.createSelectorQuery().in(this).select(".dd-account__calculator").boundingClientRect(v=>{
-          this.triggerEvent("getCalcHeight", Math.ceil(v.height))
-        }).exec()
-        this.triggerType()
-        let date = new Date()
-        let y = date.getFullYear()
-        let m = date.getMonth()
-        let d = date.getDate()
-        this.setData({
-          date:`${y}/${m < 10 ? '0' + m : m}/${d < 10 ? '0' + d : d}`
-        })
-      });
+      this.triggerType()
+      let date = new Date()
+      let y = date.getFullYear()
+      let m = date.getMonth()
+      let d = date.getDate()
+      this.setData({
+        date:`${y}/${m < 10 ? '0' + m : m}/${d < 10 ? '0' + d : d}`
+      })
     }
   },
   /**

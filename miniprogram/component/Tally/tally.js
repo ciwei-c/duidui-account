@@ -1,5 +1,6 @@
 const App = getApp();
-import { getStore } from "../../store/index"
+import classifyBehavior from "../../behavior/classify"
+import store from "../../store/index"
 Component({
   data: {
     type: "",
@@ -8,20 +9,28 @@ Component({
     renderClassifies: [],
     allClassifies: []
   },
+  behaviors:[classifyBehavior],
   lifetimes: {
     attached() {
-      if (getStore("userClassifies")) {
-        this.setData({
-          allClassifies: getStore("userClassifies")
-        })
-        this.getAccountType({ detail: this.data.type })
-      }
+      this.getUserClassifies()
+      this.watcher = new App.$watcher(store, (v)=>{
+        this.setClassifies()
+      }, "userClassifies")
+      this.setClassifies()
       this.setData({
         iconWidth: (App.globalData.systemInfo.screenWidth / 4)
       })
     }
   },
   methods:{
+    setClassifies(){
+      if (App.$getStore("userClassifies")) {
+        this.setData({
+          allClassifies: App.$getStore("userClassifies")
+        })
+        this.getAccountType({ detail: this.data.type })
+      }
+    },
     getCalcHeight(e) {
       this.setData({
         calcHeight: `${e.detail * 2 + 30}rpx`
@@ -44,7 +53,7 @@ Component({
       let label = e.currentTarget.dataset.classify.label
       if (label === "自定义") {
         wx.navigateTo({
-          url: "/pages/classify/classify",
+          url: "/pages/classify/classify?type=" + this.data.type,
         })
       } else {
         this.setData({

@@ -1,40 +1,35 @@
 import {defaultClassifies} from "../utils/constant"
 import {uuid} from "../utils/index"
-import {getStore, setStore } from "../store/index"
-const getUserClassifies = () => {
-  getApp().$apis.classify.getUserClassifies().then(res=>{
-    if(res.data.length) {
-      setStore("userClassifies", res.data[0].classifies)
-    } else {
-      createUserClassifies()
-    }
-  })
-}
-const createUserClassifies = () => {
-  getApp().getAppId().then(({openid}) => {
-    getApp().$apis.classify.createUserClassifies(
-      {
-        classifies:defaultClassifies.map(v=>{
-          v.classifyId = uuid()
-          return v
-        }),
-        _id:openid + '_id',
-        accountBook:'default'
-      }
-    ).then(()=>{
-      getUserClassifies()
-    })
-  })
-}
-
-export const classifyBehavior = Behavior({
+export default Behavior({
   methods:{
-    getUserClassifies,
-    createUserClassifies
+    generateClassify(option){
+      return Object.assign({
+        classifyId:uuid()
+      }, option)
+    },
+    getUserClassifies(){
+      getApp().$apis.classify.getUserClassifies().then(res=>{
+        if(res.data.length) {
+          getApp().$setStore("userClassifies", res.data[0].classifies)
+        } else {
+          this.createUserClassifies()
+        }
+      })
+    },
+    createUserClassifies(){
+      getApp().getAppId().then(({openid}) => {
+        getApp().$apis.classify.createUserClassifies(
+          {
+            classifies:defaultClassifies.map(v=>{
+              return this.generateClassify(v)
+            }),
+            _id:openid + '_id',
+            accountBook:'default'
+          }
+        ).then(()=>{
+          this.getUserClassifies()
+        })
+      })
+    }
   }
 })
-
-export default {
-  getUserClassifies,
-  createUserClassifies
-}

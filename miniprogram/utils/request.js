@@ -18,21 +18,19 @@ class Request {
           )
           let queryData = ""
           if(options.queryMethod === "doc"){
-            queryData = options.queryData.id
+            queryData = options.queryData._id
           } else {
             queryData = Object.assign(
               options.query || {},
               options.queryAssignOpenid ? { _openid: this.openid } : {}
             )
           }
-
           let fnMap = {
             get:() => collection[options.queryMethod](queryData)[options.method](),
             add:() => collection[options.method]({data}),
             remove:() => collection[options.queryMethod](queryData)[options.method]({data}),
             update:() => collection[options.queryMethod](queryData)[options.method]({data})
           }
-
           fn = fnMap[options.method]()
           this.requestHandle(
             fn,

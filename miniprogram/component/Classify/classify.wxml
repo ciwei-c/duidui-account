@@ -1,11 +1,6 @@
 <view class="page-container dd-account-classify">
   <dd-navbar name="自定义分类"></dd-navbar>
-  <dd-container-viewer refresh="{{false}}" topHeight="{{inputHeight}}">
-    <view class="dd-account-classify__input" style="top:{{navHeight}}px">
-      <dd-icon type="{{activeClassifyIcon}}" size="{{iconWidth * 0.7}}"></dd-icon>
-      <i-input value="{{ classifyLabel }}" placeholder="输入分类名称" />
-      <view class="dd-account-classify__input-btn" bindtap="onFinish">完成</view>
-    </view>
+  <dd-container-viewer refresh="{{false}}" tabHeight="{{tabHeight}}">
     <view class="dd-account-classify__classifies">
       <view wx:for="{{classifies}}"
         class="dd-account-classify__classifies-item"
@@ -22,4 +17,10 @@
       </view>
     </view>
   </dd-container-viewer>
+  <view class="dd-account-classify__add-btn" hover-class="dd-account-classify__add-btn-hover" bindtap="onAddClassify">
+    <view>
+      新增
+    </view>
+  </view>
+  <dd-loading loading="{{loading}}"></dd-loading>
 </view>

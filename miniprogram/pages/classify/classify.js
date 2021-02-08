@@ -1,2 +1,10 @@
 Page({
+  data:{
+    type:"outgoings"
+  },
+  onLoad(e){
+    this.setData({
+      type:e.type
+    })
+  }
 })
