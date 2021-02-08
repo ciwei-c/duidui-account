@@ -1,10 +1,6 @@
 {
   "disableScroll": true,
   "usingComponents": {
-    "dd-tab-bar": "/component/TabBar/tabBar",
-    "home":"./Home/home",
-    "my":"./My/my",
-    "account-book":"./AccountBook/account-book",
-    "statistics":"./Statistics/statistics"
+    "dd-home":"/component/Home/index"
   }
 }

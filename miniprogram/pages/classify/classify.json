@@ -1,5 +1,6 @@
 {
+  "disableScroll": true,
   "usingComponents": {
-    "i-input":"../../iview/input/index"
+    "dd-classify":"/component/Classify/classify"
   }
 }

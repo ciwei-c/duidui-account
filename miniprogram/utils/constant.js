@@ -52,3 +52,19 @@ export const allClassifies = [
   { "icon": "phone" },
   { "icon": "other" }
 ]
+
+export const tabMenus = [{
+  type:"home",
+  view:"home"
+},{
+  type:"account-book",
+  view:"account-book"
+},{
+  type:"add"
+},{
+  type:"statistics",
+  view:"statistics"
+},{
+  type:"my",
+  view:"my"
+}]

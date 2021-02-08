@@ -1,0 +1,62 @@
+.page-container {
+  background: #ffffff;
+}
+
+.dd-account-classify {
+  position: relative;
+}
+
+.dd-account-classify__input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.dd-account-classify__input dd-icon {
+  transform: translateY(-2px);
+  margin-left: 20rpx;
+  color: #febb2e;
+}
+
+.dd-account-classify__input i-input {
+  flex: 1;
+}
+
+.dd-account-classify__input-btn {
+  font-size: 30rpx;
+  padding: 0 20rpx;
+  color: #febb2e;
+}
+
+.dd-account-classify__classifies {
+  overflow: hidden;
+}
+
+.dd-account-classify__classifies-item {
+  float: left;
+  text-align: center;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.dd-account-classify__classifies-item-icon {
+  display: inline-flex;
+  transition: all .3s;
+  background: #e8e8e8;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.dd-account-classify__classifies-item-icon--active {
+  background: #febb2e;
+}
+
+.dd-account-classify__classifies-item-label {
+  margin-top: 4rpx;
+}

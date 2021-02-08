@@ -5,6 +5,9 @@ class Request {
     const request = (collectionName, options = {}) => {
       return new Promise((res, rej) => {
         getApp().getAppId().then(({openid}) => {
+          if(typeof options === 'function') {
+            options = options(openid)
+          }
           this.openid = openid
           if(!options.queryMethod) options.queryMethod = "where"
           let collection = this.getCollection(collectionName)
@@ -15,7 +18,7 @@ class Request {
           )
           let queryData = ""
           if(options.queryMethod === "doc"){
-            queryData = data._id
+            queryData = options.queryData.id
           } else {
             queryData = Object.assign(
               options.query || {},

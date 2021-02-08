@@ -1,5 +1,6 @@
 {
+  "disableScroll": true,
   "usingComponents": {
-    "dd-calculator":"/component/Calculator/calculator"
+    "dd-tally":"/component/Tally/tally"
   }
 }
