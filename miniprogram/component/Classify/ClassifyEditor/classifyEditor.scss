@@ -1,7 +1,7 @@
 @import "../../../app.scss";
 @import "../../../styles/color.scss";
 
-.dd-account-classify-creator {
+.dd-account-classify-editor {
   position: relative;
   &__input {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
@@ -22,7 +22,8 @@
     }
     &-btn {
       font-size: 30rpx;
-      padding: 0 20rpx;
+      padding: 28rpx 20rpx;
+      height: 100%;
       color: $--color-primary;
     }
   }

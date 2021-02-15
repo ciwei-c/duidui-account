@@ -1,6 +1,25 @@
-<dd-container-viewer tabHeight="120rpx">
-  <view>121212</view>
-  <view>121212</view>
-  <view>121212</view>
-  <view>121212</view>
-</dd-container-viewer>
+<view>
+  <view class="dd-account-home-panel__header" style="top:{{navHeight}}px">
+    <picker mode="date" value="{{date}}">
+      <view style="display:flex;align-items:center;">
+        <view class="dd-account-home-panel__header-date">
+          <view>{{date}}</view>
+          <i-icon type="unfold"></i-icon>
+        </view>
+        <view class="dd-account-home-panel__header-types">
+          <view class="dd-account-home-panel__header-types-outgoings">支出￥{{outgoings}}</view>
+          <view class="dd-account-home-panel__header-types-income">收入￥{{income}}</view>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <dd-container-viewer tabHeight="120rpx" topHeight="{{topHeight}}" bind:refresh="onRefresh">
+    <view class="dd-account-home-panel__list">
+      <dd-account-item 
+        wx:for="{{accounts}}"
+        wx:key="{{index}}" 
+        item="{{item}}"
+      />
+    </view>
+  </dd-container-viewer>
+</view>

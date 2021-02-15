@@ -1,10 +1,10 @@
 {
   "cloud": true,
   "pages": [
-    "pages/tally/tally",
     "pages/index/index",
+    "pages/tally/tally",
     "pages/classify/classify",
-    "pages/classifyCreator/classifyCreator"
+    "pages/classifyEditor/classifyEditor"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -21,6 +21,7 @@
     "dd-container-viewer": "/component/Common/ContainerViewer/containerViewer",
     "dd-icon": "/component/Common/Icon/icon",
     "i-icon": "./iview/icon/index",
+    "i-modal": "./iview/modal/index",
     "dd-toast": "/component/Common/Toast/toast"
   }
 }

@@ -1,0 +1,31 @@
+@import "../../../styles/color.scss";
+.dd-account-home-panel {
+  &__header {
+    font-size: 28rpx;
+    background-color: $--color-primary;
+    z-index: 999;
+    position: fixed;
+    padding: 20rpx;
+    width: 100%;
+    left: 0;
+    top: 0;
+    &-date {
+      display: flex;
+      background: rgba(#fff, 0.2);
+      padding: 10rpx 20rpx;
+      border-radius: 8rpx;
+      align-items: center;
+      i-icon {
+        margin-left: 10rpx;
+        margin-top: -4rpx;
+      }
+    }
+    &-types {
+      display: flex;
+      align-items: center;
+      view {
+        margin-left: 20rpx;
+      }
+    }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "disableScroll": true,
-  "usingComponents": {
-    "dd-classify-creator":"/component/Classify/ClassifyCreator/classifyCreator"
-  }
-}

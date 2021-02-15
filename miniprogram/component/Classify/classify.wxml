@@ -2,14 +2,10 @@
   <dd-navbar name="自定义分类"></dd-navbar>
   <dd-container-viewer refresh="{{false}}" tabHeight="{{tabHeight}}">
     <view class="dd-account-classify__classifies">
-      <view wx:for="{{classifies}}"
-        class="dd-account-classify__classifies-item"
-        bindtap="onTapClassify"
-        data-classify="{{item}}"
-        data-index="{{index}}"
-        wx:key="index" 
-        style="width:{{iconWidth}}px">
-        <view class="dd-account-classify__classifies-item-icon {{activeClassifyIndex === index ? 'dd-account-classify__classifies-item-icon--active' : ''}}"
+      <view wx:for="{{classifies}}" class="dd-account-classify__classifies-item" bindtap="onTapClassify"
+        data-classify="{{item}}" data-index="{{index}}" wx:key="index" style="width:{{iconWidth}}px">
+        <view
+          class="dd-account-classify__classifies-item-icon {{activeClassify && activeClassify.classifyId === item.classifyId ? 'dd-account-classify__classifies-item-icon--active' : ''}}"
           style="width:{{iconWidth * 0.7}}px;height:{{iconWidth * 0.7}}px">
           <dd-icon type="{{item.icon}}" size="{{iconWidth * 0.7}}"></dd-icon>
         </view>
@@ -17,8 +13,23 @@
       </view>
     </view>
   </dd-container-viewer>
-  <view class="dd-account-classify__add-btn" hover-class="dd-account-classify__add-btn-hover" bindtap="onAddClassify">
-    <view>
+  <i-modal title="删除分类" visible="{{ modalVisible }}" actions="{{ actions }}" bind:click="handleModalClick">
+    <view style="display:flex;align-items:center;justify-content:center">
+      <view>
+        ({{activeClassify && activeClassify.label}}
+      </view>
+      <dd-icon type="{{activeClassify.icon}}" size="24"></dd-icon>
+      <view>)删除后无法恢复哦</view>
+    </view>
+  </i-modal>
+  <view class="dd-account-classify__btn">
+    <view class="dd-account-classify__btn-edit" hover-class="dd-account-classify__btn-hover" bindtap="onEditClassify">
+      修改
+    </view>
+    <view class="dd-account-classify__btn-delete" hover-class="dd-account-classify__btn-hover" bindtap="onDeleteClassify">
+      删除
+    </view>
+    <view class="dd-account-classify__btn-add" hover-class="dd-account-classify__btn-hover" bindtap="onAddClassify">
       新增
     </view>
   </view>

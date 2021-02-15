@@ -1,3 +1,5 @@
+const { parseTime } = require("../../../utils/index")
+
 const keys = [{
   label: "7",
   type: "number"
@@ -88,12 +90,8 @@ Component({
   lifetimes: {
     attached() {
       this.triggerType()
-      let date = new Date()
-      let y = date.getFullYear()
-      let m = date.getMonth()
-      let d = date.getDate()
       this.setData({
-        date:`${y}/${m < 10 ? '0' + m : m}/${d < 10 ? '0' + d : d}`
+        date:parseTime(new Date())
       })
     }
   },
@@ -194,7 +192,6 @@ Component({
         if(value.endsWith(".")){
           value = value.substring(0, value.length - 1)
         }
-        console.log(value)
         if(sign === "-"){
           result = result - Number(value)
         } else {
@@ -206,11 +203,13 @@ Component({
     onTapKey(e){
       let { key } = e.currentTarget.dataset
       if(key.type === "button"){
-        if(key.label === "保存再记"){
-
-        } else {
-
-        }
+        this.triggerEvent('save', {
+          result:this.data.calcResult,
+          back: key.label !== "保存再记",
+          date: this.data.date,
+          type: this.data.type,
+          remark: this.data.remark
+        })
       } else {
         let calcResult = this.handleResult(key.label, key)
         this.setData({

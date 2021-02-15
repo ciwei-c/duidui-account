@@ -4,6 +4,11 @@ Component({
   /**
    * 组件的属性列表
    */
+  pageLifetimes:{
+    show(){
+      App.globalData.containerViewerInst = this
+    }
+  },
   properties: {
     tabHeight:{
       type:String,
@@ -24,11 +29,6 @@ Component({
         navHeight: App.globalData.navHeight,
         navTop: App.globalData.navTop
       })
-      setTimeout(() => {
-        this.setData({
-          refresherTriggered: true,
-        })
-      }, 1000)
     }
   },
   /**
@@ -53,13 +53,13 @@ Component({
         this.setData({
           triggered: false
         })
-        this._freshing = false
       });
-      setTimeout(() => {
+      this.triggerEvent('refresh', () => {
         this.setData({
           loading: false
         })
-      }, 3000)
+        this._freshing = false
+      })
     }
   }
 })

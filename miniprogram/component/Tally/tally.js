@@ -12,7 +12,6 @@ Component({
   behaviors:[classifyBehavior],
   lifetimes: {
     attached() {
-      this.getUserClassifies()
       this.watcher = new App.$watcher(store, (v)=>{
         this.setClassifies()
       }, "userClassifies")
@@ -46,7 +45,29 @@ Component({
           icon: "custom",
           type: ["outgoings", "income"]
         }]),
-        activeClassify: renderClassifies.length ? renderClassifies[0].classifyId : ""
+        activeClassify: this.data.activeClassify || (renderClassifies.length ? renderClassifies[0].classifyId : "")
+      })
+    },
+    onSave(e){
+      let {date, result:amount, type, remark, back} = e.detail
+      App.$apis.account.addAccount({
+        date,
+        remark,
+        time: new Date().getTime(),
+        amount: parseFloat(amount),
+        type,
+        classifyId: this.data.activeClassify
+      }).then(()=>{
+        App.$toast({
+          type:'success',
+          content:''
+        })
+        App.$listener.emit('onAddcount')
+        if(back) {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }
       })
     },
     onTapClassify(e) {

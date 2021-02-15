@@ -1,3 +1,5 @@
 Page({
-  onReady(){}
+  onReady(){
+    getApp().globalData.homeInst = this
+  }
 })

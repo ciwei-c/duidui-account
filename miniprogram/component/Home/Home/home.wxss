@@ -1,1 +1,32 @@
-/* pages/index/Home/home.wxss */
+.dd-account-home-panel__header {
+  font-size: 28rpx;
+  background-color: #febb2e;
+  z-index: 999;
+  position: fixed;
+  padding: 20rpx;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.dd-account-home-panel__header-date {
+  display: flex;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10rpx 20rpx;
+  border-radius: 8rpx;
+  align-items: center;
+}
+
+.dd-account-home-panel__header-date i-icon {
+  margin-left: 10rpx;
+  margin-top: -4rpx;
+}
+
+.dd-account-home-panel__header-types {
+  display: flex;
+  align-items: center;
+}
+
+.dd-account-home-panel__header-types view {
+  margin-left: 20rpx;
+}

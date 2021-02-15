@@ -1,0 +1,31 @@
+@import "../../../styles/color.scss";
+.dd-account-item {
+  display: flex;
+  align-items: center;
+  margin: 0 20rpx;
+  &__icon {
+    background: $--color-primary;
+    border-radius: 50%;
+    height: 70rpx;
+    width: 70rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rpx;
+  }
+  &__info {
+    border-bottom: 1px solid rgba(#000000, 0.1);
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:30rpx 20rpx;
+    &-label {
+      font-size: 26rpx;
+    }
+    &-time {
+      font-size: 24rpx;
+      color: $--color-info;
+    }
+  }
+}

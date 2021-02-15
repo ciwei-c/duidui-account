@@ -1,10 +1,13 @@
 
 import {tabMenus} from "../../utils/constant"
+import classifyBehavior from "../../behavior/classify"
 Component({
   lifetimes:{
     attached() {
+      this.getUserClassifies()
     }
   },
+  behaviors:[classifyBehavior],
   data: {
     centerMenuIndex:(()=>{
       return ( tabMenus.length - 1 ) / 2

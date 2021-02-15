@@ -1,0 +1,14 @@
+<i-swipeout actions="{{actions}}">
+  <view class="dd-account-item" slot="content">
+    <view class="dd-account-item__icon">
+      <dd-icon type="{{icon}}" size="{{50}}"></dd-icon>
+    </view>
+    <view class="dd-account-item__info">
+      <view>
+        <view class="dd-account-item__info-label">{{label}}</view>
+        <view class="dd-account-item__info-time">{{time}}</view>
+      </view>
+      <view>{{amount}}</view>
+    </view>
+  </view>
+</i-swipeout>

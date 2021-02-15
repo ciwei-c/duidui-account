@@ -15,4 +15,5 @@
     <slot></slot>
   </view>
   <view style="height:{{tabHeight}}"></view>
+  <dd-toast id="toast" />
 </scroll-view>

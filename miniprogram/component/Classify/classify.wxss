@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.dd-account-classify__add-btn {
+.dd-account-classify__btn {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -18,15 +18,28 @@
   justify-content: center;
 }
 
-.dd-account-classify__add-btn-hover {
+.dd-account-classify__btn-hover {
   opacity: 0.8;
 }
 
-.dd-account-classify__add-btn view {
-  width: calc(100% - 24rpx);
-  padding: 24rpx 0;
+.dd-account-classify__btn-add {
+  margin-right: 20rpx;
   background-color: #febb2e;
+}
+
+.dd-account-classify__btn-edit {
+  background-color: #7faec7;
+}
+
+.dd-account-classify__btn-delete {
+  background-color: #F56C6C;
+}
+
+.dd-account-classify__btn view {
+  padding: 24rpx 0;
   border-radius: 8rpx;
+  flex: 1;
+  margin-left: 20rpx;
 }
 
 .dd-account-classify__input {

@@ -21,7 +21,7 @@ class Request {
             queryData = options.queryData._id
           } else {
             queryData = Object.assign(
-              options.query || {},
+              options.queryData || {},
               options.queryAssignOpenid ? { _openid: this.openid } : {}
             )
           }

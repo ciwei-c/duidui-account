@@ -1,5 +1,6 @@
 import apis from "./apis/index"
 import Watcher from "./store/watcher"
+import $listener from "./utils/listener"
 import store, {setStore, getStore} from "./store/index"
 import $toast from "/component/Common/Toast/$toast"
 App({
@@ -43,12 +44,14 @@ App({
       })
     }
     this.globalData = {}
+    this.$listener = $listener
     this.$apis = apis
     this.$watcher = Watcher
     this.$store = store
     this.$toast = $toast
     this.$setStore = setStore
     this.$getStore = getStore
+    
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: res => {

@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "dd-classify-editor":"/component/Classify/ClassifyEditor/classifyEditor"
+  }
+}

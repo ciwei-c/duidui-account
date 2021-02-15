@@ -3,7 +3,7 @@
 
 .dd-account-classify {
   position: relative;
-  &__add-btn {
+  &__btn {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -16,11 +16,21 @@
     &-hover {
       opacity: 0.8;
     }
-    view {
-      width: calc(100% - 24rpx);
-      padding: 24rpx 0;
+    &-add {
+      margin-right: 20rpx;
       background-color: $--color-primary;
+    }
+    &-edit {
+      background-color: $--color-light-blue;
+    }
+    &-delete {
+      background-color: $--color-danger;
+    }
+    view {
+      padding: 24rpx 0;
       border-radius: 8rpx;
+      flex: 1;
+      margin-left: 20rpx;
     }
   }
   &__input {

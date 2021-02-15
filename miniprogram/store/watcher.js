@@ -92,7 +92,12 @@ export default class {
         }
       })
     }
-    new Observe(data, options, key)
+    Observe.list = Observe.list || []
+    if(!Observe.list.includes(data)){
+      new Observe(data, options, key)
+      Observe.list.push(data)
+    } else {
+    }
     watch(data, ()=>{
       if(this.shouldExportKey){
         fn(data[this.shouldExportKey])

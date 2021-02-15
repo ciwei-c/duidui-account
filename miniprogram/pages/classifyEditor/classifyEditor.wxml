@@ -1,0 +1,7 @@
+<dd-classify-editor 
+  type="{{type}}" 
+  isAdd="{{isAdd}}" 
+  classifyId="{{classifyId}}" 
+  label="{{label}}"
+  icon="{{icon}}"
+/>
