@@ -29,13 +29,28 @@ Component({
       App.$listener.on('onAddcount', () => {
         this.getAccounts()
       })
+      this.setData({
+        date:parseTime(new Date())
+      })
       this.getAccounts()
     }
   },
   data: {
     outgoings: "0.00",
     income: "0.00",
-    accounts: []
+    date: "",
+    accounts: [],
+    
+    actions: [{
+        name: '取消'
+      },
+      {
+        name: '删除',
+        color: '#ed3f14',
+        loading: false
+      }
+    ],
+    modalVisible:false
   },
 
   /**
@@ -45,13 +60,18 @@ Component({
     getAccounts() {
       return new Promise((resolve, reject) => {
         App.$apis.account.getAccounts({
-          date: parseTime(new Date())
+          date: this.data.date
         }).then(res => {
           this.setData({
-            accounts: res.data
+            accounts: []
           })
-          this.getTotal()
-          resolve(true)
+          setTimeout(() => {
+            this.setData({
+              accounts: res.data
+            })
+            this.getTotal()
+            resolve(true)
+          });
         }).catch(() => {
           resolve(false)
         })
@@ -60,6 +80,44 @@ Component({
     onRefresh(e) {
       this.getAccounts().then((ok) => {
         e.detail()
+      })
+    },
+    bindDateChange(e){
+      this.setData({
+        date: e.detail.value.split("-").join("/")
+      })
+      this.getAccounts()
+    },
+    handleModalClick({
+      detail
+    }) {
+      if (detail.index === 0) {
+        this.setData({
+          modalVisible: false
+        })
+      } else {
+        App.$apis.account.deleteAccount({_id:this.data.deleteId}).then(()=>{
+          this.getAccounts()
+          this.setData({
+            modalVisible: false
+          })
+        })
+      }
+    },
+    onDelete(e){
+      this.setData({
+        modalVisible:true,
+        deleteId:e.detail._id
+      })
+    },
+    onEdit(e){
+      let data = e.detail
+      let query = ""
+      Object.keys(data).forEach((v, idx)=>{
+        query += `${!idx ? '' : '&'}${v}=${data[v]}`
+      })
+      wx.navigateTo({
+        url: '/pages/tally/tally?' + query,
       })
     },
     getTotal() {

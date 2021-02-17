@@ -2,6 +2,12 @@ const App = getApp();
 import classifyBehavior from "../../behavior/classify"
 import store from "../../store/index"
 Component({
+  properties:{
+    editorData:{
+      type:Object,
+      value:{}
+    }
+  },
   data: {
     type: "",
     calcHeight: "",
@@ -16,9 +22,16 @@ Component({
         this.setClassifies()
       }, "userClassifies")
       this.setClassifies()
-      this.setData({
-        iconWidth: (App.globalData.systemInfo.screenWidth / 4)
-      })
+      setTimeout(() => {
+        if(this.data.editorData._id){
+          this.setData({
+            activeClassify: this.data.editorData.classifyId
+          })
+        }
+        this.setData({
+          iconWidth: (App.globalData.systemInfo.screenWidth / 4)
+        })
+      });
     }
   },
   methods:{
@@ -50,14 +63,20 @@ Component({
     },
     onSave(e){
       let {date, result:amount, type, remark, back} = e.detail
-      App.$apis.account.addAccount({
+      let postData = {
         date,
         remark,
         time: new Date().getTime(),
         amount: parseFloat(amount),
         type,
         classifyId: this.data.activeClassify
-      }).then(()=>{
+      }
+      let fn = "addAccount"
+      if(this.data.editorData._id){
+        postData._id = this.data.editorData._id
+        fn = "updateAccount"
+      }
+      App.$apis.account[fn](postData).then(()=>{
         App.$toast({
           type:'success',
           content:''
@@ -67,7 +86,16 @@ Component({
           wx.navigateBack({
             delta: 1,
           })
+        } else {
+          this.resetData()
+          this.selectComponent("#dd-account-tally__calc").initData()
         }
+      })
+    },
+    resetData(){
+      this.setData({
+        editorData: {},
+        activeClassify: (this.data.renderClassifies.length ? this.data.renderClassifies[0].classifyId : "")
       })
     },
     onTapClassify(e) {

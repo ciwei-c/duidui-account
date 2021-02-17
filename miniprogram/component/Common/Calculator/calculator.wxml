@@ -18,7 +18,7 @@
     </view>
   </view>
   <view class="dd-account__calculator-topbar">
-    <i-input i-class="xx" class="dd-account__calculator-topbar-remark" value="{{ remark }}" placeholder="备注" />
+    <i-input i-class="xx" class="dd-account__calculator-topbar-remark" value="{{ remark }}" bind:change="onInputChange" placeholder="备注" />
     <view class="dd-account__calculator-topbar-calc">
       <view>￥{{calcResult}}</view>
       <view class="dd-account__calculator-topbar-calc-detail" wx:if="{{calcCacheList.length > 1}}">

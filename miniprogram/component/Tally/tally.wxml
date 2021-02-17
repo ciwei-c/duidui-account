@@ -16,5 +16,5 @@
       </view>
     </view>
   </dd-container-viewer>
-  <dd-calculator dd-class="dd-account-tally__calc" bind:getCalcHeight="getCalcHeight" bind:getAccountType="getAccountType" bind:save="onSave"></dd-calculator>
+  <dd-calculator id="dd-account-tally__calc" editorData="{{editorData}}" dd-class="dd-account-tally__calc" bind:getCalcHeight="getCalcHeight" bind:getAccountType="getAccountType" bind:save="onSave"></dd-calculator>
 </view>

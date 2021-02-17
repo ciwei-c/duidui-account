@@ -15,8 +15,31 @@
   margin-right: 20rpx;
 }
 
+.dd-account-item__button {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dd-account-item__button-delete, .dd-account-item__button-edit {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+}
+
+.dd-account-item__button-delete {
+  background-color: #ed3f14;
+}
+
+.dd-account-item__button-edit {
+  background-color: #5cadff;
+}
+
 .dd-account-item__info {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e9eaec;
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -30,5 +53,5 @@
 
 .dd-account-item__info-time {
   font-size: 24rpx;
-  color: #767d8b;
+  color: #495060;
 }

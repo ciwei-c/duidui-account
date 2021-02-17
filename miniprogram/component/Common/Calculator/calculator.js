@@ -64,7 +64,10 @@ Component({
    */
   externalClasses: ['dd-class'],
   properties: {
-
+    editorData:{
+      type:Object,
+      value:{}
+    }
   },
   behaviors:[behavior],
   /**
@@ -89,16 +92,40 @@ Component({
   },
   lifetimes: {
     attached() {
-      this.triggerType()
-      this.setData({
-        date:parseTime(new Date())
-      })
+      this.initData()
     }
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    initData(){
+      setTimeout(() => {
+        if(this.data.editorData._id){
+          this.setData({
+            calcResult:Number(this.data.editorData.amount).toFixed(2),
+            remark:this.data.editorData.remark,
+            type:this.data.editorData.type,
+            date:this.data.editorData.date
+          })
+          this.setData({
+            calcCacheList:[{
+              value:this.data.editorData.amount,
+              sign:""
+            }]
+          })
+        } else {
+          this.setData({
+            date:parseTime(new Date()),
+            type: "outgoings",
+            remark: "",
+            calcResult: "0.00",
+            calcCacheList: [],
+          })
+        }
+        this.triggerType()
+      });
+    },
     triggerType(){
       this.triggerEvent("getAccountType", this.data.type)
     },
@@ -199,6 +226,11 @@ Component({
         }
       })
       return result.toFixed(2)
+    },
+    onInputChange(e){
+      this.setData({
+        remark:e.detail.detail.value
+      })
     },
     onTapKey(e){
       let { key } = e.currentTarget.dataset

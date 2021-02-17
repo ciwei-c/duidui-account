@@ -13,8 +13,27 @@
     justify-content: center;
     margin-right: 20rpx;
   }
+  &__button {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &-delete,&-edit {
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+    }
+    &-delete {
+      background-color: $--color-danger;
+    }
+    &-edit {
+      background-color: $--color-light-blue;
+    }
+  }
   &__info {
-    border-bottom: 1px solid rgba(#000000, 0.1);
+    border-bottom: 1px solid $--color-divider;
     flex: 1;
     display: flex;
     justify-content: space-between;

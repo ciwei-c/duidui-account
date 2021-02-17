@@ -29,7 +29,10 @@ App({
         wx.cloud.callFunction({ name: 'login' }).then(data => {
           this.appid = data.result.appid || data.result.userInfo.appId
           this.openid = data.result.openid || data.result.userInfo.openId
-          res(data.result)
+          res({
+            appid:this.appid,
+            openid:this.openid
+          })
         })
       }
     })

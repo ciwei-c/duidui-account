@@ -18,6 +18,7 @@ Component({
       }, 'userClassifies')
       this.setData({
         time: parseTime(this.data.item.time, "{h}:{f}"),
+        remark: this.data.item.remark,
         amount: `${this.data.item.type === 'income' ? '' : '-'}${this.data.item.amount.toFixed(2)}`
       })
       this.setClassify()
@@ -27,20 +28,18 @@ Component({
    * 组件的初始数据
    */
   data: {
-    actions: [{
-        name: '删除',
-        color: '#fff',
-        fontsize: '18',
-        width: 80,
-        background: '#ed3f14'
-      }
-    ]
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    onEdit(){
+      this.triggerEvent("edit", this.data.item)
+    },
+    onDelete(){
+      this.triggerEvent("delete", this.data.item)
+    },
     setClassify() {
       if (App.$getStore("userClassifies")) {
         let classifies = App.$getStore("userClassifies")

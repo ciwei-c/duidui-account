@@ -1,14 +1,22 @@
-<i-swipeout actions="{{actions}}">
+<i-swipeout operateWidth="{{100}}">
   <view class="dd-account-item" slot="content">
     <view class="dd-account-item__icon">
       <dd-icon type="{{icon}}" size="{{50}}"></dd-icon>
     </view>
     <view class="dd-account-item__info">
       <view>
-        <view class="dd-account-item__info-label">{{label}}</view>
+        <view class="dd-account-item__info-label">{{remark || label}}</view>
         <view class="dd-account-item__info-time">{{time}}</view>
       </view>
       <view>{{amount}}</view>
+    </view>
+  </view>
+  <view slot="button" class="dd-account-item__button">
+    <view class="dd-account-item__button-edit" bindtap="onEdit">
+      <i-icon size="{{20}}" type="editor" />
+    </view>
+    <view class="dd-account-item__button-delete" bindtap="onDelete">
+      <i-icon size="{{20}}" type="delete" />
     </view>
   </view>
 </i-swipeout>

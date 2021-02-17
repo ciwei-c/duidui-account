@@ -24,13 +24,13 @@
   </i-modal>
   <view class="dd-account-classify__btn">
     <view class="dd-account-classify__btn-edit" hover-class="dd-account-classify__btn-hover" bindtap="onEditClassify">
-      修改
+      <i-icon size="{{24}}" type="editor" />
     </view>
     <view class="dd-account-classify__btn-delete" hover-class="dd-account-classify__btn-hover" bindtap="onDeleteClassify">
-      删除
+      <i-icon size="{{24}}" type="delete" />
     </view>
     <view class="dd-account-classify__btn-add" hover-class="dd-account-classify__btn-hover" bindtap="onAddClassify">
-      新增
+      <i-icon size="{{24}}" type="add" />
     </view>
   </view>
   <dd-loading loading="{{loading}}"></dd-loading>

@@ -10,7 +10,7 @@
 }
 
 .dd-account-navbar__title {
-  color: #2e3136;
+  color: #1c2438;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

@@ -24,7 +24,7 @@
 .dd-account-tally__classifies-item-icon {
   display: inline-flex;
   transition: all .3s;
-  background: #e8e8e8;
+  background: #f8f8f9;
   align-items: center;
   justify-content: center;
   border-radius: 50%;

@@ -23,7 +23,7 @@
   transition: all .3s;
   font-size: 28rpx;
   padding: 10rpx 24rpx;
-  background-color: #e8e8e8;
+  background-color: #f8f8f9;
   border-radius: 40rpx;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .dd-account__calculator-key-hover {
-  background: #e8e8e8;
+  background: #f8f8f9;
 }
 
 .dd-account__calculator-key-empty {
