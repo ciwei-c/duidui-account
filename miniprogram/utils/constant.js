@@ -55,16 +55,20 @@ export const allClassifies = [
 
 export const tabMenus = [{
   type:"home",
-  view:"home"
+  view:"home",
+  label:"首页"
 },{
   type:"account-book",
-  view:"account-book"
+  view:"account-book",
+  label:"账本"
 },{
   type:"add"
 },{
   type:"statistics",
-  view:"statistics"
+  view:"statistics",
+  label:"统计"
 },{
   type:"my",
-  view:"my"
+  view:"my",
+  label:"我的"
 }]

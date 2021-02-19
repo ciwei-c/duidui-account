@@ -34,9 +34,9 @@ Component({
   })],
   lifetimes: {
     attached() {
-      this.watcher = new App.$watcher(store, (v) => {
+      new App.$watcher(App.globalData.userClassifies, (v) => {
         this.setClassifies()
-      }, "userClassifies")
+      })
       this.setClassifies()
       this.setData({
         navHeight: App.globalData.navHeight,
@@ -46,9 +46,9 @@ Component({
   },
   methods: {
     setClassifies() {
-      if (App.$getStore("userClassifies")) {
+      if (App.globalData.userClassifies.classifies) {
         this.setData({
-          classifies: App.$getStore("userClassifies")
+          classifies: App.globalData.userClassifies.classifies
         })
         if (this.data.classifies.length) {
           let activeClassifyIndex = 0

@@ -14,6 +14,7 @@ export const clearStore = () => {
   return wx.clearStorageSync()
 }
 store = {
+  'activeAccountBook': getStore('activeAccountBook'),
   'init-user-classifies': getStore('init-user-classifies'),
   'userClassifies': getStore('userClassifies')
 }

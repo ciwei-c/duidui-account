@@ -1,0 +1,17 @@
+@import "../../../styles/color.scss";
+.dd-account__empty-tip {
+  position: fixed;
+  top: 30vh;
+  width: 100%;
+  &-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-slot {
+    margin-top: 24rpx;
+    text-align: center;
+    color: $--color-desc;
+    font-size: 24rpx;
+  }
+}

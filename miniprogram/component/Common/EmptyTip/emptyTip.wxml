@@ -1,0 +1,8 @@
+<view class="dd-account__empty-tip">
+  <view class="dd-account__empty-tip-image">
+    <image src="../../../assets/empty.png" mode="widthFix" style="width:{{width}};"></image>
+  </view>
+  <view class="dd-account__empty-tip-slot">
+    <slot></slot>
+  </view>
+</view>

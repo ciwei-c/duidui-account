@@ -1,11 +1,12 @@
-// pages/index/Statistics/statistics.js
+// component/Common/EmptyTip/emptyTip.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    tabHeight:{
-      type:String
+    width:{
+      type:String,
+      value:"30vw"
     }
   },
 

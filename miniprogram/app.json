@@ -22,6 +22,7 @@
     "dd-icon": "/component/Common/Icon/icon",
     "i-icon": "./iview/icon/index",
     "i-modal": "./iview/modal/index",
-    "dd-toast": "/component/Common/Toast/toast"
+    "dd-toast": "/component/Common/Toast/toast",
+    "dd-empty-tip": "/component/Common/EmptyTip/emptyTip"
   }
 }

@@ -1,4 +1,4 @@
-<dd-container-viewer tabHeight="120rpx">
+<dd-container-viewer tabHeight="{{tabHeight}}">
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>
   <view style="height:100px">pages/index/Home/s.wxml</view>

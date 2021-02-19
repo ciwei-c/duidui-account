@@ -1,9 +1,9 @@
 <view>
   <dd-navbar name="堆堆记账" back="{{false}}"></dd-navbar>
-  <home class="dd-account-home__view {{activeIndex === 0 ? 'dd-account-home__view--active' : '' }}"/>
-  <account-book class="dd-account-home__view {{activeIndex === 1 ? 'dd-account-home__view--active' : '' }}" />
-  <statistics class="dd-account-home__view {{activeIndex === 3 ? 'dd-account-home__view--active' : '' }}"/>
-  <my class="dd-account-home__view {{activeIndex === 4 ? 'dd-account-home__view--active' : '' }}"/>
+  <home class="dd-account-home__view {{activeIndex === 0 ? 'dd-account-home__view--active' : '' }}" visible="{{activeIndex === 0}}" tabHeight="120rpx"/>
+  <account-book class="dd-account-home__view {{activeIndex === 1 ? 'dd-account-home__view--active' : '' }}" visible="{{activeIndex === 1}}" tabHeight="120rpx" bind:getParent="getParent"/>
+  <statistics class="dd-account-home__view {{activeIndex === 3 ? 'dd-account-home__view--active' : '' }}" visible="{{activeIndex === 2}}" tabHeight="120rpx"/>
+  <my class="dd-account-home__view {{activeIndex === 4 ? 'dd-account-home__view--active' : '' }}" visible="{{activeIndex === 3}}" tabHeight="120rpx"/>
   <dd-tab-bar id="tabBar" activeIndex="{{activeIndex}}" tabMenus="{{tabMenus}}" centerMenuIndex="{{centerMenuIndex}}"
     bind:setActive="onSetActiveIndex" />
 </view>

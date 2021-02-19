@@ -7,8 +7,8 @@
     class="dd-account-navbar__action" 
     style="top:{{statusBarHeight}}px;line-height:{{menuButtonObject.height + (menuButtonObject.top - statusBarHeight) * 2}}px;"
   >
-    <dd-icon wx:if="{{back}}" type="back" size="40" bindtap="onBack"></dd-icon>
-    <dd-icon wx:if="{{home}}" type="home" size="40" bindtap="toHome"></dd-icon>
+    <dd-icon class="dd-account-navbar__action-icon" wx:if="{{back}}" type="back" size="40" bindtap="onBack"></dd-icon>
+    <dd-icon class="dd-account-navbar__action-icon" wx:if="{{home}}" type="home" size="40" bindtap="toHome"></dd-icon>
     <slot name="action"></slot>
   </view>
   <view 

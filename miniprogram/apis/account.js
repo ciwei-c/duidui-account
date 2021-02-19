@@ -27,7 +27,9 @@ export default {
     return request('accounts', (openid)=>{
       return {
         method:'add',
-        data
+        data:Object.assign(data, {
+          accountBook:getApp().$getStore("activeAccountBook")
+        })
       }
     })
   },
@@ -37,7 +39,8 @@ export default {
         method:'get',
         queryMethod:'where',
         queryData:Object.assign(data, {
-          _openid
+          _openid,
+          accountBook:getApp().$getStore("activeAccountBook")
         })
       }
     })

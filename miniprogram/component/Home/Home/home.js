@@ -8,7 +8,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    tabHeight:{
+      type:String
+    }
   },
   behaviors: [Behavior({
     ready() {
@@ -29,10 +31,12 @@ Component({
       App.$listener.on('onAddcount', () => {
         this.getAccounts()
       })
+      App.$listener.on('getAccounts', () => {
+        this.getAccounts()
+      })
       this.setData({
         date:parseTime(new Date())
       })
-      this.getAccounts()
     }
   },
   data: {

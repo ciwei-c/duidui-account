@@ -4,7 +4,7 @@
       <view style="display:flex;align-items:center;">
         <view class="dd-account-home-panel__header-date">
           <view>{{date}}</view>
-          <i-icon type="unfold"></i-icon>
+          <i-icon type="unfold"  class="dd-account-home-panel__header-date-icon"></i-icon>
         </view>
         <view class="dd-account-home-panel__header-types">
           <view class="dd-account-home-panel__header-types-outgoings">支出￥{{outgoings}}</view>
@@ -13,7 +13,10 @@
       </view>
     </picker>
   </view>
-  <dd-container-viewer tabHeight="120rpx" topHeight="{{topHeight}}" bind:refresh="onRefresh">
+  <dd-container-viewer tabHeight="{{tabHeight}}" topHeight="{{topHeight}}" bind:refresh="onRefresh">
+    <dd-empty-tip  wx:if="{{!accounts || !accounts.length || !topHeight}}">
+      <text>暂无记账，快去记一笔吧~</text>
+    </dd-empty-tip>
     <i-modal title="删除记录" visible="{{ modalVisible }}" actions="{{ actions }}" bind:click="handleModalClick">
       <view style="display:flex;align-items:center;justify-content:center">
         <view>删除后无法恢复</view>
@@ -24,7 +27,7 @@
         bind:delete="onDelete"
         bind:edit="onEdit"
         wx:for="{{accounts}}"
-        wx:key="{{index}}" 
+        wx:key="index" 
         item="{{item}}"
       />
     </view>

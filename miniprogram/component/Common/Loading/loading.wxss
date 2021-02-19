@@ -23,7 +23,7 @@
   width: 60rpx;
 }
 
-.dd-account__loading__wrap-icons view {
+.dd-account__loading__wrap-icons-pos {
   height: 28rpx;
   width: 28rpx;
   margin-bottom: 4rpx;
@@ -33,7 +33,7 @@
   overflow: hidden;
 }
 
-.dd-account__loading__wrap-icons view:nth-child(2n) {
+.dd-account__loading__wrap-icons-pos:nth-child(2n) {
   margin-left: 4rpx;
 }
 

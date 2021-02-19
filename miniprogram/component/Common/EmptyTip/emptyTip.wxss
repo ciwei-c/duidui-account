@@ -1,0 +1,18 @@
+.dd-account__empty-tip {
+  position: fixed;
+  top: 30vh;
+  width: 100%;
+}
+
+.dd-account__empty-tip-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-account__empty-tip-slot {
+  margin-top: 24rpx;
+  text-align: center;
+  color: #80848f;
+  font-size: 24rpx;
+}

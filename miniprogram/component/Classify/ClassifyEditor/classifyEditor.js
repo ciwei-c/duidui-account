@@ -75,7 +75,7 @@ Component({
       this.setData({
         loading:true
       })
-      let userClassifies = App.$getStore("userClassifies")
+      let userClassifies = App.globalData.userClassifies.classifies
       if(this.data.isAdd) {
         this.addClassify(userClassifies, {
           label:this.data.classifyLabel,

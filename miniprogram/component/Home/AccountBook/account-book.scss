@@ -1,0 +1,61 @@
+@import "../../../styles/color.scss";
+.dd-account__account-books {
+  &-item {
+    box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+    width: calc(100% - 40rpx);
+    border-radius: 4rpx;
+    margin-left: 20rpx;
+    margin-bottom: 40rpx;
+    &--active {
+      background-image: linear-gradient(to right, mix($--color-primary, #fff, 60%), $--color-primary);
+    }
+    &-hover {
+      opacity: 0.8;
+    }
+    &__name {
+      padding:30rpx 20rpx;
+      font-size: 32rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__footer {
+      padding:30rpx 20rpx;
+      margin:0 20rpx;
+      &-icon {
+        display: flex;
+        font-size: 24rpx;
+        align-items: center;
+      }
+    }
+  }
+  &-add {
+    text-align: center;
+    font-size: 30rpx;
+    padding: 20rpx 0;
+    margin-bottom: 40rpx;
+    &-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% - 40rpx);
+      border-radius: 4rpx;
+      margin-left: 20rpx;
+      padding: 20rpx 0;
+      box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+      &-icon {
+        color: $--color-major;
+        background-color: $--color-primary;
+        height: 36rpx;
+        width: 36rpx;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &-hover {
+      opacity: 0.8;
+    }
+  }
+}

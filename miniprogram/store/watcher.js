@@ -3,7 +3,7 @@ class Observe {
     if(!isObject(data)) return
 
     for (let k in data) {
-      if(key && key.split(".")[0] === k) {
+      if((key && key.split(".")[0] === k) || !key) {
         let val = data[k]
         let dep = new Dep()
         if(options.deep) {
@@ -21,7 +21,7 @@ class Observe {
             }
             val = newValue
             if(options.deep) {
-              new Observe(newValue, options, key.split(".").slice(1).join("."))
+              new Observe(newValue, options, key.split(".").slice(1).join(".")) 
             }
             dep.notify()
           }

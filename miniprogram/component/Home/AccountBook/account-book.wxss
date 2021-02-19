@@ -1,1 +1,67 @@
-/* pages/index/AccountBook/account-book.wxss */
+.dd-account__account-books-item {
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  width: calc(100% - 40rpx);
+  border-radius: 4rpx;
+  margin-left: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.dd-account__account-books-item--active {
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+}
+
+.dd-account__account-books-item-hover {
+  opacity: 0.8;
+}
+
+.dd-account__account-books-item__name {
+  padding: 30rpx 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dd-account__account-books-item__footer {
+  padding: 30rpx 20rpx;
+  margin: 0 20rpx;
+}
+
+.dd-account__account-books-item__footer-icon {
+  display: flex;
+  font-size: 24rpx;
+  align-items: center;
+}
+
+.dd-account__account-books-add {
+  text-align: center;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  margin-bottom: 40rpx;
+}
+
+.dd-account__account-books-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 40rpx);
+  border-radius: 4rpx;
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+}
+
+.dd-account__account-books-add-btn-icon {
+  color: #1c2438;
+  background-color: #febb2e;
+  height: 36rpx;
+  width: 36rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-account__account-books-add-hover {
+  opacity: 0.8;
+}

@@ -1,13 +1,16 @@
 
 import {tabMenus} from "../../utils/constant"
 import classifyBehavior from "../../behavior/classify"
+import accountBookBehavior from "../../behavior/accountBook"
 Component({
   lifetimes:{
     attached() {
-      this.getUserClassifies()
+      getApp().$listener.on("getUserClassifies", ()=>{
+        this.getUserClassifies()
+      })
     }
   },
-  behaviors:[classifyBehavior],
+  behaviors:[classifyBehavior, accountBookBehavior],
   data: {
     centerMenuIndex:(()=>{
       return ( tabMenus.length - 1 ) / 2
@@ -16,6 +19,9 @@ Component({
     tabMenus
   },
   methods:{
+    getParent(e){
+      e.detail(this)
+    },
     onSetActiveIndex(e){
       if(e.detail === this.data.centerMenuIndex){
         wx.navigateTo({

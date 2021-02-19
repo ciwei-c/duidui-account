@@ -1,13 +1,24 @@
-<dd-container-viewer tabHeight="120rpx">
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
-  <view style="height:100px">pages/index/Home/account.wxml</view>
+<dd-container-viewer tabHeight="{{tabHeight}}" bind:refresh="onRefresh">
+  <view class="dd-account__account-books-add" style="top:{{navHeight}}px">
+    <view hover-class="dd-account__account-books-add-hover" class="dd-account__account-books-add-btn">
+      <view class="dd-account__account-books-add-btn-icon">
+        <dd-icon type="add" size="24"></dd-icon>
+      </view>
+      <text style="margin-left:20rpx">新增账本</text>
+    </view>
+  </view>
+  <view class="dd-account__account-books">
+    <view class="dd-account__account-books-item dd-account__account-books-item--{{activeAccountBook === item._id ? 'active' : ''}}" wx:for="{{accountBooks}}" wx:key="index" hover-class="dd-account__account-books-item-hover">
+      <view class="dd-account__account-books-item__name" bindtap="onChooseAccountBook" data-accountBook="{{item}}">
+        <text>{{item.bookName}}</text>
+        <i-icon type="enter" />
+      </view>
+      <view class="dd-account__account-books-item__footer">
+        <view class="dd-account__account-books-item__footer-icon">
+          <i-icon type="setup_fill" style="margin-right:10rpx"/>
+          <text>设置</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </dd-container-viewer>

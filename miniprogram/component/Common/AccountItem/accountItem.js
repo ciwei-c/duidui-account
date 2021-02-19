@@ -13,9 +13,9 @@ Component({
   },
   lifetimes: {
     attached() {
-      new App.$watcher(App.$store, () => {
+      new App.$watcher(App.globalData.userClassifies, () => {
         this.setClassify()
-      }, 'userClassifies')
+      })
       this.setData({
         time: parseTime(this.data.item.time, "{h}:{f}"),
         remark: this.data.item.remark,
@@ -41,8 +41,8 @@ Component({
       this.triggerEvent("delete", this.data.item)
     },
     setClassify() {
-      if (App.$getStore("userClassifies")) {
-        let classifies = App.$getStore("userClassifies")
+      if(App.globalData.userClassifies.classifies) {
+        let classifies = App.globalData.userClassifies.classifies
         let idx = classifies.findIndex(v =>
           v.classifyId === this.data.item.classifyId
         )

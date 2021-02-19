@@ -54,7 +54,10 @@ App({
     this.$toast = $toast
     this.$setStore = setStore
     this.$getStore = getStore
-    
+    this.globalData.userClassifies = {
+      classifies:[]
+    }
+
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
     wx.getSystemInfo({
       success: res => {

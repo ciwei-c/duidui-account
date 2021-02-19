@@ -6,7 +6,7 @@ export default Behavior({
     updateClassifies(userClassifies, cb){
       App.$apis.classify.updateUserClassifies({classifies:userClassifies}).then(()=>{
         cb(true)
-        App.$setStore("userClassifies", [].concat(userClassifies))
+        App.globalData.userClassifies.classifies = [].concat(userClassifies)
       }).catch(()=>{
         cb(false)
       })
@@ -26,7 +26,8 @@ export default Behavior({
     getUserClassifies(){
       App.$apis.classify.getUserClassifies().then(res=>{
         if(res.data.length) {
-          App.$setStore("userClassifies", res.data[0].classifies)
+          App.globalData.userClassifies.classifies = res.data[0].classifies
+          App.globalData.userClassifies._id = res.data[0]._id
         } else {
           this.createUserClassifies()
         }
@@ -39,8 +40,7 @@ export default Behavior({
             classifies:defaultClassifies.map(v=>{
               return this.generateClassify(v)
             }),
-            _id:openid + '_id',
-            accountBook:'default'
+            accountBook: App.$getStore('activeAccountBook')
           }
         ).then(()=>{
           this.getUserClassifies()

@@ -20,7 +20,7 @@ $--icon-space: 4rpx;
       transform: translate(-50%, -50%);
       height: $--icon-size + $--icon-size + $--icon-space;
       width: $--icon-size + $--icon-size + $--icon-space;
-      view {
+      &-pos {
         height: $--icon-size;
         width: $--icon-size;
         &:nth-child(2n){

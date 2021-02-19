@@ -6,7 +6,7 @@
   left: 0;
   z-index: 10;
   flex-shrink: 0;
-  background-color: #febb2e;
+  background-image: linear-gradient(to right, #fed682, #febb2e);
 }
 
 .dd-account-navbar__title {
@@ -28,6 +28,6 @@
   left: 30rpx;
 }
 
-.dd-account-navbar__action dd-icon {
+.dd-account-navbar__action-icon {
   margin-right: 10rpx;
 }

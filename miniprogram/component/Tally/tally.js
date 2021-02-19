@@ -18,9 +18,12 @@ Component({
   behaviors:[classifyBehavior],
   lifetimes: {
     attached() {
-      this.watcher = new App.$watcher(store, (v)=>{
+      new App.$watcher(App.globalData.userClassifies, (v) => {
         this.setClassifies()
-      }, "userClassifies")
+      })
+      setTimeout(() => {
+        data.a = 2
+      }, 3000);
       this.setClassifies()
       setTimeout(() => {
         if(this.data.editorData._id){
@@ -36,9 +39,9 @@ Component({
   },
   methods:{
     setClassifies(){
-      if (App.$getStore("userClassifies")) {
+      if (App.globalData.userClassifies.classifies) {
         this.setData({
-          allClassifies: App.$getStore("userClassifies")
+          allClassifies: App.globalData.userClassifies.classifies
         })
         this.getAccountType({ detail: this.data.type })
       }

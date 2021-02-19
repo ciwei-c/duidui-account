@@ -1,6 +1,6 @@
 .dd-account-home-panel__header {
   font-size: 28rpx;
-  background-color: #febb2e;
+  background-image: linear-gradient(to right, #fed682, #febb2e);
   z-index: 999;
   position: fixed;
   padding: 20rpx;
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.dd-account-home-panel__header-date i-icon {
+.dd-account-home-panel__header-date-icon {
   margin-left: 10rpx;
   margin-top: -4rpx;
 }
@@ -27,6 +27,6 @@
   align-items: center;
 }
 
-.dd-account-home-panel__header-types view {
+.dd-account-home-panel__header-types-outgoings, .dd-account-home-panel__header-types-income {
   margin-left: 20rpx;
 }
