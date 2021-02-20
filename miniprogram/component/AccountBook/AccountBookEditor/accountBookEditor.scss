@@ -1,0 +1,18 @@
+@import "../../../styles/color.scss";
+
+.dd-account__account-book-editor {
+  &__btn {
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    padding: 16rpx;
+    font-size: 32rpx;
+    box-shadow: $--box-shadow;
+    background-image: $--background-image-primary;
+    border-radius: 4rpx;
+    margin-top: 40rpx;
+    &-hover {
+      opacity: 0.8;
+    }
+  }
+}

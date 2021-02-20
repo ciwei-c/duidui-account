@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "account-book-editor":"/component/AccountBook/AccountBookEditor/accountBookEditor"
+  }
+}

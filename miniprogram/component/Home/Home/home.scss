@@ -2,7 +2,7 @@
 .dd-account-home-panel {
   &__header {
     font-size: 28rpx;
-    background-image: linear-gradient(to right,  mix($--color-primary, #fff, 60%), $--color-primary);
+    background-image: $--background-image-primary;
     z-index: 999;
     position: fixed;
     padding: 20rpx;

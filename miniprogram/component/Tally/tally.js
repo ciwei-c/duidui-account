@@ -21,9 +21,6 @@ Component({
       new App.$watcher(App.globalData.userClassifies, (v) => {
         this.setClassifies()
       })
-      setTimeout(() => {
-        data.a = 2
-      }, 3000);
       this.setClassifies()
       setTimeout(() => {
         if(this.data.editorData._id){

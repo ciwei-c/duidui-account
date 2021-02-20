@@ -1,0 +1,14 @@
+.dd-account__account-book-setting__delete {
+  text-align: center;
+  padding: 20rpx;
+  font-size: 28rpx;
+  width: 80vw;
+  border-radius: 4rpx;
+  margin: auto;
+  margin-top: 40rpx;
+  color: #ed3f14;
+}
+
+.dd-account__account-book-setting__delete-hover {
+  opacity: 0.8;
+}

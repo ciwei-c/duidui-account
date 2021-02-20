@@ -1,0 +1,17 @@
+<view class="dd-account__account-book-setting">
+  <dd-navbar name="设置账本"></dd-navbar>
+  <dd-container-viewer refresh="{{false}}">
+    <i-cell-group>
+      <i-cell value="{{accountBookData.bookName}}" title="账本名称" is-link bindclick="onEditBookName"></i-cell>
+    </i-cell-group>
+    <view class="dd-account__account-book-setting__delete" hover-class="dd-account__account-book-setting__delete-hover" bindtap="onDeleteAccount" wx:if="{{enableDelete}}">
+      删除并清空账单
+    </view>
+    <dd-confirm title="删除账本" visible="{{ confirmVisible }}" bind:click="handleConfirmClick" wx:if="{{enableDelete && !loading}}">
+      <view style="display:flex;align-items:center;justify-content:center;padding:20rpx">
+        <view>删除后将清空账本下的记账记录，是否确认删除</view>
+      </view>
+    </dd-confirm>
+    <dd-loading loading="{{loading}}"></dd-loading>
+  </dd-container-viewer>
+</view>

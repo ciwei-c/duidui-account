@@ -57,7 +57,7 @@
   height: 36rpx;
   width: 36rpx;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }

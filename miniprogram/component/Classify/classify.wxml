@@ -13,7 +13,7 @@
       </view>
     </view>
   </dd-container-viewer>
-  <i-modal title="删除分类" visible="{{ modalVisible }}" actions="{{ actions }}" bind:click="handleModalClick">
+  <dd-confirm title="删除分类" visible="{{ modalVisible }}" bind:click="handleModalClick">
     <view style="display:flex;align-items:center;justify-content:center">
       <view>
         ({{activeClassify && activeClassify.label}}
@@ -21,7 +21,7 @@
       <dd-icon type="{{activeClassify.icon}}" size="24"></dd-icon>
       <view>)删除后无法恢复哦</view>
     </view>
-  </i-modal>
+  </dd-confirm>
   <view class="dd-account-classify__btn">
     <view class="dd-account-classify__btn-edit" hover-class="dd-account-classify__btn-hover" bindtap="onEditClassify">
       <i-icon size="{{24}}" type="editor" />

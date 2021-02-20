@@ -27,13 +27,16 @@ Component({
    * 组件的初始数据
    */
   lifetimes: {
+    detached(){
+      App.$listener.remove('onAddcount', this._getAccounts)
+      App.$listener.remove('getAccounts', this._getAccounts)
+    },
     attached() {
-      App.$listener.on('onAddcount', () => {
+      this._getAccounts = () => {
         this.getAccounts()
-      })
-      App.$listener.on('getAccounts', () => {
-        this.getAccounts()
-      })
+      }
+      App.$listener.on('onAddcount', this._getAccounts)
+      App.$listener.on('getAccounts', this._getAccounts)
       this.setData({
         date:parseTime(new Date())
       })
@@ -44,16 +47,6 @@ Component({
     income: "0.00",
     date: "",
     accounts: [],
-    
-    actions: [{
-        name: '取消'
-      },
-      {
-        name: '删除',
-        color: '#ed3f14',
-        loading: false
-      }
-    ],
     modalVisible:false
   },
 

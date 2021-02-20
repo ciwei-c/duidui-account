@@ -1,7 +1,7 @@
 // pages/index/AccountBook/account-book.js
 const App = getApp()
-import accountBookBehavior from "../../../behavior/accountBook"
-import store from "../../../store/index"
+import accountBookBehavior from "../../behavior/accountBook"
+import store from "../../store/index"
 Component({
   /**
    * 组件的属性列表
@@ -16,16 +16,22 @@ Component({
     }
   },
   behaviors: [accountBookBehavior, Behavior({
-    ready() {
-    }
+    ready() {}
   })],
   lifetimes:{
+    detached(){
+      App.$listener.remove('refreshAccountBook', this._refreshAccountBook)
+    },
     attached(){
       new App.$watcher(store, (v)=>{
         this.setData({
           activeAccountBook:v
         })
-      },'activeAccountBook')
+      }, 'activeAccountBook')
+      this._refreshAccountBook = (emit) => {
+        this.getBooks(emit)
+      },
+      App.$listener.on('refreshAccountBook', this._refreshAccountBook)
       this.getBooks()
       this.setData({
         navHeight: App.globalData.navHeight
@@ -46,6 +52,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onAddAccountBook(){
+      wx.navigateTo({
+        url: '/pages/accountBookEditor/accountBookEditor',
+      })
+    },
     onChooseAccountBook(e){
       let accountBook = e.currentTarget.dataset.accountbook
       getApp().$setStore('activeAccountBook', accountBook._id)
@@ -58,20 +69,28 @@ Component({
         })
       })
     },
-    getBooks(){
+    getBooks(emit = true){
       return new Promise(res=>{
         this.getAccountBooks((ret)=>{
           if(ret === false){
             res(false)
-          }else {
+          } else {
             this.setData({
               accountBooks:ret
             })
-            getApp().$listener.emit("getAccounts")
-            getApp().$listener.emit("getUserClassifies")
+            if(emit) {
+              getApp().$listener.emit("getAccounts")
+              getApp().$listener.emit("getUserClassifies")
+            }
             res(true)
           }
         })
+      })
+    },
+    onSettingAccountBook(e){
+      let accountBook = e.currentTarget.dataset.accountbook
+      wx.navigateTo({
+        url: `/pages/accountBookSetting/accountBookSetting?accountBookId=${accountBook._id}&enableDelete=${this.data.accountBooks.length > 1}`,
       })
     },
     onRefresh(e){

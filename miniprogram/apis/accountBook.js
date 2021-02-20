@@ -12,10 +12,35 @@ export default {
       }
     })
   },
+  getAccountBook(data){
+    return request('account-books', ()=>{
+      return {
+        method:'get',
+        queryMethod:"doc",
+        queryData:{
+          _id:data.accountBookId
+        }
+      }
+    })
+  },
   createAccountBook(data){
     return request('account-books', ()=>{
       return {
         method:'add',
+        data
+      }
+    })
+  },
+  updateAccountBook(data){
+    let accountBookId = data.accountBookId
+    delete data.accountBookId
+    return request('account-books', ()=>{
+      return {
+        method:'update',
+        queryMethod:'doc',
+        queryData:{
+          _id:accountBookId
+        },
         data
       }
     })

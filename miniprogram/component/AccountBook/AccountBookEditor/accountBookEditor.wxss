@@ -1,0 +1,15 @@
+.dd-account__account-book-editor__btn {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+  padding: 16rpx;
+  font-size: 32rpx;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+  border-radius: 4rpx;
+  margin-top: 40rpx;
+}
+
+.dd-account__account-book-editor__btn-hover {
+  opacity: 0.8;
+}

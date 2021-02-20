@@ -1,5 +1,5 @@
 <dd-container-viewer tabHeight="{{tabHeight}}" bind:refresh="onRefresh">
-  <view class="dd-account__account-books-add" style="top:{{navHeight}}px">
+  <view class="dd-account__account-books-add" style="top:{{navHeight}}px" bindtap="onAddAccountBook">
     <view hover-class="dd-account__account-books-add-hover" class="dd-account__account-books-add-btn">
       <view class="dd-account__account-books-add-btn-icon">
         <dd-icon type="add" size="24"></dd-icon>
@@ -8,13 +8,13 @@
     </view>
   </view>
   <view class="dd-account__account-books">
-    <view class="dd-account__account-books-item dd-account__account-books-item--{{activeAccountBook === item._id ? 'active' : ''}}" wx:for="{{accountBooks}}" wx:key="index" hover-class="dd-account__account-books-item-hover">
-      <view class="dd-account__account-books-item__name" bindtap="onChooseAccountBook" data-accountBook="{{item}}">
+    <view class="dd-account__account-books-item dd-account__account-books-item--{{activeAccountBook === item._id ? 'active' : ''}}" wx:for="{{accountBooks}}" wx:key="index" hover-class="dd-account__account-books-item-hover" bindtap="onChooseAccountBook" data-accountBook="{{item}}">
+      <view class="dd-account__account-books-item__name">
         <text>{{item.bookName}}</text>
         <i-icon type="enter" />
       </view>
       <view class="dd-account__account-books-item__footer">
-        <view class="dd-account__account-books-item__footer-icon">
+        <view class="dd-account__account-books-item__footer-icon" catchtap="onSettingAccountBook" data-accountBook="{{item}}">
           <i-icon type="setup_fill" style="margin-right:10rpx"/>
           <text>设置</text>
         </view>

@@ -1,13 +1,13 @@
-@import "../../../styles/color.scss";
+@import "../../styles/color.scss";
 .dd-account__account-books {
   &-item {
-    box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+    box-shadow: $--box-shadow;
     width: calc(100% - 40rpx);
     border-radius: 4rpx;
     margin-left: 20rpx;
     margin-bottom: 40rpx;
     &--active {
-      background-image: linear-gradient(to right, mix($--color-primary, #fff, 60%), $--color-primary);
+      background-image: $--background-image-primary;
     }
     &-hover {
       opacity: 0.8;
@@ -42,14 +42,14 @@
       border-radius: 4rpx;
       margin-left: 20rpx;
       padding: 20rpx 0;
-      box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+      box-shadow: $--box-shadow;
       &-icon {
         color: $--color-major;
         background-color: $--color-primary;
         height: 36rpx;
         width: 36rpx;
         border-radius: 50%;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
       }

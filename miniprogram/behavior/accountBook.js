@@ -2,6 +2,7 @@ const App = getApp()
 export default Behavior({
   methods:{
     getAccountBooks(cb){
+      cb = cb || (() => {})
       App.$apis.accountBook.getAccountBooks().then(res=>{
         if(res.data.length) {
           if(!App.$getStore('activeAccountBook')){
@@ -22,9 +23,21 @@ export default Behavior({
         cb(false)
       })
     },
+    updateAccountBook(data){
+      return new Promise(res=>{
+        App.$apis.accountBook.updateAccountBook(data).then(()=>{
+          res()
+        })
+      })
+    },
     createAccountBook(data, cb){
-      App.$apis.accountBook.createAccountBook(data).then(()=>{
-        this.getAccountBooks(cb)
+      return new Promise(res=>{
+        App.$apis.accountBook.createAccountBook(data).then(()=>{
+          if(cb){
+            this.getAccountBooks(cb)
+          }
+          res()
+        })
       })
     }
   }

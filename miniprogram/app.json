@@ -4,7 +4,9 @@
     "pages/index/index",
     "pages/tally/tally",
     "pages/classify/classify",
-    "pages/classifyEditor/classifyEditor"
+    "pages/classifyEditor/classifyEditor",
+    "pages/accountBookEditor/accountBookEditor",
+    "pages/accountBookSetting/accountBookSetting"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -20,6 +22,7 @@
     "dd-loading": "/component/Common/Loading/loading",
     "dd-container-viewer": "/component/Common/ContainerViewer/containerViewer",
     "dd-icon": "/component/Common/Icon/icon",
+    "dd-confirm": "/component/Common/Confirm/confirm",
     "i-icon": "./iview/icon/index",
     "i-modal": "./iview/modal/index",
     "dd-toast": "/component/Common/Toast/toast",

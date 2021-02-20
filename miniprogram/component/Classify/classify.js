@@ -8,15 +8,6 @@ Component({
     }
   },
   data: {
-    actions: [{
-        name: '取消'
-      },
-      {
-        name: '删除',
-        color: '#ed3f14',
-        loading: false
-      }
-    ],
     modalVisible: false,
     classifies: [],
     loading: false,

@@ -7,7 +7,7 @@
   left: 0;
   z-index: 10;
   flex-shrink: 0;
-  background-image: linear-gradient(to right, mix($--color-primary, #fff, 60%), $--color-primary);
+  background-image: $--background-image-primary;
   &__title {
     color: $--color-major;
     position: absolute;

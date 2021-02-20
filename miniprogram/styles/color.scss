@@ -12,3 +12,6 @@ $--color-warning:#ff9900;
 $--color-border:#dddee1;
 $--color-divider:#e9eaec;
 $--color-hover:#f8f8f9;
+$--box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+
+$--background-image-primary: linear-gradient(to right, mix($--color-primary, #fff, 60%), $--color-primary)
