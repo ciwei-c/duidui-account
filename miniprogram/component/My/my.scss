@@ -1,0 +1,39 @@
+@import "../../styles/color.scss";
+.dd-account-my-panel {
+  &__header {
+    font-size: 28rpx;
+    background-image: $--background-image-primary;
+    z-index: 999;
+    position: fixed;
+    padding: 40rpx 0;
+    width: 100%;
+    left: 0;
+    &-user {
+      width: 80vw;
+      margin: auto;
+      font-size: 28rpx;
+      &-avatar {
+        margin-right: 20rpx;
+      }
+    }
+    &-auth {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80vw;
+      margin: auto;
+      &-tip {
+        font-size: 28rpx;
+      }
+      &-btn {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

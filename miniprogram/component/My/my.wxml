@@ -1,13 +1,18 @@
-<dd-container-viewer tabHeight="{{tabHeight}}">
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-  <view style="height:100px">pages/index/Home/my.wxml</view>
-</dd-container-viewer>
+<view>
+  <view class="dd-account-my-panel__header" style="top:{{navHeight}}px">
+    <view class="dd-account-my-panel__header-auth" wx:if="{{!authed}}">
+      <view style="display:flex;align-items:center">
+        <i-avatar src="../../assets/unknow-user.png" size="large" style="margin-right:20rpx"></i-avatar>
+        <text class="dd-account-my-panel__header-auth-tip">微信授权头像和昵称</text>
+      </view>
+      <i-icon type="enter"></i-icon>
+      <button class="dd-account-my-panel__header-auth-btn" type='primary' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>授权登录</button>
+    </view>
+    <view class="dd-account-my-panel__header-user" wx:if="{{authed}}">
+      <i-avatar class="dd-account-my-panel__header-user-avatar" src="{{userInfo && userInfo.avatarUrl}}" size="large"></i-avatar>
+      <text>{{userInfo && userInfo.nickName}}</text>
+    </view>
+  </view>
+  <dd-container-viewer tabHeight="{{tabHeight}}" topHeight="{{topHeight}}">
+  </dd-container-viewer>
+</view>

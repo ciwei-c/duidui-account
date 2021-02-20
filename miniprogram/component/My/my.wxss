@@ -1,1 +1,41 @@
-/* pages/index/My/my.wxss */
+.dd-account-my-panel__header {
+  font-size: 28rpx;
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+  z-index: 999;
+  position: fixed;
+  padding: 40rpx 0;
+  width: 100%;
+  left: 0;
+}
+
+.dd-account-my-panel__header-user {
+  width: 80vw;
+  margin: auto;
+  font-size: 28rpx;
+}
+
+.dd-account-my-panel__header-user-avatar {
+  margin-right: 20rpx;
+}
+
+.dd-account-my-panel__header-auth {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  margin: auto;
+}
+
+.dd-account-my-panel__header-auth-tip {
+  font-size: 28rpx;
+}
+
+.dd-account-my-panel__header-auth-btn {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

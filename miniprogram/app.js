@@ -6,16 +6,30 @@ import $toast from "/component/Common/Toast/$toast"
 App({
   getUserInfo() {
     return new Promise(res => {
-      if (this.userInfo) {
-        res(this.userInfo)
-      } else {
-        wx.getUserInfo({
-          success: ret => {
-            this.userInfo = ret
-            res(this.userInfo)
-          }
-        })
-      }
+      wx.getUserInfo({
+        success: ret => {
+          this.userInfo = ret.userInfo
+          res(this.userInfo)
+        },
+        fail:ret => {
+          console.log(ret)
+        }
+      })
+    })
+  },
+  getAuthed(){
+    return new Promise(resolve=>{
+      wx.getSetting({
+        success: (res) => {
+          if (res.authSetting['scope.userInfo']) {
+            resolve(true)
+            console.log("用户授权了");
+          } else {
+            resolve(false)
+            console.log("用户没有授权");
+          }
+        }
+      });
     })
   },
   getAppId() {
@@ -46,6 +60,7 @@ App({
         traceUser: true,
       })
     }
+    
     this.globalData = {}
     this.$listener = $listener
     this.$apis = apis
