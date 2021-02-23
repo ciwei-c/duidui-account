@@ -1,0 +1,21 @@
+.dd-date-picker__mask {
+  height: 100vh;
+  position: fixed;
+  z-index: 9998;
+  width: 100vw;
+  left: 0;
+  transition: background 0.3s;
+  top: 0;
+  background: rgba(0, 0, 0, 0);
+}
+
+.dd-date-picker__panel {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: -100vh;
+  transition: bottom 0.3s;
+  background: #fff;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+}

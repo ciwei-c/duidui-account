@@ -47,6 +47,10 @@
   padding: 30rpx 20rpx;
 }
 
+.dd-account-item__info-last {
+  border-bottom: 0 !important;
+}
+
 .dd-account-item__info-label {
   font-size: 26rpx;
 }

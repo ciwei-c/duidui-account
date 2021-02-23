@@ -10,11 +10,11 @@
       >{{item === "income" ? "收入" : "支出"}}</view>
     </view>
     <view class="dd-account__calculator-pickbar__date">
-      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <dd-account-date-picker value="{{date}}" bindchange="bindDateChange">
         <view class="picker">
           {{date}}
         </view>
-      </picker>
+      </dd-account-date-picker>
     </view>
   </view>
   <view class="dd-account__calculator-topbar">

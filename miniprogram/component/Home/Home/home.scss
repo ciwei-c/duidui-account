@@ -1,5 +1,32 @@
 @import "../../../styles/color.scss";
 .dd-account-home-panel {
+  &__list {
+    transform: translateY(20rpx);
+    width: 90vw;
+    border-radius: 10rpx;
+    margin: auto;
+    box-shadow: $--box-shadow;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20rpx 0;
+      background: $--color-hover;
+      font-size: 28rpx;
+      &-date {
+        display: flex;
+        align-items: center;
+        margin-left: 20rpx;
+      }
+      &-amount {
+        display: flex;
+        align-items: center;
+        margin-right: 20rpx;
+      }
+    }
+  }
   &__header {
     font-size: 28rpx;
     background-image: $--background-image-primary;
@@ -9,10 +36,23 @@
     width: 100%;
     left: 0;
     top: 0;
+    &-range-pick {
+      display: flex;
+      align-items: center;
+      font-size: 28rpx;
+      margin-bottom: 10rpx;
+      transition: all 0.3s;
+      &-active {
+        background: rgba(#fff, 0.4);
+      }
+      &-day,&-month {
+        padding:8rpx 10rpx;
+        border-radius: 8rpx;
+      }
+    }
     &-date {
       display: flex;
-      background: rgba(#fff, 0.2);
-      padding: 10rpx 20rpx;
+      padding: 10rpx;
       border-radius: 8rpx;
       align-items: center;
       &-icon {

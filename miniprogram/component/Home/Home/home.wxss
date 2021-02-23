@@ -1,3 +1,34 @@
+.dd-account-home-panel__list {
+  transform: translateY(20rpx);
+  width: 90vw;
+  border-radius: 10rpx;
+  margin: auto;
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.dd-account-home-panel__list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  background: #f8f8f9;
+  font-size: 28rpx;
+}
+
+.dd-account-home-panel__list-header-date {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.dd-account-home-panel__list-header-amount {
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
 .dd-account-home-panel__header {
   font-size: 28rpx;
   background-image: linear-gradient(to right, #fed682, #febb2e);
@@ -9,10 +40,26 @@
   top: 0;
 }
 
+.dd-account-home-panel__header-range-pick {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  transition: all 0.3s;
+}
+
+.dd-account-home-panel__header-range-pick-active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dd-account-home-panel__header-range-pick-day, .dd-account-home-panel__header-range-pick-month {
+  padding: 8rpx 10rpx;
+  border-radius: 8rpx;
+}
+
 .dd-account-home-panel__header-date {
   display: flex;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10rpx 20rpx;
+  padding: 10rpx;
   border-radius: 8rpx;
   align-items: center;
 }

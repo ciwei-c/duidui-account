@@ -1,0 +1,39 @@
+@import "../../../../styles/color.scss";
+.dd-date-picker__days-panel {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    font-size: 32rpx;
+  }
+  &-dates {
+    font-size: 32rpx;
+    &-row {
+      display: flex;
+      height: 5.5vh;
+      align-items: center;
+    }
+    &-col {
+      flex: 1;
+      text-align: center;
+      &-active {
+        .dd-date-picker__days-panel-dates-col-cell {
+          box-shadow: $--box-shadow;
+          background-image: $--background-image-primary;
+        }
+      }
+      &-disabled {
+        color: $--color-disable;
+      }
+      &-cell {
+        height: 5vh;
+        width: 5vh;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<view class="dd-date-picker__days-panel">
+  <view class="dd-date-picker__days-panel-header">
+    <view class="dd-date-picker__days-panel-year">{{data.year}}年</view>
+    <view class="dd-date-picker__days-panel-month">{{data.month}}月</view>
+  </view>
+  <view class="dd-date-picker__days-panel-dates">
+    <view class="dd-date-picker__days-panel-dates-row" wx:for="{{renderDates}}" wx:key="index">
+      <view
+        class="dd-date-picker__days-panel-dates-col {{innerItem.disabled ? 'dd-date-picker__days-panel-dates-col-disabled' : ''}} {{innerItem.timestamp === value ? 'dd-date-picker__days-panel-dates-col-active' : ''}}"
+        data-data="{{innerItem}}"
+        wx:for="{{item}}"
+        wx:for-item="innerItem"
+        wx:for-index="innerIndex"
+        bindtap="onClickDateCol"
+      >
+        <view class="dd-date-picker__days-panel-dates-col-cell">
+          {{innerItem && innerItem.d}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="dd-date-picker">
+  <view bindtap="onShowPicker">
+    <slot></slot>
+  </view>
+  <view class="dd-date-picker__mask" wx:if="{{visible}}" style="background:rgba(0,0,0,{{opacity}})" bindtap="onHidePicker"></view>
+  <view class="dd-date-picker__panel" style="bottom:{{bottom}}" wx:if="{{visible}}">
+    <date-picker value="{{value}}" bindchange="bindDateChange" wx:if="{{visible && type === 'date'}}" visible="{{visible}}"/>
+  </view>
+</view>

@@ -137,7 +137,7 @@ Component({
     },
     bindDateChange(e){
       this.setData({
-        date: e.detail.value.split("-").join("/")
+        date: parseTime(e.detail)
       })
     },
     handleResult(addtion, key){

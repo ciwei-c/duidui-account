@@ -18,7 +18,8 @@ Component({
     },
     visible:{
       type:Boolean,
-      value:false
+      value:false,
+      observer:"onVisible"
     }
   },
   lifetimes:{
@@ -26,18 +27,6 @@ Component({
       this.setData({
         navHeight: App.globalData.navHeight
       })
-      new App.$watcher(this.data, (v)=>{
-        if(v && !this.data.topHeight){
-          setTimeout(() => {
-            this.createSelectorQuery().select(".dd-account-my-panel__header").boundingClientRect(v => {
-              console.log(v)
-              this.setData({
-                topHeight: `${v.height * 2 }rpx`,
-              })
-            }).exec()
-          });
-        }
-      }, 'visible')
       this.getUserInfo()
     }
   },
@@ -52,6 +41,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onVisible(v){
+      if(v && !this.data.topHeight){
+        setTimeout(() => {
+          this.createSelectorQuery().select(".dd-account-my-panel__header").boundingClientRect(v => {
+            this.setData({
+              topHeight: `${v.height * 2 }rpx`,
+            })
+          }).exec()
+        });
+      }
+    },
     getUserInfo(){
       App.getAuthed().then(authed=>{
         this.setData({

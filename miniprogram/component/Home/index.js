@@ -8,6 +8,11 @@ Component({
       getApp().$listener.on("getUserClassifies", ()=>{
         this.getUserClassifies()
       })
+      setTimeout(() => {
+        this.setData({
+          activeIndex:0
+        })
+      }, 500);
     }
   },
   behaviors:[classifyBehavior, accountBookBehavior],
@@ -15,7 +20,7 @@ Component({
     centerMenuIndex:(()=>{
       return ( tabMenus.length - 1 ) / 2
     })(),
-    activeIndex: 0,
+    activeIndex: -1,
     tabMenus
   },
   methods:{

@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "dd-account-item": "/component/Common/AccountItem/accountItem"
+    "dd-account-item": "/component/Common/AccountItem/accountItem",
+    "dd-account-date-picker": "/component/Common/DatePicker/datePicker"
   }
 }

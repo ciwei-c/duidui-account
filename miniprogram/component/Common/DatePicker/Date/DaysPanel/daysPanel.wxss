@@ -1,0 +1,40 @@
+.dd-date-picker__days-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  font-size: 32rpx;
+}
+
+.dd-date-picker__days-panel-dates {
+  font-size: 32rpx;
+}
+
+.dd-date-picker__days-panel-dates-row {
+  display: flex;
+  height: 5.5vh;
+  align-items: center;
+}
+
+.dd-date-picker__days-panel-dates-col {
+  flex: 1;
+  text-align: center;
+}
+
+.dd-date-picker__days-panel-dates-col-active .dd-date-picker__days-panel-dates-col-cell {
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+}
+
+.dd-date-picker__days-panel-dates-col-disabled {
+  color: #bbbec4;
+}
+
+.dd-date-picker__days-panel-dates-col-cell {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

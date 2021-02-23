@@ -1,7 +1,7 @@
 <view class="dd-account__account-book-editor">
   <dd-navbar name="{{isAdd ? '新增' : '编辑'}}账本"></dd-navbar>
   <dd-container-viewer refresh="{{false}}">
-    <i-input placeholder="请输入账本名称" value="{{bookName}}" bindchange="onChangeBookName"></i-input>
+    <i-input placeholder="请输入账本名称" value="{{bookName}}" bindchange="onChangeBookName" autofocus="{{true}}"></i-input>
     <view class="dd-account__account-book-editor__btn" hover-class="dd-account__account-book-editor__btn-hover" bindtap="onEditAccountBook">
       <text>确定</text>
     </view>

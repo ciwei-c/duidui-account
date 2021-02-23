@@ -1,7 +1,3 @@
-.page-container {
-  background: #ffffff;
-}
-
 .dd-account-home {
   position: relative;
 }

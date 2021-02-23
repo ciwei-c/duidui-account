@@ -1,4 +1,4 @@
-<view class="dd-account__loading" wx:if="{{loading}}">
+<view class="dd-account__loading" wx:if="{{loading}}" style="z-index:{{zIndex}}">
   <view class="dd-account__loading__wrap">
     <view class="dd-account__loading__wrap-icons">
       <view wx:for="{{['left-top','right-top','left-bottom','right-bottom']}}" wx:key="index"

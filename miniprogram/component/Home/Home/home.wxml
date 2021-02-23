@@ -1,20 +1,24 @@
 <view>
   <view class="dd-account-home-panel__header" style="top:{{navHeight}}px">
-    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="dd-account-home-panel__header-range-pick">
+      <view data-data="day" bindtap="onChangeRange" class="dd-account-home-panel__header-range-pick-day {{range === 'day' ? 'dd-account-home-panel__header-range-pick-active' : ''}}">按日查看</view>
+      <view data-data="month" bindtap="onChangeRange" class="dd-account-home-panel__header-range-pick-month {{range === 'month' ? 'dd-account-home-panel__header-range-pick-active' : ''}}">按月查看</view>
+    </view>
+    <dd-account-date-picker value="{{date}}" bindchange="bindDateChange">
       <view style="display:flex;align-items:center;">
         <view class="dd-account-home-panel__header-date">
-          <view>{{date}}</view>
+          <view>{{range === 'day' ? date : dateForMonth}}</view>
           <i-icon type="unfold"  class="dd-account-home-panel__header-date-icon"></i-icon>
         </view>
         <view class="dd-account-home-panel__header-types">
-          <view class="dd-account-home-panel__header-types-outgoings">支出￥{{outgoings}}</view>
-          <view class="dd-account-home-panel__header-types-income">收入￥{{income}}</view>
+          <view class="dd-account-home-panel__header-types-outgoings">总支出￥{{outgoings}}</view>
+          <view class="dd-account-home-panel__header-types-income">总收入￥{{income}}</view>
         </view>
       </view>
-    </picker>
+    </dd-account-date-picker>
   </view>
   <dd-container-viewer tabHeight="{{tabHeight}}" topHeight="{{topHeight}}" bind:refresh="onRefresh">
-    <dd-empty-tip  wx:if="{{!accounts || !accounts.length || !topHeight}}">
+    <dd-empty-tip wx:if="{{!accounts || !accounts.length || !topHeight}}">
       <text>暂无记账，快去记一笔吧~</text>
     </dd-empty-tip>
     <dd-confirm title="删除记录" visible="{{ modalVisible }}" bind:click="handleModalClick">
@@ -22,14 +26,30 @@
         <view>删除后无法恢复</view>
       </view>
     </dd-confirm>
-    <view class="dd-account-home-panel__list">
-      <dd-account-item
-        bind:delete="onDelete"
-        bind:edit="onEdit"
-        wx:for="{{accounts}}"
-        wx:key="index" 
-        item="{{item}}"
-      />
+    <view wx:for="{{accounts}}" wx:key="index" wx:if="{{accounts.length}}">
+      <view class="dd-account-home-panel__list">
+        <view class="dd-account-home-panel__list-header" wx:if="{{accounts.length > 1}}">
+          <view class="dd-account-home-panel__list-header-date">
+            <view style="margin-right:20rpx">{{item.date}}</view>
+            <view>{{item.week}}</view>
+          </view>
+          <view class="dd-account-home-panel__list-header-amount">
+            <view style="margin-right:10rpx">支出￥{{item.outgoings}}</view>
+            <view>收入￥{{item.income}}</view>
+          </view>
+        </view>
+        <dd-account-item
+          bind:delete="onDelete"
+          bind:edit="onEdit"
+          wx:for-item="innerItem"
+          wx:for-index="innerIndex"
+          wx:for="{{item.data}}"
+          wx:key="innerIndex" 
+          item="{{innerItem}}"
+          isLast="{{innerIndex === item.data.length - 1}}"
+        />
+      </view>
     </view>
   </dd-container-viewer>
+  <dd-loading loading="{{loading}}" zIndex="{{999}}"></dd-loading>
 </view>

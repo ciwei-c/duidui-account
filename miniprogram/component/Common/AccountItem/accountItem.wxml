@@ -3,7 +3,7 @@
     <view class="dd-account-item__icon">
       <dd-icon type="{{icon}}" size="{{50}}"></dd-icon>
     </view>
-    <view class="dd-account-item__info">
+    <view class="dd-account-item__info {{isLast ? 'dd-account-item__info-last' : ''}}">
       <view>
         <view class="dd-account-item__info-label">{{remark || label}}</view>
         <view class="dd-account-item__info-time">{{time}}</view>

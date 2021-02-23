@@ -7,6 +7,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    isLast:{
+      type: Boolean
+    },
     item: {
       type: Object
     }

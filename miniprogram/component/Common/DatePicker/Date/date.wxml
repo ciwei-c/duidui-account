@@ -1,0 +1,10 @@
+<view class="dd-date-picker__date" style="bottom:{{bottom}}">
+  <view class="dd-date-picker__date-week">
+    <view wx:for="{{weeks}}" class="dd-date-picker__date-week-item">{{item}}</view>
+  </view>
+  <scroll-view class="dd-date-picker__date-scroll-view" style="height:40vh;" scroll-y="{{true}}" bindscroll="onScroll" lower-threshold="{{panelHeight/2}}" bindscrolltoupper="onScrollUpper" bindscrolltolower="onScrollLower" scroll-top="{{scrollTop}}">
+    <view wx:for="{{panels}}" wx:key="index" style="width:100vw;min-width:100vw;height:100%">
+      <days-panel data="{{item}}" value="{{activeValue}}" bind:pick="onPickDate"></days-panel>
+    </view>
+  </scroll-view>
+</view>

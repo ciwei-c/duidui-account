@@ -3,12 +3,11 @@
 .dd-account__account-book-setting {
   &__delete {
     text-align: center;
+    position: fixed;
+    bottom: 0;
     padding: 20rpx;
     font-size: 28rpx;
-    width: 80vw;
-    border-radius: 4rpx;
-    margin: auto;
-    margin-top: 40rpx;
+    width: 100%;
     color: $--color-danger;
     &-hover {
       opacity: 0.8;
