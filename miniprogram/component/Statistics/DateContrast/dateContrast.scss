@@ -1,0 +1,36 @@
+@import "../../../styles/color.scss";
+.dd-account__date-contrast {
+  box-shadow: $--box-shadow;
+  width: 90vw;
+  margin: auto;
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32rpx;
+    height: 100rpx;
+    &__types {
+      margin-right: 20rpx;
+      display: flex;
+      align-items: center;
+      font-size: 28rpx;
+      &--active {
+        background-color: $--color-primary;
+      }
+      &-outgoings, &-income {
+        transition: all .3s;
+        border-radius: 8rpx;
+        padding: 10rpx 20rpx;
+        margin-right: 20rpx;
+      }
+    }
+  }
+}
+.dd-account__chart {
+  height: 30vh;
+  width: 100%;
+  &-bar {
+    height: 100%;
+    width: 100%;
+  }
+}

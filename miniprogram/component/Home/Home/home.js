@@ -182,6 +182,7 @@ Component({
       }
     },
     onDelete(e){
+      console.log(e)
       this.setData({
         modalVisible:true,
         deleteId:e.detail._id

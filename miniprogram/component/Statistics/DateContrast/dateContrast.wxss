@@ -1,0 +1,41 @@
+.dd-account__date-contrast {
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  width: 90vw;
+  margin: auto;
+}
+
+.dd-account__date-contrast-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  height: 100rpx;
+}
+
+.dd-account__date-contrast-header__types {
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.dd-account__date-contrast-header__types--active {
+  background-color: #febb2e;
+}
+
+.dd-account__date-contrast-header__types-outgoings, .dd-account__date-contrast-header__types-income {
+  transition: all .3s;
+  border-radius: 8rpx;
+  padding: 10rpx 20rpx;
+  margin-right: 20rpx;
+}
+
+.dd-account__chart {
+  height: 30vh;
+  width: 100%;
+}
+
+.dd-account__chart-bar {
+  height: 100%;
+  width: 100%;
+}

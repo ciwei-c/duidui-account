@@ -1,1 +1,9 @@
-/* pages/index/Statistics/statistics.wxss */
+.dd-account__chart {
+  height: 50vh;
+  width: 100%;
+}
+
+.dd-account__chart-bar {
+  height: 100%;
+  width: 100%;
+}

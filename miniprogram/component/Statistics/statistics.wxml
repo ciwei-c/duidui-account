@@ -1,3 +1,4 @@
-<dd-container-viewer tabHeight="{{tabHeight}}">
-  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+<dd-container-viewer tabHeight="{{tabHeight}}" refresh="{{false}}">
+  <view style="height:20rpx"></view>
+  <date-contrast visible="{{visible}}"/>
 </dd-container-viewer>

@@ -10,6 +10,7 @@ exports.main = async (event) => {
   let fn = event.fn
   let whereOptions = {
     accountBook:data.accountBook,
+    type: data.type,
     date: db.RegExp({
       regexp: data.date,
       options: 'i',
