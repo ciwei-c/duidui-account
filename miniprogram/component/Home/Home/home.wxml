@@ -1,13 +1,13 @@
 <view>
   <view class="dd-account-home-panel__header" style="top:{{navHeight}}px">
     <view class="dd-account-home-panel__header-range-pick">
-      <view data-data="day" bindtap="onChangeRange" class="dd-account-home-panel__header-range-pick-day {{range === 'day' ? 'dd-account-home-panel__header-range-pick-active' : ''}}">按日查看</view>
+      <view data-data="date" bindtap="onChangeRange" class="dd-account-home-panel__header-range-pick-date {{range === 'date' ? 'dd-account-home-panel__header-range-pick-active' : ''}}">按日查看</view>
       <view data-data="month" bindtap="onChangeRange" class="dd-account-home-panel__header-range-pick-month {{range === 'month' ? 'dd-account-home-panel__header-range-pick-active' : ''}}">按月查看</view>
     </view>
-    <dd-account-date-picker value="{{date}}" bindchange="bindDateChange">
+    <dd-account-date-picker value="{{date}}" bindchange="bindDateChange" type="{{range}}">
       <view style="display:flex;align-items:center;">
         <view class="dd-account-home-panel__header-date">
-          <view>{{range === 'day' ? date : dateForMonth}}</view>
+          <view>{{range === 'date' ? date : dateForMonth}}</view>
           <i-icon type="unfold"  class="dd-account-home-panel__header-date-icon"></i-icon>
         </view>
         <view class="dd-account-home-panel__header-types">
@@ -18,7 +18,7 @@
     </dd-account-date-picker>
   </view>
   <dd-container-viewer tabHeight="{{tabHeight}}" topHeight="{{topHeight}}" bind:refresh="onRefresh">
-    <dd-empty-tip wx:if="{{!accounts || !accounts.length || !topHeight}}">
+    <dd-empty-tip wx:if="{{emptyAccounts}}">
       <text>暂无记账，快去记一笔吧~</text>
     </dd-empty-tip>
     <dd-confirm title="删除记录" visible="{{ modalVisible }}" bind:click="handleModalClick">

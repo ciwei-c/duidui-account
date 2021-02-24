@@ -4,10 +4,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    type:{
-      type:String,
-      value:'date'
-    },
     value:{
       type:Number | String,
       observer: 'onValueChange'
@@ -78,6 +74,7 @@ Component({
       });
     },
     onScrollLower(e){
+      if(!this.data.panels.length) return
       let {year, month} = this.data.panels[this.data.panels.length - 1]
       this.data.panels.push(this.getPanelData(this.getNextMandY(year, month, 1)))
       this.setData({

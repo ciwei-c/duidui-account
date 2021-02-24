@@ -45,7 +45,7 @@
       &-active {
         background: rgba(#fff, 0.4);
       }
-      &-day,&-month {
+      &-date,&-month {
         padding:8rpx 10rpx;
         border-radius: 8rpx;
       }
@@ -53,6 +53,7 @@
     &-date {
       display: flex;
       padding: 10rpx;
+      width: 200rpx;
       border-radius: 8rpx;
       align-items: center;
       &-icon {

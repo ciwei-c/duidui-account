@@ -33,7 +33,7 @@
 .dd-date-picker__days-panel-dates-col-cell {
   height: 5vh;
   width: 5vh;
-  border-radius: 50%;
+  border-radius: 4rpx;
   display: inline-flex;
   align-items: center;
   justify-content: center;

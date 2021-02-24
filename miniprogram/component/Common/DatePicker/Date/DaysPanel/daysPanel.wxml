@@ -9,6 +9,7 @@
         class="dd-date-picker__days-panel-dates-col {{innerItem.disabled ? 'dd-date-picker__days-panel-dates-col-disabled' : ''}} {{innerItem.timestamp === value ? 'dd-date-picker__days-panel-dates-col-active' : ''}}"
         data-data="{{innerItem}}"
         wx:for="{{item}}"
+        wx:key="innerIndex"
         wx:for-item="innerItem"
         wx:for-index="innerIndex"
         bindtap="onClickDateCol"

@@ -1,0 +1,22 @@
+@import "../../../../styles/color.scss";
+.dd-date-picker__month {
+  &-year {
+    height: 6vh;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-month {
+    float: left;
+    width: 25vw;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-active {
+      box-shadow: $--box-shadow;
+      background-image: $--background-image-primary;
+    }
+  }
+}

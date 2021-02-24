@@ -52,7 +52,7 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
-.dd-account-home-panel__header-range-pick-day, .dd-account-home-panel__header-range-pick-month {
+.dd-account-home-panel__header-range-pick-date, .dd-account-home-panel__header-range-pick-month {
   padding: 8rpx 10rpx;
   border-radius: 8rpx;
 }
@@ -60,6 +60,7 @@
 .dd-account-home-panel__header-date {
   display: flex;
   padding: 10rpx;
+  width: 200rpx;
   border-radius: 8rpx;
   align-items: center;
 }

@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "ec-canvas": "/component/Common/Echarts/ec-canvas"
+  }
 }

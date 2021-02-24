@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "date-picker":"./Date/date"
+    "date-picker":"./Date/date",
+    "month-picker":"./Month/month"
   }
 }

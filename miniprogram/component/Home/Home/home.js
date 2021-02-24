@@ -26,6 +26,7 @@ Component({
     },
     attached() {
       this._getAccounts = () => {
+        this.initRenderedFlag()
         this.getAccounts()
       }
       App.$listener.on('onAddcount', this._getAccounts)
@@ -36,13 +37,18 @@ Component({
     }
   },
   data: {
-    range:'day',
+    range:'date',
     outgoings: "0.00",
     loading:false,
     income: "0.00",
     date: "",
     accounts: [],
-    modalVisible:false
+    monthAccounts:[],
+    isMonthRendered:false,
+    isDateRendered:false,
+    dateAccounts:[],
+    modalVisible:false,
+    emptyAccounts:true
   },
 
   /**
@@ -70,75 +76,70 @@ Component({
     },
     onChangeRange(e){
       if(this.data.range !== e.currentTarget.dataset.data) {
+        let range = e.currentTarget.dataset.data
         this.setData({
-          range:e.currentTarget.dataset.data
+          range
         })
-        this.getAccounts()
+        if((range === "month" && !this.data.isMonthRendered) || (range === "date" && !this.data.isDateRendered)) {
+          this.getAccounts()
+        } else {
+          this.data.accounts = range === "month" ? this.data.monthAccounts : this.data.dateAccounts
+          this.getAmount()
+        }
       }
     },
     getAccounts() {
       this.setLoading(true)
-      if(this.data.range === "month"){
-        return new Promise((resolve, reject) => {
-          wx.cloud.callFunction({ name: 'account', data:{
-            fn:"getAccountsByMonth",
-            data:parseTime(this.data.date, "{y}/{m}")
-          }}).then((res) => {
-            this.setData({
-              accounts: []
-            })
-            let data = res.result.data
-            data.sort((a,b) => {
-              return new Date(a.date).getTime() - new Date(b.date).getTime()
-            })
-            let accounts = []
-            let currentDate = ""
-            data.forEach(v=>{
-              if(v.date !== currentDate){
-                currentDate = v.date
-                accounts.push({
-                  date: parseTime(v.date, '{m}/{d}'),
-                  week: this.getWeek(v.date) ,
-                  data: []
-                })
-              }
-              accounts[accounts.length - 1].data.push(v)
-            })
-            this.data.accounts = accounts
-            this.getAmount()
-            this.setLoading(false)
-            resolve(true)
-          }).catch(()=>{
-            this.setLoading(false)
-            resolve(false)
+      let isMonth = this.data.range === "month"
+      return new Promise((resolve) => {
+        wx.cloud.callFunction({ name: 'account', data:{
+          fn:isMonth ? "getAccountsByMonth" : "getAccountsByDate",
+          data:{
+            accountBook: getApp().$getStore("activeAccountBook"),
+            date: parseTime(this.data.date, isMonth ? "{y}/{m}" : "{y}/{m}/{d}")
+          }
+        }}).then((res) => {
+          let data = res.result.data
+          this.setData({
+            accounts: [],
+            emptyAccounts:!data.length
           })
-        })
-      }else {
-        return new Promise((resolve, reject) => {
-          App.$apis.account.getAccounts({
-            date: this.data.date
-          }).then(res => {
-            setTimeout(() => {
-              this.setData({
-                accounts: []
+          data.sort((a,b) => {
+            return new Date(a.date).getTime() - new Date(b.date).getTime()
+          })
+          let accounts = []
+          let currentDate = ""
+          data.forEach(v=>{
+            if(v.date !== currentDate){
+              currentDate = v.date
+              accounts.push({
+                date: parseTime(v.date, '{m}/{d}'),
+                week: this.getWeek(v.date) ,
+                data: []
               })
-              if(res.data.length) {
-                this.data.accounts = [{
-                  date: parseTime(this.data.date, '{m}/{d}'),
-                  week: this.getWeek(this.data.date) ,
-                  data:res.data
-                }]
-              }
-              this.getAmount()
-              this.setLoading(false)
-              resolve(true)
-            });
-          }).catch(() => {
-            this.setLoading(false)
-            resolve(false)
+            }
+            accounts[accounts.length - 1].data.push(v)
           })
+          this.data.accounts = accounts
+          if(isMonth) {
+            this.setData({
+              monthAccounts:accounts,
+              isMonthRendered:true
+            })
+          } else {
+            this.setData({
+              dateAccounts:accounts,
+              isDateRendered:true
+            })
+          }
+          this.getAmount()
+          this.setLoading(false)
+          resolve(true)
+        }).catch(()=>{
+          this.setLoading(false)
+          resolve(false)
         })
-      }
+      })
     },
     getWeek(date){
       let weeks = ['日','一','二','三','四','五','六']
@@ -149,12 +150,18 @@ Component({
         e.detail()
       })
     },
+    initRenderedFlag(){
+      this.setData({
+        isDateRendered:false,
+        isMonthRendered:false
+      })
+    },
     bindDateChange(e){
       this.setData({
         date: parseTime(e.detail),
         dateForMonth: parseTime(e.detail, "{y}/{m}")
       })
-      console.log(parseTime(e.detail, "{y}/{m}"))
+      this.initRenderedFlag()
       this.getAccounts()
     },
     handleModalClick({
@@ -166,6 +173,7 @@ Component({
         })
       } else {
         App.$apis.account.deleteAccount({_id:this.data.deleteId}).then(()=>{
+          this.initRenderedFlag()
           this.getAccounts()
           this.setData({
             modalVisible: false

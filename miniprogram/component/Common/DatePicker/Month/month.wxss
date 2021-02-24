@@ -1,0 +1,21 @@
+.dd-date-picker__month-year {
+  height: 6vh;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-date-picker__month-month {
+  float: left;
+  width: 25vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-date-picker__month-month-active {
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+}

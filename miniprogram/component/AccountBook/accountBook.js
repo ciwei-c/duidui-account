@@ -59,10 +59,12 @@ Component({
     },
     onChooseAccountBook(e){
       let accountBook = e.currentTarget.dataset.accountbook
-      getApp().$setStore('activeAccountBook', accountBook._id)
-      App.activeAccountBook = Object.assign(accountBook)
-      getApp().$listener.emit("getAccounts")
-      getApp().$listener.emit("getUserClassifies")
+      if(accountBook._id !== getApp().$getStore('activeAccountBook')) {
+        getApp().$setStore('activeAccountBook', accountBook._id)
+        App.activeAccountBook = Object.assign(accountBook)
+        getApp().$listener.emit("getAccounts")
+        getApp().$listener.emit("getUserClassifies")
+      }
       this.triggerEvent('getParent', (parent)=>{
         parent.setData({
           activeIndex:0

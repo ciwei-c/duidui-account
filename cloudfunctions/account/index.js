@@ -8,21 +8,28 @@ const MAX_LIMIT = 100
 exports.main = async (event) => {
   let data = event.data
   let fn = event.fn
-  if(fn === 'getAccountsByMonth'){
-    let whereOptions = {
-      date: db.RegExp({
-        regexp: data,
-        options: 'i',
-      })
-    }
+  let whereOptions = {
+    accountBook:data.accountBook,
+    date: db.RegExp({
+      regexp: data.date,
+      options: 'i',
+    })
+  }
+  const getTotal = async () => {
     const countResult = await db.collection('accounts').where(whereOptions).count()
-    const total = countResult.total
-    if(!total) {
-      return {
-        data: [],
-        errMsg: "",
-      }
+    return new Promise((res)=>{
+      res(countResult.total)
+    })
+  }
+  const getEmptyResult = () => {
+    return {
+      data: [],
+      errMsg: "",
     }
+  }
+  if(fn === 'getAccountsByMonth' || fn === 'getAccountsByDate'){
+    const total = await getTotal()
+    if(!total) return getEmptyResult();
     const batchTimes = Math.ceil(total / 100)
     const tasks = []
     for (let i = 0; i < batchTimes; i++) {

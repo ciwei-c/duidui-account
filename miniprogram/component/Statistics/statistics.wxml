@@ -1,13 +1,3 @@
 <dd-container-viewer tabHeight="{{tabHeight}}">
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
-  <view style="height:100px">pages/index/Home/s.wxml</view>
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
 </dd-container-viewer>
