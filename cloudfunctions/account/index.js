@@ -6,11 +6,13 @@ cloud.init({
 const db = cloud.database()
 const MAX_LIMIT = 100
 exports.main = async (event) => {
+  let { OPENID } = cloud.getWXContext()
   let data = event.data
   let fn = event.fn
   let whereOptions = {
     accountBook:data.accountBook,
     type: data.type,
+    _openid:OPENID,
     date: db.RegExp({
       regexp: data.date,
       options: 'i',
@@ -24,7 +26,7 @@ exports.main = async (event) => {
   }
   const getEmptyResult = () => {
     return {
-      data: [],
+      list: [],
       errMsg: "",
     }
   }
@@ -37,11 +39,17 @@ exports.main = async (event) => {
       const promise = db.collection('accounts').where(whereOptions).skip(i * MAX_LIMIT).limit(MAX_LIMIT).get()
       tasks.push(promise)
     }
-    return (await Promise.all(tasks)).reduce((acc, cur) => {
-      return {
-        data: acc.data.concat(cur.data),
-        errMsg: acc.errMsg,
-      }
+    return new Promise(async res=>{
+      let data = (await Promise.all(tasks)).reduce((acc, cur) => {
+        return {
+          data: acc.data.concat(cur.data),
+          errMsg: acc.errMsg,
+        }
+      })
+      res({
+        list:data.data,
+        errMsg:data.errMsg
+      })
     })
   }
 }

@@ -84,12 +84,15 @@ Component({
           this.getAccounts()
         } else {
           this.data.accounts = range === "month" ? this.data.monthAccounts : this.data.dateAccounts
+          this.setData({
+            emptyAccounts:!this.data.accounts.length
+          })
           this.getAmount()
         }
       }
     },
-    getAccounts() {
-      this.setLoading(true)
+    getAccounts(useLoading = true) {
+      useLoading && this.setLoading(true)
       let isMonth = this.data.range === "month"
       return new Promise((resolve) => {
         wx.cloud.callFunction({ name: 'account', data:{
@@ -99,7 +102,7 @@ Component({
             date: parseTime(this.data.date, isMonth ? "{y}/{m}" : "{y}/{m}/{d}")
           }
         }}).then((res) => {
-          let data = res.result.data
+          let data = res.result.list
           this.setData({
             accounts: [],
             emptyAccounts:!data.length
@@ -146,7 +149,7 @@ Component({
       return `星期${weeks[new Date(date).getDay()]}`
     },
     onRefresh(e) {
-      this.getAccounts().then((ok) => {
+      this.getAccounts(false).then((ok) => {
         e.detail()
       })
     },

@@ -5,15 +5,16 @@
 }
 
 .dd-account__date-contrast-header {
+  padding: 20rpx 0;
+  background: #f8f8f9;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 32rpx;
-  height: 100rpx;
+  font-size: 30rpx;
 }
 
 .dd-account__date-contrast-header__types {
-  margin-right: 20rpx;
+  margin-right: 10rpx;
   display: flex;
   align-items: center;
   font-size: 28rpx;
@@ -30,9 +31,21 @@
   margin-right: 20rpx;
 }
 
+.dd-account__date-contrast-header-date {
+  display: flex;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  align-items: center;
+}
+
+.dd-account__date-contrast-header-date-icon {
+  margin-left: 10rpx;
+  margin-top: -4rpx;
+}
+
 .dd-account__chart {
   height: 30vh;
-  width: 100%;
+  width: 200%;
 }
 
 .dd-account__chart-bar {

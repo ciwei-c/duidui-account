@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "date-contrast": "./DateContrast/dateContrast"
+    "date-contrast": "./DateContrast/dateContrast",
+    "dd-account-date-picker": "/component/Common/DatePicker/datePicker"
   }
 }

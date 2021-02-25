@@ -8,7 +8,7 @@
       <view style="display:flex;align-items:center;">
         <view class="dd-account-home-panel__header-date">
           <view>{{range === 'date' ? date : dateForMonth}}</view>
-          <i-icon type="unfold"  class="dd-account-home-panel__header-date-icon"></i-icon>
+          <i-icon type="activity"  class="dd-account-home-panel__header-date-icon"></i-icon>
         </view>
         <view class="dd-account-home-panel__header-types">
           <view class="dd-account-home-panel__header-types-outgoings">总支出￥{{outgoings}}</view>

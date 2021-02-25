@@ -1,4 +1,7 @@
-<dd-container-viewer tabHeight="{{tabHeight}}" refresh="{{false}}">
-  <view style="height:20rpx"></view>
-  <date-contrast visible="{{visible}}"/>
-</dd-container-viewer>
+<view>
+  <dd-account-date-picker value="{{date}}" bindchange="bindDateChange" type="month" id="dd-account-statistics__date-picker"></dd-account-date-picker>
+  <dd-container-viewer tabHeight="{{tabHeight}}" refresh="{{false}}">
+    <view style="height:20rpx"></view>
+    <date-contrast visible="{{visible}}" bind:getParent="getParent" date="{{dateForMonth}}"/>
+  </dd-container-viewer>
+</view>

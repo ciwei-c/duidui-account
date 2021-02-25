@@ -1,19 +1,21 @@
-<scroll-view 
-  style="height:100vh" 
-  scroll-y="{{true}}" 
-  enhanced="{{true}}" 
-  enable-back-to-top="{{true}}"
-  refresher-enabled="{{refresh}}"
-  refresher-triggered="{{triggered}}"
-  bindrefresherrefresh="onRefresherRefresh"
-  refresher-default-style="none"
->
-  <view style="height:{{navHeight}}px"></view>
-  <view style="height:{{topHeight}}"></view>
-  <dd-loading loading="{{loading}}"></dd-loading>
-  <view style="min-height:calc(100% - {{navHeight}}px - {{tabHeight}} - {{topHeight}})">
-    <slot></slot>
-  </view>
-  <view style="height:{{tabHeight}}"></view>
+<view>
+  <dd-loading loading="{{loading}}" zIndex="{{999}}"></dd-loading>
   <dd-toast id="toast" />
-</scroll-view>
+  <scroll-view 
+    style="height:100vh" 
+    scroll-y="{{true}}" 
+    enhanced="{{true}}" 
+    enable-back-to-top="{{true}}"
+    refresher-enabled="{{refresh}}"
+    refresher-triggered="{{triggered}}"
+    bindrefresherrefresh="onRefresherRefresh"
+    refresher-default-style="none"
+  >
+    <view style="height:{{navHeight}}px"></view>
+    <view style="height:{{topHeight}}"></view>
+    <view style="min-height:calc(100% - {{navHeight}}px - {{tabHeight}} - {{topHeight}})">
+      <slot></slot>
+    </view>
+    <view style="height:{{tabHeight}}"></view>
+  </scroll-view>
+</view>

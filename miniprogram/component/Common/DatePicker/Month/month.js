@@ -82,7 +82,7 @@ Component({
     },
     generateMonths(year){
       let months = []
-      let chars = ["一","二","三","四","五","六","七","八","九","十","十一","十二",]
+      let chars = ["一","二","三","四","五","六","七","八","九","十","十一","十二"]
       for(let i = 0 ; i < 12 ; i ++){
         months.push({
           month: i + 1,
