@@ -4,7 +4,7 @@
       <view style="font-weight:bold">每日对比</view>
       <view  bindtap="onPickerDate">
         <view class="dd-account__date-contrast-header-date">
-          <view>{{date}}</view>
+          <view>{{month}}</view>
           <i-icon type="activity"  class="dd-account__date-contrast-header-date-icon"></i-icon>
         </view>
       </view>

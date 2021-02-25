@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "date-contrast": "./DateContrast/dateContrast",
+    "month-contrast": "./MonthContrast/monthContrast",
     "dd-account-date-picker": "/component/Common/DatePicker/datePicker"
   }
 }

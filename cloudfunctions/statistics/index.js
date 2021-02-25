@@ -20,7 +20,28 @@ exports.main = async (event) => {
       .aggregate()
       .match(matchOptions)
       .group({
-        _id: "$date",
+        _id: {
+          date:"$date",
+          type:"$type"
+        },
+        total: $.sum('$amount')
+      })
+      .end()
+  } else if(fn === 'monthGroup') {
+    return await db.collection('accounts')
+      .aggregate()
+      .match(matchOptions)
+      .project({
+        _id: 0,
+        type: 1,
+        amount: 1,
+        year: $.substr(['$date', 0, 7])
+      })
+      .group({
+        _id: {
+          date:"$year",
+          type:"$type"
+        },
         total: $.sum('$amount')
       })
       .end()

@@ -116,7 +116,7 @@ Component({
           })
         } else {
           this.setData({
-            date:parseTime(new Date()),
+            date:this.data.date || parseTime(new Date()),
             type: "outgoings",
             remark: "",
             calcResult: "0.00",

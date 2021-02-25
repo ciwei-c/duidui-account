@@ -1,7 +1,10 @@
 <view>
   <dd-account-date-picker value="{{date}}" bindchange="bindDateChange" type="month" id="dd-account-statistics__date-picker"></dd-account-date-picker>
-  <dd-container-viewer tabHeight="{{tabHeight}}" refresh="{{false}}">
+  <dd-account-date-picker value="{{year}}" bindchange="bindYearChange" type="year" id="dd-account-statistics__year-picker"></dd-account-date-picker>
+  <dd-container-viewer tabHeight="{{tabHeight}}" bind:refresh="onRefresh">
     <view style="height:20rpx"></view>
-    <date-contrast visible="{{visible}}" bind:getParent="getParent" date="{{dateForMonth}}"/>
+    <date-contrast visible="{{visible}}" bind:getParent="getParent" month="{{dateForMonth}}" id="date-contrast"/>
+    <view style="height:20rpx"></view>
+    <month-contrast visible="{{visible}}" bind:getParent="getParent" year="{{year}}" id="month-contrast"/>
   </dd-container-viewer>
 </view>

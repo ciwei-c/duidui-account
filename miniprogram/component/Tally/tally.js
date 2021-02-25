@@ -92,7 +92,7 @@ Component({
         }
       })
     },
-    resetData(){
+    resetData(data){
       this.setData({
         editorData: {},
         activeClassify: (this.data.renderClassifies.length ? this.data.renderClassifies[0].classifyId : "")

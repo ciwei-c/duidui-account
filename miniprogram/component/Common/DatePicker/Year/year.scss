@@ -1,0 +1,16 @@
+@import "../../../../styles/color.scss";
+.dd-date-picker__year {
+  &-year {
+    height: 10vh;
+    font-size: 32rpx;
+    float: left;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-active {
+    box-shadow: $--box-shadow;
+    background-image: $--background-image-primary;
+  }
+}

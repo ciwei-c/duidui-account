@@ -1,0 +1,12 @@
+<view class="dd-date-picker__year">
+  <scroll-view class="dd-date-picker__year-scroll-view" style="height:30vh;" scroll-y="{{true}}" bindscrolltoupper="onScrollUpper" bindscrolltolower="onScrollLower" scroll-top="{{scrollTop}}">
+    <view wx:for="{{panels}}" wx:key="index" style="width:100vw;min-width:100vw;height:100%">
+      <view style="height:10vh;text-align:center;line-height:10vh">{{item.ageStart}}年-{{item.ageEnd}}年</view>
+      <view style="overflow:hidden">
+        <view class="dd-date-picker__year-year {{(activeValue === innerItem) ? 'dd-date-picker__year-active' : ''}}" wx:for="{{item.years}}" wx:for-item="innerItem" wx:for-index="innerIndex" wx:key="innerIndex"  bindtap="onPickYear" data-data="{{innerItem}}">
+          {{innerItem}}年
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
