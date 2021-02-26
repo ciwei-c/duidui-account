@@ -9,11 +9,21 @@
     width: 100%;
     left: 0;
     &-user {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 80vw;
       margin: auto;
       font-size: 28rpx;
+      text-align: center;
       &-avatar {
-        margin-right: 20rpx;
+        margin-bottom: 10rpx;
+      }
+      &-clock {
+        font-size: 28rpx;
+        background-color: rgba(#fff, 0.4);
+        border-radius: 8rpx;
+        padding: 8rpx 12rpx;
       }
     }
     &-auth {

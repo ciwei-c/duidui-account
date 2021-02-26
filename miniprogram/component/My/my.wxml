@@ -9,8 +9,10 @@
       <button class="dd-account-my-panel__header-auth-btn" type='primary' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>授权登录</button>
     </view>
     <view class="dd-account-my-panel__header-user" wx:if="{{authed}}">
-      <i-avatar class="dd-account-my-panel__header-user-avatar" src="{{userInfo && userInfo.avatarUrl}}" size="large"></i-avatar>
-      <text>{{userInfo && userInfo.nickName}}</text>
+      <view>
+        <i-avatar class="dd-account-my-panel__header-user-avatar" src="{{userInfo && userInfo.avatarUrl}}" size="large"></i-avatar>
+        <view>{{userInfo && userInfo.nickName}}</view>
+      </view>
     </view>
   </view>
   <dd-container-viewer tabHeight="{{tabHeight}}" topHeight="{{topHeight}}">

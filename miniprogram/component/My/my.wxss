@@ -9,13 +9,24 @@
 }
 
 .dd-account-my-panel__header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 80vw;
   margin: auto;
   font-size: 28rpx;
+  text-align: center;
 }
 
 .dd-account-my-panel__header-user-avatar {
-  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.dd-account-my-panel__header-user-clock {
+  font-size: 28rpx;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 8rpx;
+  padding: 8rpx 12rpx;
 }
 
 .dd-account-my-panel__header-auth {

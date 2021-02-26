@@ -5,6 +5,10 @@ import accountBookBehavior from "../../behavior/accountBook"
 Component({
   lifetimes:{
     attached() {
+      wx.showShareMenu({
+        withShareTicket: true,
+        menus: ['shareAppMessage', 'shareTimeline']
+      })
       getApp().$listener.on("getUserClassifies", ()=>{
         this.getUserClassifies()
       })
