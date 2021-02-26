@@ -3,6 +3,7 @@
   "usingComponents": {
     "date-contrast": "./DateContrast/dateContrast",
     "month-contrast": "./MonthContrast/monthContrast",
+    "classify-contrast": "./ClassifyContrast/classifyContrast",
     "dd-account-date-picker": "/component/Common/DatePicker/datePicker"
   }
 }

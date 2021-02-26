@@ -1,12 +1,5 @@
-<view class="dd-account__month-contrast">
-  <contrast-header title="每月对比" bindchange="onChangeType">
-    <view bindtap="onPickerDate">
-      <view class="dd-account__month-contrast-header-date">
-        <view>{{year}}</view>
-        <i-icon type="activity" class="dd-account__month-contrast-header-date-icon"></i-icon>
-      </view>
-    </view>
-  </contrast-header>
+<view class="dd-account__classify-contrast">
+  <contrast-header title="分类对比" bindchange="onChangeType"/>
   <chart-type type="{{seriesType}}" seriesTypes="{{seriesTypes}}" bindchange="onChangeSeriesType" />
   <scroll-view style="width:100%" scroll-x="{{true}}">
     <view class="dd-account__chart" wx:hidden="{{!visible}}">

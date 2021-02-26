@@ -58,7 +58,7 @@ Component({
           icon: "custom",
           type: ["outgoings", "income"]
         }]),
-        activeClassify: this.data.activeClassify || (renderClassifies.length ? renderClassifies[0].classifyId : "")
+        activeClassify: (renderClassifies.length ? renderClassifies[0].classifyId : "")
       })
     },
     onSave(e){

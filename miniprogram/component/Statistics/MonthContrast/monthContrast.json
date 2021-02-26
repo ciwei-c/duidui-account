@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "ec-canvas": "/component/Common/Echarts/ec-canvas"
+    "ec-canvas": "/component/Common/Echarts/ec-canvas",
+    "chart-type": "../ChartType/chartType",
+    "contrast-header": "../ContrastHeader/contrastHeader"
   }
 }

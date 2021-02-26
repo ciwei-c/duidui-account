@@ -13,13 +13,19 @@ Component({
   },
   lifetimes:{
     detached(){
-      getApp().$listener.remove('getAccounts', this._getAccounts)
+      getApp().$listener.remove('onAddcount', this._refresh)
+      getApp().$listener.remove('getAccounts', this._refresh)
     },
     attached(){
-      this._getAccounts = () => {
-        this.refresh()
+      this._refresh = () => {
+        if(this.notFirstEnter){
+          this.refresh()
+        } else {
+          this.notFirstEnter = true
+        }
       }
-      getApp().$listener.on('getAccounts', this._getAccounts)
+      getApp().$listener.on('onAddcount', this._refresh)
+      getApp().$listener.on('getAccounts', this._refresh)
       this.setData({
         date:parseTime(new Date()),
         dateForMonth:parseTime(new Date(), "{y}/{m}"),
@@ -31,10 +37,13 @@ Component({
     refresh(){
       let dateContrast = this.selectComponent("#date-contrast")
       let monthContrast = this.selectComponent("#month-contrast")
+      let classifyContrast = this.selectComponent("#classify-contrast")
       dateContrast._getDateGroupData()
       dateContrast.refreshChart()
       monthContrast._getDateGroupData()
       monthContrast.refreshChart()
+      classifyContrast._getDateGroupData()
+      classifyContrast.refreshChart()
     },
     onRefresh(e) {
       setTimeout(() => {

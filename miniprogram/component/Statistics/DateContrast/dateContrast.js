@@ -19,9 +19,7 @@ Component({
   },
   lifetimes: {
     attached() {
-      setTimeout(() => {
-        this._getDateGroupData()
-      });
+      this._getDateGroupData()
     }
   },
   /**
@@ -34,9 +32,13 @@ Component({
     getDate() {
       return new Date(`${this.data.month}/01`)
     },
-    onMonthChange(v) {
-      this._getDateGroupData()
-      this.refreshChart()
+    onMonthChange() {
+      if(this.notFirstEnter) {
+        this._getDateGroupData()
+        this.refreshChart()
+      } else {
+        this.notFirstEnter = true
+      }
     },
     onPickerDate() {
       this.triggerEvent("getParent", (parent) => {

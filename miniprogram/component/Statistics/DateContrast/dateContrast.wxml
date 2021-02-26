@@ -1,22 +1,16 @@
 <view class="dd-account__date-contrast">
-  <view class="dd-account__date-contrast-header">
-    <view style="display:flex;align-items:center;margin-left:10rpx">
-      <view style="font-weight:bold">每日对比</view>
-      <view  bindtap="onPickerDate">
-        <view class="dd-account__date-contrast-header-date">
-          <view>{{month}}</view>
-          <i-icon type="activity"  class="dd-account__date-contrast-header-date-icon"></i-icon>
-        </view>
+  <contrast-header title="每日对比" bindchange="onChangeType">
+    <view bindtap="onPickerDate">
+      <view class="dd-account__date-contrast-header-date">
+        <view>{{month}}</view>
+        <i-icon type="activity"  class="dd-account__date-contrast-header-date-icon"></i-icon>
       </view>
     </view>
-    <view class="dd-account__date-contrast-header__types">
-      <view bindtap="onChangeType" data-type="outgoings" class="dd-account__date-contrast-header__types-outgoings {{type === 'outgoings' ? 'dd-account__date-contrast-header__types--active' : ''}}">支出</view>
-      <view bindtap="onChangeType" data-type="income" class="dd-account__date-contrast-header__types-income {{type === 'income' ? 'dd-account__date-contrast-header__types--active' : ''}}">收入</view>
-    </view>
-  </view>
+  </contrast-header>
+  <chart-type type="{{seriesType}}" seriesTypes="{{seriesTypes}}" bindchange="onChangeSeriesType" />
   <scroll-view style="width:100%" scroll-x="{{true}}">
-    <view class="dd-account__chart">
-      <ec-canvas id="chart-dom" class="dd-account__chart-bar" canvas-id="chart-bar" ec="{{ ec }}"></ec-canvas>
+    <view class="dd-account__chart" wx:hidden="{{!visible}}">
+      <ec-canvas id="chart-canvas" class="dd-account__chart-canvas" canvas-id="chart-canvas" ec="{{ ec }}"></ec-canvas>
     </view>
   </scroll-view>
 </view>

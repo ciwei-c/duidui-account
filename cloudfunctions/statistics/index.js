@@ -9,9 +9,11 @@ exports.main = async (event) => {
   let data = event.data
   let fn = event.fn
   let matchOptions = {
-    accountBook:data.accountBook,
-    date: db.RegExp({
-      regexp: data.date,
+    accountBook:data.accountBook
+  }
+  if(data.date) {
+    matchOptions.date = db.RegExp({
+      regexp: data.date || "",
       options: 'i',
     })
   }
@@ -40,6 +42,18 @@ exports.main = async (event) => {
       .group({
         _id: {
           date:"$year",
+          type:"$type"
+        },
+        total: $.sum('$amount')
+      })
+      .end()
+  } else if (fn === 'classifyGroup') {
+    return await db.collection('accounts')
+      .aggregate()
+      .match(matchOptions)
+      .group({
+        _id: {
+          classifyId:"$classifyId",
           type:"$type"
         },
         total: $.sum('$amount')

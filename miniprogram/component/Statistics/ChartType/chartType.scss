@@ -1,0 +1,14 @@
+/* component/Statistics/ChartType/chartType.wxss */
+@import "../../../styles//color.scss";
+.dd-account__chart-type {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  &-item {
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+  }
+  &-active {
+    color: $--color-primary;
+  }
+}

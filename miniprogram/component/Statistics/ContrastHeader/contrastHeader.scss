@@ -1,0 +1,24 @@
+@import "../../../styles//color.scss";
+.dd-account__contrast-header {
+  padding: 20rpx 0;
+  background: $--color-hover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  &__types {
+    margin-right: 10rpx;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    &--active {
+      background-color: $--color-primary;
+    }
+    &-outgoings, &-income {
+      transition: all .3s;
+      border-radius: 8rpx;
+      padding: 10rpx 20rpx;
+      margin-right: 20rpx;
+    }
+  }
+}

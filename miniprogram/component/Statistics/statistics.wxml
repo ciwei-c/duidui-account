@@ -6,5 +6,7 @@
     <date-contrast visible="{{visible}}" bind:getParent="getParent" month="{{dateForMonth}}" id="date-contrast"/>
     <view style="height:20rpx"></view>
     <month-contrast visible="{{visible}}" bind:getParent="getParent" year="{{year}}" id="month-contrast"/>
+    <view style="height:20rpx"></view>
+    <classify-contrast visible="{{visible}}" bind:getParent="getParent" id="classify-contrast"/>
   </dd-container-viewer>
 </view>

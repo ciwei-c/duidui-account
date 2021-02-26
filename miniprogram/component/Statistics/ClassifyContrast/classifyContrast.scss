@@ -1,0 +1,14 @@
+@import "../../../styles/color.scss";
+.dd-account__classify-contrast {
+  box-shadow: $--box-shadow;
+  width: 90vw;
+  margin: auto;
+}
+.dd-account__chart {
+  height: 50vh;
+  width: 100%;
+  &-canvas {
+    height: 100%;
+    width: 100%;
+  }
+}

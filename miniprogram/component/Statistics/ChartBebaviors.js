@@ -8,6 +8,14 @@ export default Behavior({
     }
   },
   data:{
+    seriesType: "line",
+    seriesTypes: [{
+      label:"折线图",
+      value:"line"
+    },{
+      label:"柱状图",
+      value:"bar"
+    }],
     ec: {
       lazyLoad: true
     },
@@ -22,24 +30,25 @@ export default Behavior({
           tooltip: {
             position: function (point, params, dom, rect, size) {
               // 固定在顶部
-              let index = params[0].dataIndex
-              let viewSize = size.viewSize
-              let contentSize = size.contentSize
-              let barWidth = (viewSize[0] / xAxisData.length)
-              let left = ((viewSize[0] - 40) / xAxisData.length) * (index + 1) - (barWidth / 2 + contentSize[0] / 2) + 20
-              return [left, '10%'];
+              // let index = params[0].dataIndex
+              // let viewSize = size.viewSize
+              // let contentSize = size.contentSize
+              // let barWidth = (viewSize[0] / xAxisData.length)
+              // let left = ((viewSize[0] - 40) / xAxisData.length) * (index + 1) - (barWidth / 2 + contentSize[0] / 2) + 20
+              return [point[0], '10%'];
             },
             formatter(v) {
               v = v[0]
               return `￥${(v.data).toFixed(2)}`
             },
+            
+            trigger: 'axis',
             axisPointer: {
               type: "line",
               lineStyle:{
                 type:"dashed"
               },
-            },
-            trigger: "axis"
+            }
           },
           xAxis: {
             data: xAxisData,
@@ -47,8 +56,10 @@ export default Behavior({
               formatter: function (value) {
                 if(value.day) {
                   return `${value.day}\n${value.date}`
-                }else {
+                } else if (value.month) {
                   return `${value.month}`
+                } else {
+                  return value
                 }
               },
               rich: {
@@ -67,19 +78,24 @@ export default Behavior({
             }
           },
           yAxis: {
-            show: false,
             splitLine: {
               show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: color.desc
+              }
             }
           },
           grid: {
-            left: 20,
-            right: 20,
-            bottom: 40,
-            top: 40
+            left: 10,
+            right: 10,
+            bottom: 10,
+            top: 20,
+            containLabel: true
           },
           series: {
-            type: "bar",
+            type: this.data.seriesType,
             barWidth: '60%',
             data: seriesData
           }
@@ -93,8 +109,12 @@ export default Behavior({
           let data = res[`${this.data.type}Data`]
           let dataMap = {}
           data.forEach(v => {
-            let s = v._id.date.split("/")
-            dataMap[s[s.length - 1]] = v.total
+            if(v._id.date) {
+              let s = v._id.date.split("/")
+              dataMap[s[s.length - 1]] = v.total
+            } else {
+              dataMap[v._id.classifyId] = v.total
+            }
           })
           let xAxisData = []
           let seriesData = []
@@ -143,8 +163,14 @@ export default Behavior({
         isDisposed: true
       });
     },
+    onChangeSeriesType(e){
+      this.setData({
+        seriesType: e.detail
+      })
+      this.refreshChart()
+    },
     onChangeType(e) {
-      let type = e.currentTarget.dataset.type
+      let type = e.detail || e.currentTarget.dataset.type
       this.setData({
         type
       })
@@ -178,7 +204,7 @@ export default Behavior({
     onVisibleChange(v){
       if(v){
         setTimeout(() => {
-          this.ecComponent = this.selectComponent('#chart-dom'); 
+          this.ecComponent = this.selectComponent('#chart-canvas'); 
           this.initChart()
         });
       }

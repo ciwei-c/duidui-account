@@ -1,0 +1,15 @@
+/* component/Statistics/ChartType/chartType.wxss */
+.dd-account__chart-type {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.dd-account__chart-type-item {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.dd-account__chart-type-active {
+  color: #febb2e;
+}

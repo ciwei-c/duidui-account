@@ -1,0 +1,9 @@
+<view class="dd-account__chart-type">
+  <view 
+    wx:for="{{seriesTypes}}" 
+    wx:key="item"
+    class="dd-account__chart-type-item {{item.value === type ? 'dd-account__chart-type-active' : ''}}" 
+    data-type="{{item}}"
+    bindtap="onClickType"
+  >{{item.label}}</view>
+  </view>
