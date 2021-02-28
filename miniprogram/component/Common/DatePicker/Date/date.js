@@ -5,6 +5,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    loadMethod:{
+      type:String,
+      value:"scroll"
+    },
     value:{
       type:Number | String,
       observer: 'onValueChange'

@@ -32,7 +32,6 @@
     background-image: $--background-image-primary;
     z-index: 999;
     position: fixed;
-    padding: 20rpx;
     width: 100%;
     left: 0;
     top: 0;
@@ -42,6 +41,7 @@
       font-size: 28rpx;
       margin-bottom: 10rpx;
       transition: all 0.3s;
+      margin-left: 20rpx;
       &-active {
         background: rgba(#fff, 0.4);
       }
@@ -52,6 +52,7 @@
     }
     &-date {
       display: flex;
+      margin-left: 20rpx;
       padding: 10rpx;
       width: 200rpx;
       border-radius: 8rpx;

@@ -1,0 +1,7 @@
+<view class="dd-account__quick-button" bindtap="onClickQuickAccount">
+  <view class="dd-account__quick-button-icon">
+    <dd-icon type="lightning" size="{{40}}"></dd-icon>
+    <view class="dd-account__quick-button-icon-absolute">
+    </view>
+  </view>
+</view>

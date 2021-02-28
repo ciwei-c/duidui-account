@@ -1,0 +1,64 @@
+/* component/QuickAccount/quickAccount.wxss */
+@import "../../styles/color.scss";
+.dd-account-quick-account {
+  &__tip {
+    text-align: center;
+    padding: 20rpx 0;
+    font-size: 28rpx;
+    color: $--color-desc;
+  }
+  &__list {
+    padding: 40rpx;
+  }
+  &__swipeout {
+    box-shadow: $--box-shadow;
+    margin-bottom: 20rpx;
+    border-radius: 8rpx;
+    overflow: hidden;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 32rpx;
+    &-delete {
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #fff;
+      background-color: $--color-danger;
+      display: flex;
+    }
+    &-icon {
+      margin-right: 20rpx;
+      background-color: $--color-primary;
+      border-radius: 50%;
+      height: 80rpx;
+      width: 80rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-info {
+      display: flex;
+      flex: 1;
+      width: 0;
+      align-items: center;
+      justify-content: space-between;
+      &-label {
+        color: $--color-major;
+        font-size: 32rpx;
+        margin-bottom: 10rpx;
+      }
+      &-remark {
+        color: $--color-desc;
+        font-size: 26rpx;
+      }
+      &-amount {
+        color: $--color-major;
+        font-size: 32rpx;
+      }
+    }
+  }
+}

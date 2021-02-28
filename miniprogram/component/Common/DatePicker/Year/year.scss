@@ -1,5 +1,6 @@
 @import "../../../../styles/color.scss";
 .dd-date-picker__year {
+  position: relative;
   &-year {
     height: 10vh;
     font-size: 32rpx;

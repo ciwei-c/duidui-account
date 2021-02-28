@@ -1,0 +1,28 @@
+.dd-account__quick-button {
+  position: fixed;
+  bottom: 150rpx;
+  right: 0;
+  height: 70rpx;
+  width: 70rpx;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  z-index: 100;
+  background-image: linear-gradient(to right, #fed682, #febb2e);
+}
+
+.dd-account__quick-button-icon {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #1c2438;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(10rpx);
+}
+
+.dd-account__quick-button-icon-absolute {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

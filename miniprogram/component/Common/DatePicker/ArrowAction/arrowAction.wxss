@@ -1,0 +1,27 @@
+.dd-date-picker__arrow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dd-date-picker__arrow-relative {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.dd-date-picker__arrow-left {
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+}
+
+.dd-date-picker__arrow-right {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+}

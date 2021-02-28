@@ -1,13 +1,16 @@
 <view class="dd-class dd-account__calculator">
   <view class="dd-account__calculator-pickbar">
-    <view class="dd-account__calculator-pickbar__type">
-      <view
-        bindtap="onChangeType"
-        data-type="{{item}}"
-        wx:for="{{['outgoings', 'income']}}" 
-        wx:key="index" 
-        class="dd-account__calculator-pickbar__type--{{type === item ? 'active' : 'unactive'}}"
-      >{{item === "income" ? "收入" : "支出"}}</view>
+    <view style="display:flex;align-items:center;">
+      <view class="dd-account__calculator-pickbar__type">
+        <view
+          bindtap="onChangeType"
+          data-type="{{item}}"
+          wx:for="{{['outgoings', 'income']}}" 
+          wx:key="index" 
+          class="dd-account__calculator-pickbar__type--{{type === item ? 'active' : 'unactive'}}"
+        >{{item === "income" ? "收入" : "支出"}}</view>
+      </view>
+      <dd-checkbox style="margin-left:30rpx" label="存入速记" checked="{{checkQuick}}" bind:change="onChangeCheckQuick"></dd-checkbox>
     </view>
     <view class="dd-account__calculator-pickbar__date">
       <dd-account-date-picker value="{{date}}" bindchange="bindDateChange">

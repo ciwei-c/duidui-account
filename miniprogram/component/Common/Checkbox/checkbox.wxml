@@ -1,0 +1,6 @@
+<view class="dd-checkbox" bindtap="onCheck">
+  <view class="dd-checkbox__radio {{checked ? 'dd-checkbox__radio--active' : ''}}">
+    <view class="dd-checkbox__radio-right" wx:if="checked"></view>
+  </view>
+  <view class="dd-checkbox__label">{{label}}</view>
+</view>

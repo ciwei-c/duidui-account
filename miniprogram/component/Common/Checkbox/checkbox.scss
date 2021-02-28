@@ -1,0 +1,34 @@
+/* component/Common/Checkbox/checkbox.wxss */
+@import "../../../styles//color.scss";
+.dd-checkbox {
+  display: flex;
+  align-items: center;
+  &__radio {
+    height: 32rpx;
+    width: 32rpx;
+    background: #fff;
+    position: relative;
+    border:1px solid $--color-border;
+    border-radius: 50%;
+    transition: all .3s;
+    &--active {
+      background: $--color-primary;
+      border-color: $--color-primary;
+      .dd-checkbox__radio-right {
+        position: absolute;
+        height: 25%;
+        width: 50%;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        top: 25%;
+        left: 20%;
+        transform: rotate(-40deg);
+      }
+    }
+  }
+  &__label {
+    font-size: 28rpx;
+    color: $--color-major;
+    margin-left: 10rpx;
+  }
+}

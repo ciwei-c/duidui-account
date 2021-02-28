@@ -1,0 +1,37 @@
+/* component/Common/Checkbox/checkbox.wxss */
+.dd-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.dd-checkbox__radio {
+  height: 32rpx;
+  width: 32rpx;
+  background: #fff;
+  position: relative;
+  border: 1px solid #dddee1;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.dd-checkbox__radio--active {
+  background: #febb2e;
+  border-color: #febb2e;
+}
+
+.dd-checkbox__radio--active .dd-checkbox__radio-right {
+  position: absolute;
+  height: 25%;
+  width: 50%;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  top: 25%;
+  left: 20%;
+  transform: rotate(-40deg);
+}
+
+.dd-checkbox__label {
+  font-size: 28rpx;
+  color: #1c2438;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "component":true,
+  "usingComponents": {
+    "quick-account":"/component/QuickAccount/quickAccount"
+  }
+}

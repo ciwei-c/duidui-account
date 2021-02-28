@@ -1,0 +1,6 @@
+<view class="dd-date-picker__arrow">
+  <view class="dd-date-picker__arrow-relative">
+    <view class="dd-date-picker__arrow-left" bindtap="onClickLeft">left</view>
+    <view class="dd-date-picker__arrow-right" bindtap="onClickRight">right</view>
+  </view>
+</view>

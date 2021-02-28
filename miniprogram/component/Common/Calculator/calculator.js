@@ -74,6 +74,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    checkQuick: false,
     type: "outgoings",
     remark: "",
     date: "",
@@ -99,6 +100,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onChangeCheckQuick(e){
+      this.setData({
+        checkQuick:e.detail.value
+      })
+    },
     initData(){
       setTimeout(() => {
         if(this.data.editorData._id){
@@ -240,6 +246,7 @@ Component({
           back: key.label !== "保存再记",
           date: this.data.date,
           type: this.data.type,
+          checkQuick: this.data.checkQuick,
           remark: this.data.remark
         })
       } else {

@@ -3,6 +3,7 @@
   "usingComponents": {
     "dd-icon": "/component/Common/Icon/icon",
     "i-input": "../../../iview/input/index",
+    "dd-checkbox": "/component/Common/Checkbox/checkbox",
     "dd-account-date-picker": "/component/Common/DatePicker/datePicker"
   }
 }

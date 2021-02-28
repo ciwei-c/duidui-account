@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "arrow-action":"../ArrowAction/arrowAction"
+    "i-swipeout":"../../iview/swipeout/index"
   }
 }

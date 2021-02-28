@@ -5,6 +5,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    loadMethod:{
+      type:String,
+      value:"scroll"
+    },
     value: {
       type: Number | String,
       observer: 'onValueChange'
@@ -28,13 +32,30 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onScrollUpper(e){
+    addPrevPanel(){
       if(!this.data.panels.length) return
       let {ageStart} = this.data.panels[0]
       this.data.panels.unshift(this.getPanelData(this.getPrevAge((Number(ageStart)))))
       this.setData({
         panels:this.data.panels
       })
+    },
+    addNextPanel(){
+      if(!this.data.panels.length) return
+      let {ageStart} = this.data.panels[this.data.panels.length - 1]
+      this.data.panels.push(this.getPanelData(this.getNextAge((Number(ageStart)))))
+      this.setData({
+        panels:this.data.panels
+      })
+    },
+    onClickLeft(){
+      this.onScrollUpper()
+    },
+    onClickRight(){
+      
+    },
+    onScrollUpper(e){
+      this.addPrevPanel()
       setTimeout(() => {
         this.setData({
           scrollTop:this.data.panelHeight
@@ -42,12 +63,7 @@ Component({
       });
     },
     onScrollLower(e){
-      if(!this.data.panels.length) return
-      let {ageStart} = this.data.panels[this.data.panels.length - 1]
-      this.data.panels.push(this.getPanelData(this.getNextAge((Number(ageStart)))))
-      this.setData({
-        panels:this.data.panels
-      })
+      this.addNextPanel()
     },
     onValueChange(v){
       this.setData({

@@ -8,6 +8,10 @@ Component({
       type:String,
       value:'date'
     },
+    loadMethod:{
+      type:String,
+      value:"scroll"
+    },
     value:{
       type:Number | String
     }

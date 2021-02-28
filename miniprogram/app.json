@@ -6,7 +6,8 @@
     "pages/classify/classify",
     "pages/classifyEditor/classifyEditor",
     "pages/accountBookEditor/accountBookEditor",
-    "pages/accountBookSetting/accountBookSetting"
+    "pages/accountBookSetting/accountBookSetting",
+    "pages/quickAccount/quickAccount"
   ],
   "window": {
     "navigationStyle": "custom",

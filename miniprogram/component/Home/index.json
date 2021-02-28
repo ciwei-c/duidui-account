@@ -3,6 +3,7 @@
   "component": true,
   "usingComponents": {
     "dd-tab-bar": "/component/Common/TabBar/tabBar",
+    "dd-quick-button": "./QuickButton/quickButton",
     "home":"./Home/home",
     "my":"/component/My/my",
     "account-book":"/component/AccountBook/accountBook",

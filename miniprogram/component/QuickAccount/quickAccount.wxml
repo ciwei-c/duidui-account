@@ -1,0 +1,32 @@
+<view class="dd-account-quick-account">
+  <dd-navbar name="速记" home="{{true}}" back="{{false}}"></dd-navbar>
+  <dd-container-viewer bind:refresh="onRefresh">
+    <view class="dd-account-quick-account__tip">
+      保存常用账单，点击快速记帐
+    </view>
+    <view class="dd-account-quick-account__list">
+      <view slot="content" class="dd-account-quick-account__swipeout" wx:for="{{data}}" wx:key="index">
+        <i-swipeout operateWidth="{{50}}" class="dd-account-quick-account__swipeout-{{index}}">
+          <view slot="content" class="dd-account-quick-account__item" data-data="{{item}}" data-index="{{index}}"
+        bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+            <view class="dd-account-quick-account__item-icon">
+              <dd-icon type="{{item.icon}}" size="{{50}}"></dd-icon>
+            </view>
+            <view class="dd-account-quick-account__item-info">
+              <view style="flex:1">
+                <view class="dd-account-quick-account__item-info-label">{{item.label}}</view>
+                <view class="dd-account-quick-account__item-info-remark">备注：{{item.remark || '-'}}</view>
+              </view>
+              <view class="dd-account-quick-account__item-info-amount">
+                {{item.type === 'outgoings' ? '-' : ''}}{{item.amountFormat}}</view>
+            </view>
+          </view>
+          <view slot="button" class="dd-account-quick-account__item-delete" data-data="{{item}}" bindtap="onDelete">
+            <i-icon size="{{20}}" type="delete" />
+          </view>
+        </i-swipeout>
+      </view>
+    </view>
+  </dd-container-viewer>
+  <dd-loading loading="{{loading}}"></dd-loading>
+</view>

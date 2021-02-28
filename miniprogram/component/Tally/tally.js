@@ -62,7 +62,7 @@ Component({
       })
     },
     onSave(e){
-      let {date, result:amount, type, remark, back} = e.detail
+      let {date, result:amount, type, remark, back, checkQuick} = e.detail
       let postData = {
         date,
         remark,
@@ -83,14 +83,24 @@ Component({
         })
         App.$listener.emit('onAddcount')
         if(back) {
-          wx.navigateBack({
-            delta: 1,
-          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 300);
         } else {
           this.resetData()
           this.selectComponent("#dd-account-tally__calc").initData()
         }
       })
+      if(checkQuick) {
+        App.$apis.quickAccount.addQuickAccount({
+          remark,
+          amount: parseFloat(amount),
+          type,
+          classifyId: this.data.activeClassify
+        })
+      }
     },
     resetData(data){
       this.setData({

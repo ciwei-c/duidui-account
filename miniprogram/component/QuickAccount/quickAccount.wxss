@@ -1,0 +1,70 @@
+/* component/QuickAccount/quickAccount.wxss */
+.dd-account-quick-account__tip {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #80848f;
+}
+
+.dd-account-quick-account__list {
+  padding: 40rpx;
+}
+
+.dd-account-quick-account__swipeout {
+  box-shadow: 0 4rpx 24rpx 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.dd-account-quick-account__item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+
+.dd-account-quick-account__item-delete {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  background-color: #ed3f14;
+  display: flex;
+}
+
+.dd-account-quick-account__item-icon {
+  margin-right: 20rpx;
+  background-color: #febb2e;
+  border-radius: 50%;
+  height: 80rpx;
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-account-quick-account__item-info {
+  display: flex;
+  flex: 1;
+  width: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dd-account-quick-account__item-info-label {
+  color: #1c2438;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.dd-account-quick-account__item-info-remark {
+  color: #80848f;
+  font-size: 26rpx;
+}
+
+.dd-account-quick-account__item-info-amount {
+  color: #1c2438;
+  font-size: 32rpx;
+}

@@ -1,3 +1,7 @@
+.dd-date-picker__year {
+  position: relative;
+}
+
 .dd-date-picker__year-year {
   height: 10vh;
   font-size: 32rpx;
